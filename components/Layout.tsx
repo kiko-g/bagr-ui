@@ -26,7 +26,9 @@ export default function Layout({ children }: Props) {
       className={classNames(inter.className, "w-screen flex min-h-screen flex-col bg-gray-900")}
     >
       <Header />
-      <article className="mx-auto flex-1 max-w-8xl">{children}</article>
+      <article className="flex flex-col items-start justify-start flex-1 max-w-8xl px-8 xl:px-8">
+        {children}
+      </article>
       <Footer />
     </main>
   )
@@ -36,8 +38,8 @@ type HeaderProps = {}
 
 function Header({}: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 h-[72px] bg-gray-900 bg-opacity-50 backdrop-blur backdrop-filter firefox:bg-opacity-90">
-      <div className="mx-auto max-w-8xl xl:px-8">
+    <div className="sticky top-0 z-30 h-[72px] bg-gray-900 bg-opacity-50 backdrop-blur backdrop-filter firefox:bg-opacity-90">
+      <header className="mx-auto max-w-8xl xl:px-8">
         <div className="flex items-center justify-between border-b border-gray-800 px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
           {/* Logo */}
           <span className="flex items-center justify-center gap-3">
@@ -64,8 +66,8 @@ function Header({}: HeaderProps) {
             ))}
           </ul>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   )
 }
 
@@ -73,13 +75,13 @@ type FooterProps = {}
 
 function Footer({}: FooterProps) {
   return (
-    <div className="max-w-8xl mx-auto">
+    <div className="max-w-8xl mx-auto w-full">
       <div className="mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <footer className="flex items-center justify-between space-x-2 border-t border-gray-800 pt-10">
-          <div className="flex items-center gap-2 text-sm font-semibold uppercase leading-5 tracking-wide text-gray-400">
-            <p>A project by</p>
+          <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-gray-400">
+            by{" "}
             <Link
-              className="flex items-center gap-2 hover:opacity-80 hover:underline"
+              className="inline-flex items-center gap-2 hover:opacity-80 hover:underline"
               href="https://github.com/kiko-g"
             >
               <span className="font-bold text-white">Francisco Gonçalves</span>
@@ -91,7 +93,9 @@ function Footer({}: FooterProps) {
                 className="rounded-full"
               />
             </Link>
-          </div>
+          </p>
+
+          <div></div>
         </footer>
       </div>
     </div>
