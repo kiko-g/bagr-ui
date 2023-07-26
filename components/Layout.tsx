@@ -23,10 +23,10 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <main
-      className={classNames(inter.className, "w-screen flex min-h-screen flex-col bg-gray-900")}
+      className={classNames(inter.className, "flex min-h-screen w-screen flex-col bg-gray-900")}
     >
       <Header />
-      <article className="flex flex-col items-start justify-start flex-1 max-w-8xl px-8 xl:px-8">
+      <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
         {children}
       </article>
       <Footer />
@@ -38,20 +38,20 @@ type HeaderProps = {}
 
 function Header({}: HeaderProps) {
   return (
-    <div className="sticky top-0 z-30 h-[72px] bg-gray-900 bg-opacity-50 backdrop-blur backdrop-filter firefox:bg-opacity-90">
-      <header className="mx-auto max-w-8xl xl:px-8">
+    <div className="firefox:bg-opacity-90 sticky top-0 z-30 h-[72px] bg-gray-900 bg-opacity-50 backdrop-blur backdrop-filter">
+      <header className="max-w-8xl mx-auto xl:px-8">
         <div className="flex items-center justify-between border-b border-gray-800 px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
           {/* Logo */}
           <span className="flex items-center justify-center gap-3">
             <Image src="/bagr-ui.svg" alt="BagrUI" width={36} height={36}></Image>
-            <h2
+            <h1
               className={classNames(
                 lexend.className,
-                "font-medium text-xl lowercase tracking-wide text-white",
+                "text-xl font-medium lowercase tracking-wide text-white",
               )}
             >
               Bagr.UI
-            </h2>
+            </h1>
           </span>
 
           {/* Links */}
@@ -76,12 +76,12 @@ type FooterProps = {}
 function Footer({}: FooterProps) {
   return (
     <div className="max-w-8xl mx-auto w-full">
-      <div className="mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <footer className="flex items-center justify-between space-x-2 border-t border-gray-800 pt-10">
+      <div className="mx-auto px-4 py-4 sm:px-6 lg:px-8 lg:py-8">
+        <footer className="flex items-center justify-between space-x-2 border-t border-gray-800 pt-4 lg:pt-8">
           <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-gray-400">
             by{" "}
             <Link
-              className="inline-flex items-center gap-2 hover:opacity-80 hover:underline"
+              className="inline-flex items-center gap-2 hover:underline hover:opacity-80"
               href="https://github.com/kiko-g"
             >
               <span className="font-bold text-white">Francisco Gonçalves</span>

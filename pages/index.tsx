@@ -15,25 +15,30 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="max-w-3xl py-12 lg:py-16">
-      <h1 className={classNames(lexend.className, "text-white font-bold text-4xl tracking-tight")}>
+    <div className="max-w-3xl py-8 lg:py-16">
+      <h2
+        className={classNames(
+          lexend.className,
+          "text-xl font-bold tracking-tighter text-white lg:text-4xl lg:tracking-tight",
+        )}
+      >
         Resuable UI Components with{" "}
-        <span className="text-[#149eca] inline-flex gap-2 items-center justify-center">
-          <ReactIcon className="h-8 w-8 inline-flex" />
+        <span className="inline-flex items-center justify-center gap-1 text-[#149eca] lg:gap-2">
+          <ReactIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>React</span>
         </span>
         {", "}
-        <span className="text-[#3178c6] inline-flex gap-2 items-center justify-center">
-          <TypescriptIcon className="h-8 w-8 inline-flex mt-1" />
+        <span className="inline-flex items-center justify-center gap-1 text-[#3178c6] lg:gap-2">
+          <TypescriptIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>Typescript</span>
         </span>
-        {", "}
-        <span className="text-[#38bdf8] inline-flex gap-2 items-center justify-center">
-          <TailwindIcon className="h-8 w-8 inline-flex" />
+        {", and "}
+        <span className="inline-flex items-center justify-center gap-1 text-[#38bdf8] lg:gap-2">
+          <TailwindIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>TailwindCSS</span>
         </span>
         {"."}
-      </h1>
+      </h2>
     </div>
   )
 }
