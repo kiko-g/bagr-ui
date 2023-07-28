@@ -21,5 +21,5 @@ module.exports = {
     xxs: "0.6rem",
   },
 
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }

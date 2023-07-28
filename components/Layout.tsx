@@ -26,9 +26,7 @@ export function Layout({ children, location = "Unknown" }: Props) {
   return (
     <>
       <Seo title={location} />
-      <main
-        className={classNames(inter.className, "flex min-h-screen w-screen flex-col bg-gray-900")}
-      >
+      <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
         <Header />
         <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
           {children}
@@ -128,7 +126,7 @@ function DarkModeSwitch() {
           "h-6 w-6 transition dark:hidden",
           "fill-white",
           "stroke-orange-500",
-          "[@media(prefers-color-scheme:dark)]:fill-orange-50",
+          "[@media(prefers-color-scheme:dark)]:fill-orange-400",
           "[@media(prefers-color-scheme:dark)]:stroke-orange-400",
           "group-hover:opacity-80",
           "[@media(prefers-color-scheme:dark)]:group-hover:opacity-80",
@@ -168,16 +166,13 @@ type HeaderProps = {}
 
 function Header({}: HeaderProps) {
   return (
-    <header className="max-w-8xl firefox:bg-opacity-90 sticky top-0 z-30 mx-auto h-[72px] w-full bg-gray-900 bg-opacity-50 backdrop-blur backdrop-filter xl:px-8">
-      <div className="flex items-center justify-between border-b border-gray-700 px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
+    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full border-b border-gray-300 bg-opacity-80 backdrop-blur backdrop-filter dark:border-gray-800 xl:px-8">
+      <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
           <Image src="/bagr-ui.svg" alt="BagrUI" width={36} height={36}></Image>
           <h1
-            className={classNames(
-              lexend.className,
-              "text-xl font-medium lowercase tracking-wide text-white",
-            )}
+            className={classNames(lexend.className, "text-xl font-medium lowercase tracking-wide")}
           >
             Bagr.UI
           </h1>
@@ -204,15 +199,15 @@ type FooterProps = {}
 
 function Footer({}: FooterProps) {
   return (
-    <footer className="max-w-8xl mx-auto flex w-full items-center justify-between space-x-2 border-t border-gray-700 px-4 py-4 pt-4 sm:px-6 lg:px-8 lg:py-8 lg:pt-8">
-      <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-gray-400">
+    <footer className="max-w-8xl mx-auto flex w-full items-center justify-between space-x-2 bg-gray-700 px-4 py-4 pt-4 dark:bg-gray-900 sm:px-6 lg:px-8 lg:py-8 lg:pt-8">
+      <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-gray-300 dark:text-gray-400">
         by{" "}
         <Link
           target="_blank"
           href="https://github.com/kiko-g"
-          className="inline-flex items-center gap-2 hover:underline hover:opacity-80"
+          className="inline-flex items-center gap-2 text-white hover:underline hover:opacity-80 dark:text-gray-300"
         >
-          <span className="font-bold text-white">Francisco Gonçalves</span>
+          <span className="font-bold">Francisco Gonçalves</span>
           <Image src="/profile.svg" alt="author" width={24} height={24} className="rounded-full" />
         </Link>
       </p>

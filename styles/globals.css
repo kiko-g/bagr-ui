@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 *::selection {
-  @apply bg-emerald-500/80 text-white dark:bg-teal-600/70;
+  @apply bg-rose-600/80 dark:bg-teal-600/70;
 }
 
 html {
   @apply scroll-smooth;
+}
+
+body {
+  @apply bg-white text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100;
 }
 
 textarea,

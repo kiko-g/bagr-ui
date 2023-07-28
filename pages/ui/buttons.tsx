@@ -12,7 +12,7 @@ export default function Buttons() {
   return (
     <Layout location="Buttons">
       <section className="mb-24 w-full py-6 lg:py-8 xl:py-12">
-        <h2 className="mb-8 border-b border-gray-800 pb-4 text-xl font-semibold tracking-tighter text-white lg:text-4xl">
+        <h2 className="mb-8 border-b border-gray-200 pb-4 text-xl font-semibold tracking-tighter dark:border-gray-800 lg:text-4xl">
           Button Components
         </h2>
 

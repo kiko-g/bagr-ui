@@ -28,7 +28,7 @@ export function ComponentShowcase({ name, path, Component }: Props) {
   return (
     <li className="flex flex-col space-y-3">
       {/* Header */}
-      <h4 className="text-lg font-medium tracking-tighter text-white lg:text-xl">{name}</h4>
+      <h4 className="text-lg font-medium tracking-tighter lg:text-xl">{name}</h4>
 
       {/* Controls */}
       <div className="flex items-center justify-between gap-3">
@@ -47,7 +47,7 @@ export function ComponentShowcase({ name, path, Component }: Props) {
       </div>
 
       {/* Showcase */}
-      <div className="flex w-full items-center justify-center bg-white/5 px-8 py-16">
+      <div className="flex w-full items-center justify-center bg-gray-900/10 px-8 py-16 shadow dark:bg-white/5">
         <Component />
       </div>
     </li>
@@ -60,8 +60,10 @@ function CopyCode() {
   return (
     <button
       className={classNames(
-        "flex items-center justify-start gap-1.5 px-3 py-2 text-sm text-white shadow-sm transition",
-        isCopied ? "bg-emerald-500/50 hover:bg-emerald-500/60" : "bg-white/10 hover:bg-pink-400/50",
+        "flex items-center justify-start gap-1.5 px-3 py-2 text-sm shadow-sm transition",
+        isCopied
+          ? "bg-emerald-500/50 hover:bg-emerald-500/60"
+          : "bg-gray-900/10 hover:bg-pink-500/50 hover:text-white dark:bg-white/10 dark:hover:bg-pink-400/50",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
@@ -86,7 +88,7 @@ function ViewCodeSwitch({ isCodeVisible, toggleCodeVisibility }: ViewCodeSwitchP
         checked={isCodeVisible}
         onChange={toggleCodeVisibility}
         className={classNames(
-          isCodeVisible ? "bg-blue-600" : "bg-rose-600/40",
+          isCodeVisible ? "bg-blue-600" : "bg-blue-600/20 dark:bg-blue-600/30",
           "relative inline-flex h-[34px] w-[62px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent px-[1px] py-[2px] transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75",
         )}
       >
@@ -99,9 +101,9 @@ function ViewCodeSwitch({ isCodeVisible, toggleCodeVisibility }: ViewCodeSwitchP
           )}
         >
           {isCodeVisible ? (
-            <ViewfinderCircleIcon className="h-5 w-5" />
+            <ViewfinderCircleIcon className="h-5 w-5 text-gray-800" />
           ) : (
-            <CodeBracketIcon className="h-5 w-5" />
+            <CodeBracketIcon className="h-5 w-5 text-gray-800" />
           )}
         </span>
       </Switch>
