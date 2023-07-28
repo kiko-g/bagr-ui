@@ -8,7 +8,7 @@ const lexend = Lexend({ subsets: ["latin"] })
 
 export default function Buttons() {
   return (
-    <Layout>
+    <Layout location="Buttons">
       <div className="w-full py-8">
         <h2
           className={classNames(

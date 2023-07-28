@@ -8,7 +8,7 @@ const lexend = Lexend({ subsets: ["latin"] })
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout location="Home">
       <Hero />
       <Sections />
     </Layout>
@@ -17,29 +17,28 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="max-w-3xl py-6 lg:py-12">
+    <div className="">
       <h2
         className={classNames(
           lexend.className,
-          "text-xl font-bold tracking-tighter text-white lg:text-4xl lg:tracking-tight",
+          "text-lg font-bold tracking-tighter text-white md:text-xl lg:text-2xl lg:tracking-tight xl:text-3xl 2xl:text-4xl",
         )}
       >
         Reusable UI Components with{" "}
-        <span className="inline-flex items-center justify-center gap-1 text-[#149eca] lg:gap-2">
+        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#149eca] lg:gap-2">
           <ReactIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>React</span>
         </span>
         {", "}
-        <span className="inline-flex items-center justify-center gap-1 text-[#3178c6] lg:gap-2">
+        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#3178c6] lg:gap-2">
           <TypescriptIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>Typescript</span>
         </span>
         {", and "}
-        <span className="inline-flex items-center justify-center gap-1 text-[#38bdf8] lg:gap-2">
+        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#38bdf8] lg:gap-2">
           <TailwindIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
           <span>TailwindCSS</span>
         </span>
-        {"."}
       </h2>
     </div>
   )
@@ -56,7 +55,7 @@ function Sections() {
   ]
 
   return (
-    <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-4">
+    <ul className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {sections.map(({ title, count, description, link }) => (
         <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
           <Link
