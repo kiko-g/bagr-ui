@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,5 +14,12 @@ module.exports = {
       },
     },
   },
+  maxWidth: {
+    screen: "100vw",
+  },
+  fontSize: {
+    xxs: "0.6rem",
+  },
+
   plugins: [],
 }

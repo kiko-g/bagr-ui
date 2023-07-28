@@ -1,49 +1,32 @@
-import Layout from "@/components/Layout"
-import classNames from "classnames"
-import { Lexend } from "next/font/google"
-import { ButtonSimple } from "../../components/buttons"
-import { ClipboardIcon, CodeBracketIcon } from "@heroicons/react/24/outline"
-
-const lexend = Lexend({ subsets: ["latin"] })
+import React from "react"
+import { Layout } from "@/components/Layout"
+import { ComponentShowcase } from "../../components/ComponentShowcase"
+import { ButtonSimple, ButtonFill } from "@/components/buttons"
 
 export default function Buttons() {
+  const buttons = [
+    { name: "Simple Button", path: "buttons/ButtonSimple", component: ButtonSimple },
+    { name: "Fill Animation Button", path: "buttons/ButtonFill", component: ButtonFill },
+  ]
+
   return (
     <Layout location="Buttons">
-      <div className="w-full py-8">
-        <h2
-          className={classNames(
-            lexend.className,
-            "mb-8 w-min whitespace-nowrap border-b border-gray-800 pb-4 text-xl font-medium tracking-tighter text-white lg:text-4xl",
-          )}
-        >
+      <section className="mb-24 w-full py-6 lg:py-8 xl:py-12">
+        <h2 className="mb-8 border-b border-gray-800 pb-4 text-xl font-semibold tracking-tighter text-white lg:text-4xl">
           Button Components
         </h2>
 
-        <h4
-          className={classNames(
-            lexend.className,
-            "mb-4 text-lg font-medium tracking-tighter text-white lg:text-xl",
-          )}
-        >
-          Simple
-        </h4>
-
-        <div className="mb-4 flex gap-3">
-          <button className="flex items-center justify-start gap-1.5 rounded bg-slate-600 px-3 py-2 text-sm text-white shadow-sm transition hover:bg-slate-500">
-            <span>Code</span>
-            <CodeBracketIcon className="h-5 w-5" />
-          </button>
-
-          <button className="flex items-center justify-start gap-1.5 rounded bg-slate-600 px-3 py-2 text-sm text-white shadow-sm transition hover:bg-slate-500">
-            <span>Copy</span>
-            <ClipboardIcon className="h-5 w-5" />
-          </button>
-        </div>
-
-        <div className="flex w-full items-center justify-center rounded-xl border-2 border-white p-8">
-          <ButtonSimple />
-        </div>
-      </div>
+        <ul className="flex flex-col space-y-6 lg:space-y-8 xl:space-y-12">
+          {buttons.map((button, buttonIx) => (
+            <ComponentShowcase
+              name={button.name}
+              path={button.path}
+              Component={button.component}
+              key={`button-${buttonIx}-${button.name}`}
+            />
+          ))}
+        </ul>
+      </section>
     </Layout>
   )
 }

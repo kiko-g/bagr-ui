@@ -1,8 +1,9 @@
-import Layout from "@/components/Layout"
+import React from "react"
+import Link from "next/link"
 import classNames from "classnames"
 import { Lexend } from "next/font/google"
+import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
-import Link from "next/link"
 
 const lexend = Lexend({ subsets: ["latin"] })
 

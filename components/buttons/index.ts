@@ -1,3 +1,4 @@
+import { ButtonFill } from "./ButtonFill"
 import { ButtonSimple } from "./ButtonSimple"
 
-export { ButtonSimple }
+export { ButtonFill, ButtonSimple }
