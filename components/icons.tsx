@@ -11,7 +11,7 @@ export function GithubIcon(props: SVGProps<SVGSVGElement>) {
 export function ReactIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="-10.5 -9.45 21 18.9" fill="#149eca" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <circle cx="0" cy="0" r="2" fill="currentColor"></circle>
+      <circle cx="0" cy="0" r="2" fill="#149eca"></circle>
       <g stroke="currentColor" strokeWidth="1" fill="none">
         <ellipse rx="10" ry="4.5"></ellipse>
         <ellipse rx="10" ry="4.5" transform="rotate(60)"></ellipse>
@@ -23,7 +23,7 @@ export function ReactIcon(props: SVGProps<SVGSVGElement>) {
 
 export function TypescriptIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 27 26" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         clipRule="evenodd"
         fillRule="evenodd"
@@ -36,7 +36,7 @@ export function TypescriptIcon(props: SVGProps<SVGSVGElement>) {
 
 export function TailwindIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 50 20" {...props}>
+    <svg viewBox="0 0 50 30" {...props}>
       <path
         fill="#38bdf8"
         fillRule="evenodd"

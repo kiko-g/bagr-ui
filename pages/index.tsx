@@ -17,27 +17,28 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="">
+    <div className="my-1 max-w-full py-4 md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
       <h2
         className={classNames(
           lexend.className,
-          "text-lg font-bold tracking-tighter text-white md:text-xl lg:text-2xl lg:tracking-tight xl:text-3xl 2xl:text-4xl",
+          "flex flex-wrap items-center text-lg font-bold tracking-tighter text-white md:text-xl lg:text-2xl lg:tracking-tight xl:text-3xl 2xl:text-4xl",
         )}
       >
-        Reusable UI Components with{" "}
-        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#149eca] lg:gap-2">
-          <ReactIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
-          <span>React</span>
+        Reusable UI Components with
+        <span>
+          <ReactIcon className="ml-2 mr-1 inline-flex h-5 w-5 align-middle text-[#149eca] lg:h-7 lg:w-7" />
+          <span className="text-[#149eca]">React</span>
+          {", "}
         </span>
-        {", "}
-        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#3178c6] lg:gap-2">
-          <TypescriptIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
-          <span>Typescript</span>
+        <span>
+          <TypescriptIcon className="ml-2.5 mr-1.5 inline-flex h-5 w-5 align-middle text-[#3178c6] lg:h-7 lg:w-7" />
+          <span className="text-[#3178c6]">Typescript</span>
+          {", and "}
         </span>
-        {", and "}
-        <span className="my-auto inline-flex items-center justify-center gap-1 text-[#38bdf8] lg:gap-2">
-          <TailwindIcon className="inline-flex h-5 w-5 lg:h-8 lg:w-8" />
-          <span>TailwindCSS</span>
+        <span>
+          <TailwindIcon className="ml-2 mr-1.5 inline-flex h-5 w-5 align-middle text-[#38bdf8] lg:h-7 lg:w-7" />
+          <span className="text-[#38bdf8]">TailwindCSS</span>
+          <span>.</span>
         </span>
       </h2>
     </div>
