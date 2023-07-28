@@ -28,9 +28,7 @@ export function Layout({ children, location = "Unknown" }: Props) {
       <Seo title={location} />
       <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
         <Header />
-        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
-          {children}
-        </article>
+        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
         <Footer />
       </main>
     </>
@@ -171,11 +169,7 @@ function Header({}: HeaderProps) {
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
           <Image src="/bagr-ui.svg" alt="BagrUI" width={36} height={36}></Image>
-          <h1
-            className={classNames(lexend.className, "text-xl font-medium lowercase tracking-wide")}
-          >
-            Bagr.UI
-          </h1>
+          <h1 className={classNames(lexend.className, "text-xl font-medium lowercase tracking-wide")}>Bagr.UI</h1>
         </Link>
 
         {/* Links */}

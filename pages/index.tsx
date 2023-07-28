@@ -59,8 +59,8 @@ function Sections() {
   return (
     <div>
       <p className="mb-3 max-w-4xl">
-        Start exploring the types of components we have available and visit their individual pages
-        where you can find the web components and their source code.
+        Start exploring the types of components we have available and visit their individual pages where you can find
+        the web components and their source code.
       </p>
       <ul className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {sections.map(({ title, count, description, link }) => (
@@ -84,7 +84,7 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex gap-4 rounded-md bg-blue-900/10 px-4 py-4 text-white transition group-hover:bg-sky-950 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.06]"
+      className="flex gap-4 rounded-md bg-teal-900/10 px-4 py-4 text-white transition group-hover:bg-slate-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
       <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-teal-500 to-teal-700 p-[0.1875rem] shadow ring-1 ring-slate-900/10 dark:bg-gradient-to-br dark:from-teal-500 dark:to-teal-600" />
 
@@ -95,7 +95,7 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
         <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
           {description}
         </p>
-        <p className="mt-1 text-[0.7rem] font-light text-gray-500 dark:text-gray-400 lg:text-xs">
+        <p className="mt-1 text-[0.7rem] font-light text-gray-500 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
           {count} component{count > 1 ? "s" : ""}
         </p>
       </div>

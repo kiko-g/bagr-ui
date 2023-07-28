@@ -1,12 +1,23 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { ButtonSimple, ButtonFill } from "@/components/buttons"
+import {
+  ButtonSimple,
+  ButtonFill,
+  ButtonTranslate,
+  ButtonSimpleBorder,
+  ButtonScale,
+  ButtonRotate,
+} from "@/components/buttons"
 
 export default function Buttons() {
   const buttons = [
-    { name: "Simple Button", path: "buttons/ButtonSimple", component: ButtonSimple },
-    { name: "Fill Animation Button", path: "buttons/ButtonFill", component: ButtonFill },
+    { name: "Simple", path: "buttons/ButtonSimple", component: ButtonSimple },
+    { name: "Simple w/ Border", path: "buttons/ButtonSimpleBorder", component: ButtonSimpleBorder },
+    { name: "Fill Animation", path: "buttons/ButtonFill", component: ButtonFill },
+    { name: "Scale Animation", path: "buttons/ButtonScale", component: ButtonScale },
+    { name: "Rotate Animation", path: "buttons/ButtonRotate", component: ButtonRotate },
+    { name: "Translate Animation", path: "buttons/ButtonTranslate", component: ButtonTranslate },
   ]
 
   return (
