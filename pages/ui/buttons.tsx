@@ -36,7 +36,7 @@ export default function Buttons() {
           </button>
         </div>
 
-        <ul className="flex flex-col space-y-2 lg:space-y-3 xl:space-y-4">
+        <ul className="grid grid-cols-1 gap-2 lg:gap-3 xl:grid-cols-1 xl:gap-4">
           {buttons.map((button, buttonIx) => (
             <ComponentShowcase
               name={button.name}

@@ -100,7 +100,7 @@ function CopyCodeButton({ text }: CopyCodeButtonProps) {
         "flex items-center justify-start gap-1.5 rounded px-3.5 py-2.5 text-sm shadow-sm transition",
         isCopied
           ? "bg-teal-600 text-white hover:opacity-80"
-          : "bg-gray-900/5 hover:bg-slate-600 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/60",
+          : "bg-gray-900/5 hover:bg-blue-600/80 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/60",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
@@ -131,8 +131,8 @@ function ViewCodeSwitch({ viewCode, toggle, modern = true }: ViewCodeSwitchProps
         className={classNames(
           "flex items-center gap-x-2 rounded-l px-3 py-2 transition",
           viewCode
-            ? "bg-gray-900/5 hover:bg-slate-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-slate-500/50"
-            : "bg-slate-600 text-white hover:bg-slate-600/80 dark:bg-slate-600 dark:hover:bg-slate-500/40",
+            ? "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30"
+            : "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30",
         )}
       >
         <span className="hidden lg:inline-flex">Preview</span>
@@ -142,8 +142,8 @@ function ViewCodeSwitch({ viewCode, toggle, modern = true }: ViewCodeSwitchProps
         className={classNames(
           "flex items-center gap-x-2 rounded-r px-3 py-2 transition",
           viewCode
-            ? "bg-slate-600 text-white hover:bg-slate-600/80 dark:bg-slate-600 dark:hover:bg-slate-500/40"
-            : "bg-gray-900/5 hover:bg-slate-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-slate-500/50",
+            ? "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30"
+            : "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30",
         )}
       >
         <span className="hidden lg:inline-flex">View Code</span>
