@@ -1,10 +1,13 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { BlurredCTA } from "@/components/ctas"
+import { BlurredCTA, HoverDivCTA } from "@/components/ctas"
 
 export default function Buttons() {
-  const buttons = [{ name: "Blurred", path: "ctas/BlurredCTA.tsx", component: BlurredCTA }]
+  const buttons = [
+    { name: "Blurred", path: "ctas/BlurredCTA.tsx", component: BlurredCTA },
+    { name: "Div Pop on Hover", path: "ctas/HoverDivCTA.tsx", component: HoverDivCTA },
+  ]
 
   const [collapseAll, setCollapseAll] = React.useState(false)
   const toggleCollapseAll = () => setCollapseAll((prev) => !prev)

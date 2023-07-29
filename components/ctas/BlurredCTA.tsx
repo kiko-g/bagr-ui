@@ -2,12 +2,12 @@ import React from "react"
 
 export function BlurredCTA() {
   return (
-    <a href="#" className="group relative overflow-hidden bg-center">
+    <a href="#" className="group relative max-w-lg overflow-hidden bg-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="Random Image from Unsplash"
         src="https://source.unsplash.com/random/800x600"
-        className="h-full  w-full object-cover blur-sm transition duration-300 group-hover:blur-0 lg:blur-md"
+        className="h-full w-full object-cover blur-sm transition duration-300 group-hover:blur-0 lg:blur-md"
       />
       <div className="absolute inset-0 flex h-full w-full items-center justify-center">
         <div className="absolute h-full w-full bg-black/60 transition group-hover:bg-black/40" />
