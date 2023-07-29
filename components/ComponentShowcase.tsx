@@ -9,7 +9,7 @@ import {
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 
 type Props = {
   name: string
@@ -21,7 +21,7 @@ type Props = {
 export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
   const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
-  const [isCodeVisible, setIsCodeVisible] = React.useState(false)
+  const [isCodeVisible, setIsCodeVisible] = React.useState(true)
 
   function toggleCodeVisibility() {
     setIsCodeVisible((prev) => !prev)
@@ -77,10 +77,14 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             {isCodeVisible ? (
               <SyntaxHighlighter
                 language="tsx"
-                style={dracula}
-                wrapLines={true}
+                style={coldarkDark}
+                wrapLongLines
                 showLineNumbers={true}
-                customStyle={{ fontFamily: "Monaco, monospace", whiteSpace: "pre-wrap" }}
+                customStyle={{
+                  fontFamily: "Monaco, monospace",
+                  whiteSpace: "pre-wrap",
+                  borderRadius: "0.25rem",
+                }}
               >
                 {code}
               </SyntaxHighlighter>

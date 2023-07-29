@@ -28,7 +28,9 @@ export function Layout({ children, location = "Unknown" }: Props) {
       <Seo title={location} />
       <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
         <Header />
-        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
+        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
+          {children}
+        </article>
         <Footer />
       </main>
     </>
@@ -164,12 +166,19 @@ type HeaderProps = {}
 
 function Header({}: HeaderProps) {
   return (
-    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full border-b border-gray-300 bg-opacity-80 backdrop-blur backdrop-filter dark:border-gray-800 xl:px-8">
+    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full border-b border-gray-300 bg-opacity-90 backdrop-blur backdrop-filter dark:border-gray-800 dark:bg-opacity-80 xl:px-8">
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
           <Image src="/bagr-ui.svg" alt="BagrUI" width={36} height={36}></Image>
-          <h1 className={classNames(lexend.className, "text-xl font-medium lowercase tracking-wide")}>Bagr.UI</h1>
+          <h1
+            className={classNames(
+              lexend.className,
+              "text-xl font-bold lowercase tracking-wide text-teal-600 dark:bg-transparent dark:text-white",
+            )}
+          >
+            Bagr.UI
+          </h1>
         </Link>
 
         {/* Links */}
