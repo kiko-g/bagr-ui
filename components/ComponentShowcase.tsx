@@ -1,8 +1,9 @@
 import React from "react"
 import classNames from "classnames"
 import { Lexend } from "next/font/google"
-import { Switch } from "@headlessui/react"
+import { Disclosure, Switch, Transition } from "@headlessui/react"
 import {
+  ChevronDownIcon,
   ClipboardDocumentCheckIcon,
   ClipboardDocumentIcon,
   ClipboardIcon,
@@ -15,38 +16,62 @@ const lexend = Lexend({ subsets: ["latin"] })
 type Props = {
   name: string
   path: string
+  collapseAll?: boolean
   Component: React.ElementType
 }
 
-export function ComponentShowcase({ name, path, Component }: Props) {
+export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
   const [isCodeVisible, setIsCodeVisible] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(!collapseAll)
 
   function toggleCodeVisibility() {
     setIsCodeVisible((prev) => !prev)
   }
 
+  React.useEffect(() => {
+    setIsOpen(!collapseAll)
+  }, [collapseAll])
+
   return (
     <li className="flex flex-col">
       {/* Header */}
-      <h4 className="mb-1.5 text-lg font-medium tracking-tighter lg:text-xl">{name}</h4>
+      <Disclosure defaultOpen={isOpen}>
+        <Disclosure.Button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={classNames(
+            isOpen ? "" : "",
+            "flex items-center gap-x-1.5 rounded px-2 py-1.5 transition hover:underline",
+          )}
+        >
+          <span className="text-left text-lg font-medium tracking-tighter lg:text-xl">{name}</span>
+          <ChevronDownIcon className="h-5 w-5" />
+        </Disclosure.Button>
 
-      {/* Controls */}
-      <div className="mb-3 flex items-center justify-between gap-3">
-        {/* Left Side Controls */}
-        <div>
-          <CopyCodeButton text="Copied Text" />
-        </div>
+        <Transition
+          show={isOpen}
+          enter="transition duration-100 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-75 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
+        >
+          <Disclosure.Panel className="mb-8 mt-2 px-2">
+            {/* Controls */}
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <CopyCodeButton text="Copied Text" />
+              </div>
+              <ViewCodeSwitch viewCode={isCodeVisible} toggle={toggleCodeVisibility} modern />
+            </div>
 
-        {/* Right Side Controls */}
-        <div>
-          <ViewCodeSwitch viewCode={isCodeVisible} toggle={toggleCodeVisibility} modern />
-        </div>
-      </div>
-
-      {/* Showcase */}
-      <div className="flex w-full items-center justify-center bg-gray-900/5 px-8 py-16 shadow dark:bg-white/5">
-        <Component />
-      </div>
+            {/* Showcase */}
+            <div className="flex w-full items-center justify-center bg-gray-900/5 px-8 py-16 shadow dark:bg-white/5">
+              <Component />
+            </div>
+          </Disclosure.Panel>
+        </Transition>
+      </Disclosure>
     </li>
   )
 }
