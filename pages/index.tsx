@@ -63,6 +63,13 @@ function Sections() {
       count: null,
       description: "A collection of buttons with different styles and functionalities.",
     },
+    {
+      title: "Call To Actions",
+      link: "/ui/ctas",
+      folder: "ctas",
+      count: null,
+      description: "A collection of diversely style large divs to appeal the user to click on them.",
+    },
   ])
 
   React.useEffect(() => {

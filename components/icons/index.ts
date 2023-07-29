@@ -3,4 +3,9 @@ import { TypescriptIcon } from "./TypescriptIcon"
 import { ReactIcon } from "./ReactIcon"
 import { GithubIcon } from "./GithubIcon"
 
-export { TailwindIcon, TypescriptIcon, ReactIcon, GithubIcon }
+export {
+  TailwindIcon,
+  TypescriptIcon,
+  ReactIcon,
+  GithubIcon,
+}

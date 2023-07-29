@@ -1,13 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  ClipboardIcon,
-  CodeBracketIcon,
-  ViewfinderCircleIcon,
-} from "@heroicons/react/24/outline"
+import { CheckIcon, ChevronDownIcon, ClipboardIcon, CodeBracketIcon, ViewfinderCircleIcon } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 
@@ -21,7 +15,7 @@ type Props = {
 export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
   const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
-  const [isCodeVisible, setIsCodeVisible] = React.useState(true)
+  const [isCodeVisible, setIsCodeVisible] = React.useState(false)
 
   function toggleCodeVisibility() {
     setIsCodeVisible((prev) => !prev)
@@ -84,6 +78,8 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                   fontFamily: "Monaco, monospace",
                   whiteSpace: "pre-wrap",
                   borderRadius: "0.25rem",
+                  minHeight: "400px",
+                  maxHeight: "600px",
                 }}
               >
                 {code}

@@ -34,9 +34,7 @@ export default function Buttons() {
   return (
     <Layout location="Buttons">
       <section className="mb-24 w-full py-6 lg:py-8 xl:py-12">
-        <h2 className="mb-4 pb-4 text-xl font-semibold tracking-tighter lg:text-4xl">
-          Button Components
-        </h2>
+        <h2 className="mb-4 pb-4 text-xl font-semibold tracking-tighter lg:text-4xl">Button Components</h2>
 
         <div className="mb-8 flex items-center justify-end gap-x-4 border-b border-gray-200 py-2 dark:border-gray-800">
           <button onClick={toggleCollapseAll} className="text-sm hover:underline hover:opacity-80">

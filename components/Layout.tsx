@@ -28,9 +28,7 @@ export function Layout({ children, location = "Unknown" }: Props) {
       <Seo title={location} />
       <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
         <Header />
-        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
-          {children}
-        </article>
+        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
         <Footer />
       </main>
     </>
