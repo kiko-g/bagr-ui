@@ -40,7 +40,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           onClick={() => setIsOpen((prev) => !prev)}
           className={classNames(
             isOpen ? "" : "",
-            "flex items-center gap-x-1.5 rounded px-2 py-1.5 transition hover:underline",
+            "flex items-center gap-x-1.5 rounded px-2 py-1.5 transition hover:text-blue-600 hover:underline dark:hover:text-blue-500",
           )}
         >
           <span className="text-left text-lg font-medium tracking-tighter lg:text-xl">{name}</span>
@@ -66,7 +66,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             </div>
 
             {/* Showcase */}
-            <div className="flex w-full items-center justify-center bg-gray-900/5 px-8 py-16 shadow dark:bg-white/5">
+            <div className="flex w-full items-center justify-center rounded bg-[#1E2937] px-8 py-16 shadow dark:bg-white/5">
               <Component />
             </div>
           </Disclosure.Panel>
