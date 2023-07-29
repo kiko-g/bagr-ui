@@ -1,17 +1,15 @@
 import React from "react"
 import classNames from "classnames"
-import { Lexend } from "next/font/google"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
 import {
+  CheckIcon,
   ChevronDownIcon,
-  ClipboardDocumentCheckIcon,
-  ClipboardDocumentIcon,
   ClipboardIcon,
   CodeBracketIcon,
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
-
-const lexend = Lexend({ subsets: ["latin"] })
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism"
 
 type Props = {
   name: string
@@ -21,8 +19,9 @@ type Props = {
 }
 
 export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
-  const [isCodeVisible, setIsCodeVisible] = React.useState(false)
+  const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
+  const [isCodeVisible, setIsCodeVisible] = React.useState(false)
 
   function toggleCodeVisibility() {
     setIsCodeVisible((prev) => !prev)
@@ -31,6 +30,15 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
   React.useEffect(() => {
     setIsOpen(!collapseAll)
   }, [collapseAll])
+
+  React.useEffect(() => {
+    fetch(`/api/code?filepath=${encodeURIComponent(path)}`)
+      .then((response) => response.text())
+      .then((data) => setCode(data))
+      .catch((error) => {
+        console.error("Failed to fetch component code.")
+      })
+  }, [path])
 
   return (
     <li className="flex flex-col">
@@ -66,9 +74,21 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             </div>
 
             {/* Showcase */}
-            <div className="flex w-full items-center justify-center rounded bg-[#1E2937] px-8 py-16 shadow dark:bg-white/5">
-              <Component />
-            </div>
+            {isCodeVisible ? (
+              <SyntaxHighlighter
+                language="tsx"
+                style={dracula}
+                wrapLines={true}
+                showLineNumbers={true}
+                customStyle={{ fontFamily: "Monaco, monospace", whiteSpace: "pre-wrap" }}
+              >
+                {code}
+              </SyntaxHighlighter>
+            ) : (
+              <div className="flex w-full items-center justify-center rounded bg-[#1E2937] px-8 py-24 shadow dark:bg-white/5">
+                <Component />
+              </div>
+            )}
           </Disclosure.Panel>
         </Transition>
       </Disclosure>
@@ -96,19 +116,16 @@ function CopyCodeButton({ text }: CopyCodeButtonProps) {
   return (
     <button
       onClick={copyToClipboard}
+      disabled={isCopied}
       className={classNames(
-        "flex items-center justify-start gap-1.5 rounded px-3.5 py-2.5 text-sm shadow-sm transition",
+        "flex items-center justify-start gap-1.5 rounded px-3.5 py-2.5 text-sm shadow-sm transition disabled:cursor-not-allowed",
         isCopied
-          ? "bg-teal-600 text-white hover:opacity-80"
+          ? "bg-teal-600 text-white"
           : "bg-gray-900/5 hover:bg-blue-600/80 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/60",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
-      {isCopied ? (
-        <ClipboardDocumentCheckIcon className="h-5 w-5" />
-      ) : (
-        <ClipboardDocumentIcon className="h-5 w-5" />
-      )}
+      {isCopied ? <CheckIcon className="h-5 w-5" /> : <ClipboardIcon className="h-5 w-5" />}
     </button>
   )
 }

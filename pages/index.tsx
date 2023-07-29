@@ -46,23 +46,52 @@ function Hero() {
   )
 }
 
+type Section = {
+  title: string
+  link: string
+  folder: string
+  count: number | null
+  description: string
+}
+
 function Sections() {
-  const sections = [
+  const [sections, setSections] = React.useState<Section[]>([
     {
       title: "Buttons",
       link: "/ui/buttons",
-      count: 1,
+      folder: "buttons",
+      count: null,
       description: "A collection of buttons with different styles and functionalities.",
     },
-  ]
+  ])
+
+  React.useEffect(() => {
+    const fetchCounts = async () => {
+      const newSections = await Promise.all(
+        sections.map(async (section) => {
+          try {
+            const response = await fetch(`/api/countFiles/${section.folder}`)
+            const data = await response.json()
+            return { ...section, count: data.count }
+          } catch (error) {
+            console.error(error)
+            return section
+          }
+        }),
+      )
+      setSections(newSections)
+    }
+
+    fetchCounts()
+  }, [sections])
 
   return (
     <div>
-      <p className="mb-3 max-w-4xl">
-        Start exploring the types of components we have available and visit their individual pages where you can find
-        the web components and their source code.
+      <p className="mb-4 max-w-4xl">
+        Start exploring the types of components we have available and visit their individual pages where you can find the web
+        components and their source code.
       </p>
-      <ul className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <ul className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {sections.map(({ title, count, description, link }) => (
           <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
             <SectionCard title={title} count={count} description={description} link={link} />
@@ -75,7 +104,7 @@ function Sections() {
 
 type SectionCardProps = {
   title: string
-  count: number
+  count: number | null
   description: string
   link: string
 }
@@ -84,19 +113,17 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex gap-4 rounded-md bg-teal-900/10 px-4 py-4 text-white transition group-hover:bg-slate-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex gap-4 rounded-md bg-slate-900/5 px-6 py-6 text-white transition group-hover:bg-slate-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
-      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-teal-500 to-teal-700 p-[0.1875rem] shadow ring-1 ring-slate-900/10 dark:bg-gradient-to-br dark:from-teal-500 dark:to-teal-600" />
+      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-sky-500 to-sky-700 p-[0.1875rem] shadow ring-1 ring-slate-900/10 dark:bg-gradient-to-br dark:from-sky-500 dark:to-sky-600" />
 
       <div className="flex flex-col">
-        <h5 className="text-sm font-bold tracking-tighter text-teal-950 group-hover:text-white dark:text-teal-500 dark:group-hover:text-teal-500 lg:text-base lg:tracking-tight">
+        <h5 className="text-sm font-bold tracking-tighter text-sky-950 group-hover:text-white dark:text-sky-500 dark:group-hover:text-sky-500 lg:text-base lg:tracking-tight">
           {title}
         </h5>
-        <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
-          {description}
-        </p>
+        <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">{description}</p>
         <p className="mt-1 text-[0.7rem] font-light text-gray-500 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
-          {count} component{count > 1 ? "s" : ""}
+          {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
         </p>
       </div>
     </Link>

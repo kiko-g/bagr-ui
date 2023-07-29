@@ -20,11 +20,7 @@ export function ButtonFill() {
         stroke="currentColor"
         className="z-20 mt-[1px] inline-flex h-5 w-5 transition group-hover:text-white"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-        />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
       </svg>
     </button>
   )

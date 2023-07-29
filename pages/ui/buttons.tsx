@@ -12,12 +12,20 @@ import {
 
 export default function Buttons() {
   const buttons = [
-    { name: "Simple", path: "buttons/ButtonSimple", component: ButtonSimple },
-    { name: "Simple w/ Border", path: "buttons/ButtonSimpleBorder", component: ButtonSimpleBorder },
-    { name: "Fill Animation", path: "buttons/ButtonFill", component: ButtonFill },
-    { name: "Scale Animation", path: "buttons/ButtonScale", component: ButtonScale },
-    { name: "Rotate Animation", path: "buttons/ButtonRotate", component: ButtonRotate },
-    { name: "Translate Animation", path: "buttons/ButtonTranslate", component: ButtonTranslate },
+    { name: "Simple", path: "buttons/ButtonSimple.tsx", component: ButtonSimple },
+    {
+      name: "Simple w/ Border",
+      path: "buttons/ButtonSimpleBorder.tsx",
+      component: ButtonSimpleBorder,
+    },
+    { name: "Fill Animation", path: "buttons/ButtonFill.tsx", component: ButtonFill },
+    { name: "Scale Animation", path: "buttons/ButtonScale.tsx", component: ButtonScale },
+    { name: "Rotate Animation", path: "buttons/ButtonRotate.tsx", component: ButtonRotate },
+    {
+      name: "Translate Animation",
+      path: "buttons/ButtonTranslate.tsx",
+      component: ButtonTranslate,
+    },
   ]
 
   const [collapseAll, setCollapseAll] = React.useState(false)
