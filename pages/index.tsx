@@ -68,7 +68,7 @@ function Sections() {
       link: "/ui/ctas",
       folder: "ctas",
       count: null,
-      description: "A collection of diversely style large divs to appeal the user to click on them.",
+      description: "A collection of diversely styled sections to appeal the user to click on them.",
     },
   ])
 
@@ -96,7 +96,7 @@ function Sections() {
 
   return (
     <div>
-      <p className="mb-4 max-w-4xl">
+      <p className="mb-4 max-w-3xl">
         Start exploring the types of components we have available and visit their individual pages where you can find the web
         components and their source code.
       </p>
@@ -130,8 +130,8 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
         <h5 className="text-sm font-bold tracking-tighter text-sky-950 group-hover:text-white dark:text-sky-500 dark:group-hover:text-sky-500 lg:text-base lg:tracking-tight">
           {title}
         </h5>
-        <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">{description}</p>
-        <p className="mt-1 text-[0.7rem] font-light text-gray-500 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
+        <p className="mt-1 text-xs text-slate-600 group-hover:text-slate-100 dark:text-slate-200 lg:text-sm">{description}</p>
+        <p className="mt-1 text-[0.7rem] font-light text-slate-500 group-hover:text-white dark:text-slate-400 dark:group-hover:text-slate-400 lg:text-xs">
           {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
         </p>
       </div>

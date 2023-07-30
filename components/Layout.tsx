@@ -5,6 +5,8 @@ import Image from "next/image"
 import classNames from "classnames"
 import { Inter, Lexend } from "next/font/google"
 import { GithubIcon } from "./icons"
+import { HomeIcon, InformationCircleIcon, RectangleStackIcon } from "@heroicons/react/24/outline"
+import { ButtonIcon } from "./icons/ButtonIcon"
 
 const inter = Inter({ subsets: ["latin"] })
 const lexend = Lexend({ subsets: ["latin"] })
@@ -19,27 +21,31 @@ const links = [
 
 type Props = {
   children: React.ReactNode
-  location: string
+  location?: string
+  sidebar?: boolean
 }
 
-export function Layout({ children, location = "Unknown" }: Props) {
+export function Layout({ children, location = "Unknown", sidebar = false }: Props) {
   return (
     <>
       <Seo title={location} />
       <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
         <Header />
-        <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
+        {sidebar ? (
+          <div className="flex flex-1">
+            <Sidebar location={location} />
+            <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
+          </div>
+        ) : (
+          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">{children}</article>
+        )}
         <Footer />
       </main>
     </>
   )
 }
 
-type SeoProps = {
-  title: string
-}
-
-function Seo({ title }: SeoProps) {
+function Seo({ title }: { title: string }) {
   const siteTitle = `BagrUI`
   const author = `kikogoncalves`
   const description = `Reusable UI Components with React, Typescript, and TailwindCSS.`
@@ -160,11 +166,9 @@ function DarkModeSwitch() {
   )
 }
 
-type HeaderProps = {}
-
-function Header({}: HeaderProps) {
+function Header() {
   return (
-    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full border-b border-gray-300 bg-opacity-90 backdrop-blur backdrop-filter dark:border-gray-800 dark:bg-opacity-80 xl:px-8">
+    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full bg-slate-50 bg-opacity-90 backdrop-blur backdrop-filter dark:bg-slate-900 dark:bg-opacity-80 xl:px-8">
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
@@ -182,11 +186,12 @@ function Header({}: HeaderProps) {
         {/* Links */}
         <ul className="flex items-center justify-center gap-1 lg:gap-3">
           {links.map(({ href, label, icon }) => (
-            <li key={`${href}${label}`} className="text-gray-400 hover:text-white">
+            <li
+              key={`${href}${label}`}
+              className="text-slate-400 transition hover:text-slate-500 dark:text-slate-400 dark:hover:opacity-80"
+            >
               <span className="sr-only">{label}</span>
-              <Link href={href} className="text-gray-400 hover:text-white">
-                {icon}
-              </Link>
+              <Link href={href}>{icon}</Link>
             </li>
           ))}
           <DarkModeSwitch />
@@ -196,17 +201,72 @@ function Header({}: HeaderProps) {
   )
 }
 
-type FooterProps = {}
-
-function Footer({}: FooterProps) {
+function Sidebar({ location }: { location: string }) {
+  const navigations = [
+    {
+      name: "Home",
+      href: "/",
+      icon: HomeIcon,
+      shown: true,
+    },
+    {
+      name: "About",
+      href: "/about",
+      icon: InformationCircleIcon,
+      shown: false,
+    },
+    {
+      name: "Buttons",
+      href: "/ui/buttons",
+      icon: ButtonIcon,
+      shown: true,
+    },
+    {
+      name: "CTAs",
+      href: "/ui/ctas",
+      icon: RectangleStackIcon,
+      shown: true,
+    },
+  ]
   return (
-    <footer className="max-w-8xl mx-auto flex w-full items-center justify-between space-x-2 bg-gray-700 px-4 py-4 pt-4 dark:bg-gray-900 sm:px-6 lg:px-8 lg:py-8 lg:pt-8">
-      <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-gray-300 dark:text-gray-400">
+    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-slate-50 p-5 dark:bg-slate-900/80 lg:flex lg:min-w-min">
+      <ul className="flex w-full flex-1 flex-col space-y-2">
+        {navigations
+          .filter((item) => item.shown !== false)
+          .map((item, itemIdx) => {
+            const isActive = location.toLowerCase() === item.name.toLowerCase()
+            return (
+              <li key={`nav-${itemIdx}`}>
+                <Link
+                  title={item.name}
+                  href={item.href}
+                  className={classNames(
+                    isActive
+                      ? "bg-primary dark:bg-secondary/80 text-white hover:opacity-80"
+                      : "hover:bg-primary/10 dark:hover:bg-secondary/30",
+                    "flex cursor-pointer items-center justify-center gap-2 rounded px-3 py-3 text-sm transition ease-in-out xl:justify-start",
+                  )}
+                >
+                  <item.icon className="h-5 w-5" />
+                  <span className="hidden xl:block">{item.name}</span>
+                </Link>
+              </li>
+            )
+          })}
+      </ul>
+    </aside>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="max-w-8xl mx-auto flex w-full items-center justify-between space-x-2 bg-slate-700 px-4 py-4 pt-4 dark:bg-slate-900 sm:px-6 lg:px-8 lg:py-8 lg:pt-8">
+      <p className="text-sm font-semibold uppercase leading-5 tracking-wide text-slate-300 dark:text-slate-400">
         by{" "}
         <Link
           target="_blank"
           href="https://github.com/kiko-g"
-          className="inline-flex items-center gap-2 text-white hover:underline hover:opacity-80 dark:text-gray-300"
+          className="inline-flex items-center gap-2 text-white hover:underline hover:opacity-80 dark:text-slate-300"
         >
           <span className="font-bold">Francisco Gonçalves</span>
           <Image src="/profile.svg" alt="author" width={24} height={24} className="rounded-full" />
