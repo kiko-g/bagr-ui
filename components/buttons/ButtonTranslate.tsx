@@ -2,7 +2,7 @@ import React from "react"
 
 export function ButtonTranslate() {
   function myFunction() {
-    console.log("click")
+    // your onClick code here
   }
 
   return (

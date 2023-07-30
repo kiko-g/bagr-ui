@@ -10,7 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (process.env.NODE_ENV === "production") {
     const folderStr = folder as string
     const fileUrl = `https://api.github.com/repos/kiko-g/bagr-ui/contents/components/${encodeURIComponent(folderStr)}`
-    console.log("fileUrl", fileUrl)
+
     axios
       .get(fileUrl)
       .then((response) => {
@@ -25,6 +25,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   else {
     const filepath = `components/${folder}`
     const directoryPath = path.join(process.cwd(), filepath)
+
     fs.readdir(directoryPath, (err: NodeJS.ErrnoException | null, filenames: string[]) => {
       if (err) {
         return res.status(500).json({ isError: true, message: err.message, count: -1 })

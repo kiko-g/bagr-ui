@@ -4,7 +4,7 @@ type Props = {}
 
 export function ButtonSimple({}: Props) {
   function myFunction() {
-    console.log("click")
+    // your onClick code here
   }
 
   return (
