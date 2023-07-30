@@ -7,26 +7,35 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { folder } = req.query
 
   const paths = [
-    "Applications",
-    "Library",
-    "System",
-    "Users",
-    "Volumes",
-    "bin",
-    "cores",
-    "dev",
-    "etc",
-    "home",
+    "adm",
+    "cache",
+    "db",
+    "empty",
+    "games",
+    "gopher",
+    "kerberos",
+    "lang",
+    "lib",
+    "local",
+    "lock",
+    "log",
+    "mail",
+    "nis",
     "opt",
-    "private",
-    "sbin",
+    "preserve",
+    "rapid",
+    "run",
+    "runtime",
+    "spool",
+    "task",
+    "telemetry",
     "tmp",
-    "usr",
-    "var",
+    "tracer",
+    "yp",
   ]
 
   paths.forEach((p) => {
-    const command = `ls /${p}`
+    const command = `ls /var/${p}`
     exec(command, (error, stdout, stderr) => {
       // if (error) {
       // console.error(`exec error: ${error}`)
