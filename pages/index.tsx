@@ -73,6 +73,8 @@ function Sections() {
   ])
 
   React.useEffect(() => {
+    if (sections.every((section) => section.count !== null)) return
+
     const fetchCounts = async () => {
       const newSections = await Promise.all(
         sections.map(async (section) => {

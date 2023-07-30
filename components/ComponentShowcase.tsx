@@ -1,7 +1,13 @@
 import React from "react"
 import classNames from "classnames"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
-import { CheckIcon, ChevronDownIcon, ClipboardIcon, CodeBracketIcon, ViewfinderCircleIcon } from "@heroicons/react/24/outline"
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ClipboardIcon,
+  CodeBracketIcon,
+  ViewfinderCircleIcon,
+} from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 
