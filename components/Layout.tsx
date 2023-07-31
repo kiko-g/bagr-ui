@@ -279,7 +279,7 @@ function Footer() {
           className="inline-flex items-center gap-2 text-white hover:underline hover:opacity-80 dark:text-gray-300"
         >
           <span className="font-bold">Francisco Gonçalves</span>
-          <Image src="/profile.svg" alt="author" width={24} height={24} className="rounded-full" />
+          <Image src="/vercel.svg" alt="author" width={24} height={24} className="rounded-full" />
         </Link>
       </p>
 
