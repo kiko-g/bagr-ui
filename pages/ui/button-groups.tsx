@@ -1,7 +1,12 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { ButtonGroupJoined, ButtonGroupJoinedVertical, ButtonGroupSimple } from "@/components/button-groups"
+import {
+  ButtonGroupJoined,
+  ButtonGroupJoinedVertical,
+  ButtonGroupSimple,
+  ButtonGroupSplit,
+} from "@/components/button-groups"
 
 export default function ButtonGroups() {
   const buttons = [
@@ -11,6 +16,11 @@ export default function ButtonGroups() {
       name: "Joined Group Vertical",
       path: "button-groups/ButtonGroupJoinedVertical.tsx",
       component: ButtonGroupJoinedVertical,
+    },
+    {
+      name: "Split",
+      path: "button-groups/ButtonGroupSplit.tsx",
+      component: ButtonGroupSplit,
     },
   ]
 

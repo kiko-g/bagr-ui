@@ -3,9 +3,9 @@ import classNames from "classnames"
 import { CheckIcon, ClipboardIcon } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { JetBrains_Mono } from "next/font/google"
+import { Inter_Tight } from "next/font/google"
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] })
+const inter = Inter_Tight({ subsets: ["latin"] })
 
 type Props = {
   route: string // api route
@@ -40,7 +40,7 @@ export function CodeShowcase({ route }: Props) {
       </svg>
     </div>
   ) : (
-    <div className={classNames(jetBrainsMono.className, "group relative rounded-xl")}>
+    <div className={classNames(inter.className, "group relative max-w-7xl overflow-x-scroll rounded-xl")}>
       {/* Controls */}
       <div className="absolute right-4 top-4 flex items-center justify-end gap-2 font-sans">
         {code === "" ? null : <CopyCodeButton text={code} />}

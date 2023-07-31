@@ -12,9 +12,9 @@ import {
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { JetBrains_Mono } from "next/font/google"
+import { Inter_Tight } from "next/font/google"
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] })
+const inter = Inter_Tight({ subsets: ["latin"] })
 
 type Props = {
   name: string
@@ -55,9 +55,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
         >
-          <span
-            className={classNames(jetBrainsMono.className, "text-left text-sm font-medium tracking-tight lg:text-base")}
-          >
+          <span className={classNames(inter.className, "text-left text-sm font-medium tracking-tight lg:text-base")}>
             {name}
           </span>
           <ChevronDownIcon className="h-5 w-5" />
