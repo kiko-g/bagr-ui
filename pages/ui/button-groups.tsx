@@ -1,12 +1,17 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { ButtonGroupJoined, ButtonGroupSimple } from "@/components/button-groups"
+import { ButtonGroupJoined, ButtonGroupJoinedVertical, ButtonGroupSimple } from "@/components/button-groups"
 
 export default function ButtonGroups() {
   const buttons = [
     { name: "Simple Group", path: "button-groups/ButtonGroupSimple.tsx", component: ButtonGroupSimple },
     { name: "Joined Group", path: "button-groups/ButtonGroupJoined.tsx", component: ButtonGroupJoined },
+    {
+      name: "Joined Group Vertical",
+      path: "button-groups/ButtonGroupJoinedVertical.tsx",
+      component: ButtonGroupJoinedVertical,
+    },
   ]
 
   const [collapseAll, setCollapseAll] = React.useState(false)

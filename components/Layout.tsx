@@ -29,7 +29,7 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
   return (
     <>
       <Seo title={location} />
-      <main className={classNames(inter.className, "flex min-h-screen w-screen flex-col")}>
+      <main className={classNames(inter.className, "mx-auto flex min-h-screen max-w-full flex-col")}>
         <Header />
         {sidebar ? (
           <div className="flex flex-1">
@@ -39,7 +39,7 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
             </article>
           </div>
         ) : (
-          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start bg-white px-6 dark:bg-gray-900 xl:px-12">
+          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-6 xl:px-12">
             {children}
           </article>
         )}
@@ -239,7 +239,7 @@ function Sidebar({ location }: { location: string }) {
     },
   ]
   return (
-    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-gray-50 p-5 dark:bg-gray-900/80 lg:flex lg:min-w-min">
+    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-opacity-80 p-5 lg:flex lg:min-w-min">
       <ul className="flex w-full flex-1 flex-col space-y-2">
         {navigations
           .filter((item) => item.shown !== false)

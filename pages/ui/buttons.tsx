@@ -9,6 +9,7 @@ import {
   ButtonScale,
   ButtonRotate,
   ButtonOutline,
+  ButtonSimpleIcon,
 } from "@/components/buttons"
 
 export default function Buttons() {
@@ -18,6 +19,11 @@ export default function Buttons() {
       name: "Simple w/ Border",
       path: "buttons/ButtonSimpleBorder.tsx",
       component: ButtonSimpleBorder,
+    },
+    {
+      name: "Simple w/ Icon",
+      path: "buttons/ButtonSimpleIcon.tsx",
+      component: ButtonSimpleIcon,
     },
     { name: "Outline", path: "buttons/ButtonOutline.tsx", component: ButtonOutline },
     { name: "Fill Animation", path: "buttons/ButtonFill.tsx", component: ButtonFill },

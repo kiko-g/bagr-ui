@@ -6,6 +6,8 @@ import {
   ChevronDownIcon,
   ClipboardIcon,
   CodeBracketIcon,
+  MoonIcon,
+  SunIcon,
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
@@ -26,6 +28,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
   const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
   const [isCodeVisible, setIsCodeVisible] = React.useState(false)
+  const [isDarkBackground, setIsDarkBackground] = React.useState(true)
 
   React.useEffect(() => {
     setIsOpen(!collapseAll)
@@ -47,8 +50,10 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
         <Disclosure.Button
           onClick={() => setIsOpen((prev) => !prev)}
           className={classNames(
-            isOpen ? "rounded-t-xl" : "rounded-xl",
-            "mx-2 flex items-center gap-x-1.5 bg-gray-800 px-4 py-2.5 text-white shadow-xl transition hover:bg-primary-900 dark:bg-secondary-900/20 dark:hover:bg-secondary-900/60",
+            isOpen
+              ? "rounded-t-xl bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
+              : "rounded-xl bg-primary/60 text-white hover:bg-primary dark:bg-secondary/20 dark:hover:bg-secondary/40",
+            "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
         >
           <span className={classNames(lexend.className, "text-left text-lg font-medium tracking-tight lg:text-lg")}>
@@ -66,13 +71,16 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="mb-8 px-2">
+          <Disclosure.Panel className="mb-8">
             <div className="group relative">
               {/* Controls */}
               <div className="absolute right-4 top-4 flex items-center justify-end gap-2">
                 {code === "" ? null : <CopyCodeButton text={code} />}
-                <ViewComponentButton isCodeVisible={isCodeVisible} action={() => setIsCodeVisible(false)} />
-                <ViewCodeButton isCodeVisible={isCodeVisible} action={() => setIsCodeVisible(true)} />
+                <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
+                {/* <ChangeBackgroundButton
+                  isDarkBackground={isDarkBackground}
+                  toggle={() => setIsDarkBackground((prev) => !prev)}
+                /> */}
               </div>
             </div>
 
@@ -105,11 +113,10 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 <div className={classNames(jetBrainsMono.className)}>
                   <SyntaxHighlighter
                     language="tsx"
-                    wrapLongLines
                     showLineNumbers
                     style={coldarkDark}
                     customStyle={{
-                      whiteSpace: "pre-wrap",
+                      backgroundColor: "#0e131f",
                       borderRadius: "0 0 0.75rem 0.75rem",
                       minHeight: "400px",
                       maxHeight: "600px",
@@ -121,7 +128,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 </div>
               )
             ) : (
-              <div className="flex w-full items-center justify-center rounded-b-xl bg-gray-700 px-8 py-24 shadow dark:bg-black/40">
+              <div className="flex w-full items-center justify-center rounded-b-xl bg-gray-100 px-8 py-24 dark:bg-black/20">
                 <Component />
               </div>
             )}
@@ -153,7 +160,7 @@ function CopyCodeButton({ text }: { text: string }) {
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-black/30 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/40 dark:hover:bg-blue-500/60",
+          : "bg-black/50 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
@@ -162,36 +169,58 @@ function CopyCodeButton({ text }: { text: string }) {
   )
 }
 
-function ViewComponentButton({ isCodeVisible, action }: { isCodeVisible: boolean; action: () => void }) {
+function ChangeViewModeButton({ isCodeVisible, toggle }: { isCodeVisible: boolean; toggle: () => void }) {
   return (
-    <button
-      onClick={action}
-      className={classNames(
-        "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
-        isCodeVisible
-          ? "bg-black/30 hover:bg-blue-600/80 dark:bg-black/40 dark:hover:bg-blue-500/60"
-          : "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80",
-      )}
-    >
-      <span className="hidden lg:inline-flex">Preview</span>
-      <ViewfinderCircleIcon className="h-4 w-4" />
-    </button>
+    <Switch checked={isCodeVisible} onChange={toggle}>
+      <span className="sr-only">Use setting</span>
+      <span
+        className={classNames(
+          "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition disabled:cursor-not-allowed",
+          isCodeVisible
+            ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
+            : "bg-black/50 hover:bg-blue-600/80 dark:bg-white/10 dark:hover:bg-blue-500/60",
+        )}
+      >
+        {isCodeVisible ? (
+          <>
+            <span className="hidden lg:inline-flex">Preview</span>
+            <ViewfinderCircleIcon className="h-4 w-4" />
+          </>
+        ) : (
+          <>
+            <span className="hidden lg:inline-flex">Code</span>
+            <CodeBracketIcon className="h-4 w-4" />
+          </>
+        )}
+      </span>
+    </Switch>
   )
 }
 
-function ViewCodeButton({ isCodeVisible, action }: { isCodeVisible: boolean; action: () => void }) {
+function ChangeBackgroundButton({ isDarkBackground, toggle }: { isDarkBackground: boolean; toggle: () => void }) {
   return (
-    <button
-      onClick={action}
-      className={classNames(
-        "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
-        isCodeVisible
-          ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
-          : "bg-black/30 hover:bg-blue-600/80 dark:bg-black/40 dark:hover:bg-blue-500/60",
-      )}
-    >
-      <span className="hidden lg:inline-flex">Code</span>
-      <CodeBracketIcon className="h-4 w-4" />
-    </button>
+    <Switch checked={isDarkBackground} onChange={toggle}>
+      <span className="sr-only">Use setting</span>
+      <span
+        className={classNames(
+          "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
+          isDarkBackground
+            ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
+            : "bg-white/90 text-gray-800 hover:opacity-80",
+        )}
+      >
+        {isDarkBackground ? (
+          <>
+            <span className="hidden lg:inline-flex">Dark</span>
+            <MoonIcon className="h-4 w-4" />
+          </>
+        ) : (
+          <>
+            <span className="hidden lg:inline-flex">Light</span>
+            <SunIcon className="h-4 w-4" />
+          </>
+        )}
+      </span>
+    </Switch>
   )
 }
