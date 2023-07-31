@@ -5,7 +5,13 @@ import Image from "next/image"
 import classNames from "classnames"
 import { Inter, Lexend } from "next/font/google"
 import { GithubIcon } from "./icons"
-import { HomeIcon, InformationCircleIcon, RectangleStackIcon, SwatchIcon } from "@heroicons/react/24/outline"
+import {
+  ChatBubbleBottomCenterIcon,
+  HomeIcon,
+  InformationCircleIcon,
+  RectangleStackIcon,
+  SwatchIcon,
+} from "@heroicons/react/24/outline"
 import { ButtonIcon } from "./icons/ButtonIcon"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -220,6 +226,12 @@ function Sidebar({ location }: { location: string }) {
       shown: false,
     },
     {
+      name: "Alerts",
+      href: "/ui/alerts",
+      icon: ChatBubbleBottomCenterIcon,
+      shown: true,
+    },
+    {
       name: "Buttons",
       href: "/ui/buttons",
       icon: ButtonIcon,
@@ -231,6 +243,7 @@ function Sidebar({ location }: { location: string }) {
       icon: SwatchIcon,
       shown: true,
     },
+
     {
       name: "CTA Sections",
       href: "/ui/ctas",
@@ -238,6 +251,7 @@ function Sidebar({ location }: { location: string }) {
       shown: true,
     },
   ]
+
   return (
     <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-opacity-80 p-5 lg:flex lg:min-w-min">
       <ul className="flex w-full flex-1 flex-col space-y-2">

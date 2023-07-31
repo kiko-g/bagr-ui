@@ -14,25 +14,25 @@ import {
 
 export default function Buttons() {
   const buttons = [
-    { name: "Simple", path: "buttons/ButtonSimple.tsx", component: ButtonSimple },
+    { name: "Simple", path: "buttons/ButtonSimple.tsx", component: <ButtonSimple /> },
     {
       name: "Simple w/ Border",
       path: "buttons/ButtonSimpleBorder.tsx",
-      component: ButtonSimpleBorder,
+      component: <ButtonSimpleBorder />,
     },
     {
       name: "Simple w/ Icon",
       path: "buttons/ButtonSimpleIcon.tsx",
-      component: ButtonSimpleIcon,
+      component: <ButtonSimpleIcon />,
     },
-    { name: "Outline", path: "buttons/ButtonOutline.tsx", component: ButtonOutline },
-    { name: "Fill Animation", path: "buttons/ButtonFill.tsx", component: ButtonFill },
-    { name: "Scale Animation", path: "buttons/ButtonScale.tsx", component: ButtonScale },
-    { name: "Rotate Animation", path: "buttons/ButtonRotate.tsx", component: ButtonRotate },
+    { name: "Outline", path: "buttons/ButtonOutline.tsx", component: <ButtonOutline /> },
+    { name: "Fill Animation", path: "buttons/ButtonFill.tsx", component: <ButtonFill /> },
+    { name: "Scale Animation", path: "buttons/ButtonScale.tsx", component: <ButtonScale /> },
+    { name: "Rotate Animation", path: "buttons/ButtonRotate.tsx", component: <ButtonRotate /> },
     {
       name: "Translate Animation",
       path: "buttons/ButtonTranslate.tsx",
-      component: ButtonTranslate,
+      component: <ButtonTranslate />,
     },
   ]
 

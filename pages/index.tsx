@@ -77,6 +77,14 @@ function Sections() {
       count: null,
       description: "A collection of diversely styled sections to appeal the user to click on them.",
     },
+    {
+      title: "Alerts",
+      link: "/ui/alerts",
+      folder: "alerts",
+      count: null,
+      description:
+        "A collection of diversely styled alert toast components to be used to display messages to the user.",
+    },
   ])
 
   React.useEffect(() => {

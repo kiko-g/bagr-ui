@@ -20,7 +20,7 @@ type Props = {
   name: string
   path: string
   collapseAll?: boolean
-  Component: React.ElementType
+  Component: React.ReactNode
 }
 
 export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
@@ -128,7 +128,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               )
             ) : (
               <div className="flex w-full items-center justify-center rounded-b-xl bg-[#eaeef4] px-8 py-24 dark:bg-black/20">
-                <Component />
+                {Component}
               </div>
             )}
           </Disclosure.Panel>
