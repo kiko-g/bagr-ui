@@ -64,6 +64,13 @@ function Sections() {
       description: "A collection of buttons with different styles and functionalities.",
     },
     {
+      title: "Button Groups",
+      link: "/ui/button-groups",
+      folder: "button-groups",
+      count: null,
+      description: "A collection of sections with multiple buttons with different styles and functionalities.",
+    },
+    {
       title: "CTA Sections",
       link: "/ui/ctas",
       folder: "ctas",

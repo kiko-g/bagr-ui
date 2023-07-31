@@ -14,7 +14,7 @@ export default function ButtonGroups() {
 
   return (
     <Layout location="Button Groups" sidebar>
-      <section className="mb-24 w-full pb-6 pt-4 lg:pb-8 lg:pt-6 xl:pb-12 xl:pt-8">
+      <section className="mb-24 w-full py-6 lg:py-8 xl:py-12">
         <h2 className="mb-4 text-xl font-semibold tracking-tighter lg:text-4xl">Button Components</h2>
 
         <div className="mb-8 flex items-center justify-end gap-x-4 border-b border-gray-200 px-2 py-2 dark:border-gray-700">

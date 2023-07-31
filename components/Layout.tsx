@@ -34,12 +34,12 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
         {sidebar ? (
           <div className="flex flex-1">
             <Sidebar location={location} />
-            <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
+            <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-6 xl:px-12">
               {children}
             </article>
           </div>
         ) : (
-          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-4 xl:px-8">
+          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start bg-white px-6 dark:bg-gray-900 xl:px-12">
             {children}
           </article>
         )}

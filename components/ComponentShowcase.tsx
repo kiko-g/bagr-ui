@@ -10,8 +10,9 @@ import {
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { JetBrains_Mono } from "next/font/google"
+import { JetBrains_Mono, Lexend } from "next/font/google"
 
+const lexend = Lexend({ subsets: ["latin"] })
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 type Props = {
@@ -46,11 +47,13 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
         <Disclosure.Button
           onClick={() => setIsOpen((prev) => !prev)}
           className={classNames(
-            isOpen ? "" : "",
-            "flex items-center gap-x-1.5 rounded px-2 py-1.5 transition hover:text-blue-600 hover:underline dark:hover:text-blue-500",
+            isOpen ? "rounded-t-xl" : "rounded-xl",
+            "mx-2 flex items-center gap-x-1.5 bg-gray-800 px-4 py-2.5 text-white shadow-xl transition hover:bg-primary-900 dark:bg-secondary-900/20 dark:hover:bg-secondary-900/60",
           )}
         >
-          <span className="text-left text-lg font-medium tracking-tighter lg:text-xl">{name}</span>
+          <span className={classNames(lexend.className, "text-left text-lg font-medium tracking-tight lg:text-lg")}>
+            {name}
+          </span>
           <ChevronDownIcon className="h-5 w-5" />
         </Disclosure.Button>
 
@@ -63,7 +66,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="mb-8 mt-2 px-2">
+          <Disclosure.Panel className="mb-8 px-2">
             <div className="group relative">
               {/* Controls */}
               <div className="absolute right-4 top-4 flex items-center justify-end gap-2">
@@ -76,7 +79,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             {/* Showcase */}
             {isCodeVisible ? (
               code === "" ? (
-                <div className="flex w-full items-center justify-center rounded bg-[#1E2937] px-8 py-24 shadow dark:bg-white/5">
+                <div className="flex w-full items-center justify-center rounded-b-xl bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
                   <svg
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -107,9 +110,10 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                     style={coldarkDark}
                     customStyle={{
                       whiteSpace: "pre-wrap",
-                      borderRadius: "0.25rem",
+                      borderRadius: "0 0 0.75rem 0.75rem",
                       minHeight: "400px",
                       maxHeight: "600px",
+                      margin: "0",
                     }}
                   >
                     {code}
@@ -117,7 +121,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 </div>
               )
             ) : (
-              <div className="flex w-full items-center justify-center rounded bg-[#1E2937] px-8 py-24 shadow dark:bg-white/5">
+              <div className="flex w-full items-center justify-center rounded-b-xl bg-gray-700 px-8 py-24 shadow dark:bg-black/40">
                 <Component />
               </div>
             )}
@@ -149,7 +153,7 @@ function CopyCodeButton({ text }: { text: string }) {
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-white/10 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/20 dark:hover:bg-blue-500/60",
+          : "bg-black/30 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/40 dark:hover:bg-blue-500/60",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
@@ -165,7 +169,7 @@ function ViewComponentButton({ isCodeVisible, action }: { isCodeVisible: boolean
       className={classNames(
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
         isCodeVisible
-          ? "bg-white/10 hover:bg-blue-600/80 dark:bg-black/20 dark:hover:bg-blue-500/60"
+          ? "bg-black/30 hover:bg-blue-600/80 dark:bg-black/40 dark:hover:bg-blue-500/60"
           : "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80",
       )}
     >
@@ -183,77 +187,11 @@ function ViewCodeButton({ isCodeVisible, action }: { isCodeVisible: boolean; act
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
         isCodeVisible
           ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
-          : "bg-white/10 hover:bg-blue-600/80 dark:bg-black/20 dark:hover:bg-blue-500/60",
+          : "bg-black/30 hover:bg-blue-600/80 dark:bg-black/40 dark:hover:bg-blue-500/60",
       )}
     >
       <span className="hidden lg:inline-flex">Code</span>
       <CodeBracketIcon className="h-4 w-4" />
     </button>
-  )
-}
-
-function ViewCodeSwitch({
-  viewCode,
-  toggle,
-  modern = true,
-}: {
-  viewCode: boolean
-  toggle: () => void
-  modern?: boolean
-}) {
-  return modern ? (
-    <Switch
-      checked={viewCode}
-      onChange={toggle}
-      className="flex items-center justify-start rounded border-4 border-gray-900/5 bg-gray-900/5 text-sm shadow-sm transition dark:border-white/5 dark:bg-white/5"
-    >
-      <span className="sr-only">Use setting</span>
-      <span
-        className={classNames(
-          "flex items-center gap-x-2 rounded-l px-3 py-2 transition",
-          viewCode
-            ? "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30"
-            : "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30",
-        )}
-      >
-        <span className="hidden lg:inline-flex">Preview</span>
-        <ViewfinderCircleIcon className="h-5 w-5" />
-      </span>
-      <span
-        className={classNames(
-          "flex items-center gap-x-2 rounded-r px-3 py-2 transition",
-          viewCode
-            ? "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30"
-            : "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30",
-        )}
-      >
-        <span className="hidden lg:inline-flex">Code</span>
-        <CodeBracketIcon className="h-5 w-5" />
-      </span>
-    </Switch>
-  ) : (
-    <Switch
-      checked={viewCode}
-      onChange={toggle}
-      className={classNames(
-        viewCode ? "bg-blue-600" : "bg-blue-600/20 dark:bg-blue-600/30",
-        "relative inline-flex h-[34px] w-[62px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent px-[1px] py-[2px] transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75",
-      )}
-    >
-      <span className="sr-only">Use setting</span>
-      <span
-        aria-hidden="true"
-        className={classNames(
-          viewCode ? "translate-x-7" : "translate-x-0",
-          "pointer-events-none flex h-7 w-7 transform items-center justify-center rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out",
-        )}
-      >
-        {viewCode ? (
-          <ViewfinderCircleIcon className="h-5 w-5 text-gray-800" />
-        ) : (
-          <CodeBracketIcon className="h-5 w-5 text-gray-800" />
-        )}
-      </span>
-    </Switch>
   )
 }
