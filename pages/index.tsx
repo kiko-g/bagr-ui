@@ -102,7 +102,7 @@ function Sections() {
   }, [sections])
 
   return (
-    <div>
+    <div className="mb-24">
       <p className="mb-4 max-w-4xl">
         Start exploring the types of components we have available and visit their individual pages where you can find
         the web components and their source code. Make sure you have our{" "}

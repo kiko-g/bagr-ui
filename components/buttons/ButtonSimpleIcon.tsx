@@ -10,7 +10,7 @@ export function ButtonSimpleIcon({}: Props) {
   return (
     <button
       onClick={myFunction}
-      className="flex items-center justify-center gap-x-1.5 rounded bg-primary-700 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary-900 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-secondary-800/25 dark:hover:bg-secondary-800"
+      className="flex items-center justify-center gap-x-2 rounded bg-primary-700 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary-900 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-secondary-800/25 dark:hover:bg-secondary-800"
     >
       <span>Hide</span>
       <svg

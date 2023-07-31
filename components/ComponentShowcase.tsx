@@ -12,9 +12,8 @@ import {
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { JetBrains_Mono, Lexend } from "next/font/google"
+import { JetBrains_Mono } from "next/font/google"
 
-const lexend = Lexend({ subsets: ["latin"] })
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 type Props = {
@@ -56,7 +55,9 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
             "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
         >
-          <span className={classNames(lexend.className, "text-left text-lg font-medium tracking-tight lg:text-lg")}>
+          <span
+            className={classNames(jetBrainsMono.className, "text-left text-sm font-medium tracking-tight lg:text-base")}
+          >
             {name}
           </span>
           <ChevronDownIcon className="h-5 w-5" />
@@ -110,7 +111,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                   </svg>
                 </div>
               ) : (
-                <div className={classNames(jetBrainsMono.className)}>
+                <div>
                   <SyntaxHighlighter
                     language="tsx"
                     showLineNumbers
@@ -128,7 +129,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 </div>
               )
             ) : (
-              <div className="flex w-full items-center justify-center rounded-b-xl bg-gray-100 px-8 py-24 dark:bg-black/20">
+              <div className="flex w-full items-center justify-center rounded-b-xl bg-[#eaeef4] px-8 py-24 dark:bg-black/20">
                 <Component />
               </div>
             )}

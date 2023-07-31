@@ -4,10 +4,4 @@ import { ReactIcon } from "./ReactIcon"
 import { ButtonIcon } from "./ButtonIcon"
 import { GithubIcon } from "./GithubIcon"
 
-export {
-  TailwindIcon,
-  TypescriptIcon,
-  ReactIcon,
-  ButtonIcon,
-  GithubIcon,
-}
+export { TailwindIcon, TypescriptIcon, ReactIcon, ButtonIcon, GithubIcon }
