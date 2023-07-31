@@ -64,7 +64,7 @@ function Sections() {
       description: "A collection of buttons with different styles and functionalities.",
     },
     {
-      title: "Call To Actions",
+      title: "CTA Sections",
       link: "/ui/ctas",
       folder: "ctas",
       count: null,
@@ -97,8 +97,8 @@ function Sections() {
   return (
     <div>
       <p className="mb-4 max-w-3xl">
-        Start exploring the types of components we have available and visit their individual pages where you can find the web
-        components and their source code.
+        Start exploring the types of components we have available and visit their individual pages where you can find
+        the web components and their source code.
       </p>
       <ul className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {sections.map(({ title, count, description, link }) => (
@@ -122,16 +122,18 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex gap-4 rounded-md bg-slate-900/5 px-6 py-6 text-white transition group-hover:bg-slate-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex gap-4 rounded-md bg-gray-900/5 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
-      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-sky-500 to-sky-700 p-[0.1875rem] shadow ring-1 ring-slate-900/10 dark:bg-gradient-to-br dark:from-sky-500 dark:to-sky-600" />
+      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-sky-500 to-sky-700 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-sky-500 dark:to-sky-600" />
 
       <div className="flex flex-col">
         <h5 className="text-sm font-bold tracking-tighter text-sky-950 group-hover:text-white dark:text-sky-500 dark:group-hover:text-sky-500 lg:text-base lg:tracking-tight">
           {title}
         </h5>
-        <p className="mt-1 text-xs text-slate-600 group-hover:text-slate-100 dark:text-slate-200 lg:text-sm">{description}</p>
-        <p className="mt-1 text-[0.7rem] font-light text-slate-500 group-hover:text-white dark:text-slate-400 dark:group-hover:text-slate-400 lg:text-xs">
+        <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
+          {description}
+        </p>
+        <p className="mt-1 text-[0.7rem] font-light text-gray-500 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
           {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
         </p>
       </div>

@@ -17,7 +17,7 @@ export function HoverDivCTA({}: Props) {
       />
 
       <div className="relative p-8">
-        <p className="text-secondary dark:text-tertiary text-sm font-bold uppercase tracking-widest text-teal-500 dark:text-rose-600">
+        <p className="dark:text-tertiary text-sm font-bold uppercase tracking-widest text-secondary text-teal-500 dark:text-rose-600">
           {presentationSectionHeader}
         </p>
         <p className="text-2xl font-bold text-white">{presentationSectionSubeader}</p>

@@ -1,7 +1,13 @@
 import React from "react"
 import classNames from "classnames"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
-import { CheckIcon, ChevronDownIcon, ClipboardIcon, CodeBracketIcon, ViewfinderCircleIcon } from "@heroicons/react/24/outline"
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ClipboardIcon,
+  CodeBracketIcon,
+  ViewfinderCircleIcon,
+} from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { JetBrains_Mono } from "next/font/google"
@@ -19,10 +25,6 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
   const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
   const [isCodeVisible, setIsCodeVisible] = React.useState(false)
-
-  function toggleCodeVisibility() {
-    setIsCodeVisible((prev) => !prev)
-  }
 
   React.useEffect(() => {
     setIsOpen(!collapseAll)
@@ -62,12 +64,13 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveTo="transform scale-95 opacity-0"
         >
           <Disclosure.Panel className="mb-8 mt-2 px-2">
-            {/* Controls */}
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <div>
-                <CopyCodeButton text="Copied Text" />
+            <div className="group relative">
+              {/* Controls */}
+              <div className="absolute right-4 top-4 flex items-center justify-end gap-2">
+                {code === "" ? null : <CopyCodeButton text={code} />}
+                <ViewComponentButton isCodeVisible={isCodeVisible} action={() => setIsCodeVisible(false)} />
+                <ViewCodeButton isCodeVisible={isCodeVisible} action={() => setIsCodeVisible(true)} />
               </div>
-              <ViewCodeSwitch viewCode={isCodeVisible} toggle={toggleCodeVisibility} modern />
             </div>
 
             {/* Showcase */}
@@ -78,9 +81,16 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    className="text-primary dark:text-secondary -ml-1 mr-3 h-12 w-12 animate-spin"
+                    className="-ml-1 mr-3 h-12 w-12 animate-spin text-primary dark:text-secondary"
                   >
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
                     <path
                       className="opacity-75"
                       fill="currentColor"
@@ -118,11 +128,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
   )
 }
 
-type CopyCodeButtonProps = {
-  text: string
-}
-
-function CopyCodeButton({ text }: CopyCodeButtonProps) {
+function CopyCodeButton({ text }: { text: string }) {
   const [isCopied, setIsCopied] = React.useState(false)
 
   const copyToClipboard = React.useCallback(() => {
@@ -140,37 +146,73 @@ function CopyCodeButton({ text }: CopyCodeButtonProps) {
       onClick={copyToClipboard}
       disabled={isCopied}
       className={classNames(
-        "flex items-center justify-start gap-1.5 rounded px-3.5 py-2.5 text-sm shadow-sm transition disabled:cursor-not-allowed",
+        "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-slate-900/5 hover:bg-blue-600/80 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/60",
+          : "bg-white/10 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/20 dark:hover:bg-blue-500/60",
       )}
     >
       <span>{isCopied ? "Copied" : "Copy"}</span>
-      {isCopied ? <CheckIcon className="h-5 w-5" /> : <ClipboardIcon className="h-5 w-5" />}
+      {isCopied ? <CheckIcon className="h-4 w-4" /> : <ClipboardIcon className="h-4 w-4" />}
     </button>
   )
 }
 
-type ViewCodeSwitchProps = {
+function ViewComponentButton({ isCodeVisible, action }: { isCodeVisible: boolean; action: () => void }) {
+  return (
+    <button
+      onClick={action}
+      className={classNames(
+        "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
+        isCodeVisible
+          ? "bg-white/10 hover:bg-blue-600/80 dark:bg-black/20 dark:hover:bg-blue-500/60"
+          : "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80",
+      )}
+    >
+      <span className="hidden lg:inline-flex">Preview</span>
+      <ViewfinderCircleIcon className="h-4 w-4" />
+    </button>
+  )
+}
+
+function ViewCodeButton({ isCodeVisible, action }: { isCodeVisible: boolean; action: () => void }) {
+  return (
+    <button
+      onClick={action}
+      className={classNames(
+        "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition hover:text-white disabled:cursor-not-allowed",
+        isCodeVisible
+          ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
+          : "bg-white/10 hover:bg-blue-600/80 dark:bg-black/20 dark:hover:bg-blue-500/60",
+      )}
+    >
+      <span className="hidden lg:inline-flex">Code</span>
+      <CodeBracketIcon className="h-4 w-4" />
+    </button>
+  )
+}
+
+function ViewCodeSwitch({
+  viewCode,
+  toggle,
+  modern = true,
+}: {
   viewCode: boolean
   toggle: () => void
   modern?: boolean
-}
-
-function ViewCodeSwitch({ viewCode, toggle, modern = true }: ViewCodeSwitchProps) {
+}) {
   return modern ? (
     <Switch
       checked={viewCode}
       onChange={toggle}
-      className="flex items-center justify-start rounded border-4 border-slate-900/5 bg-slate-900/5 text-sm shadow-sm transition dark:border-white/5 dark:bg-white/5"
+      className="flex items-center justify-start rounded border-4 border-gray-900/5 bg-gray-900/5 text-sm shadow-sm transition dark:border-white/5 dark:bg-white/5"
     >
       <span className="sr-only">Use setting</span>
       <span
         className={classNames(
           "flex items-center gap-x-2 rounded-l px-3 py-2 transition",
           viewCode
-            ? "bg-slate-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30"
+            ? "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30"
             : "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30",
         )}
       >
@@ -182,7 +224,7 @@ function ViewCodeSwitch({ viewCode, toggle, modern = true }: ViewCodeSwitchProps
           "flex items-center gap-x-2 rounded-r px-3 py-2 transition",
           viewCode
             ? "bg-blue-600/80 text-white hover:bg-blue-600/60 dark:bg-blue-500/60 dark:hover:bg-blue-500/30"
-            : "bg-slate-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30",
+            : "bg-gray-900/5 hover:bg-blue-600/50 hover:text-white dark:bg-white/5 dark:hover:bg-blue-500/30",
         )}
       >
         <span className="hidden lg:inline-flex">Code</span>
@@ -207,9 +249,9 @@ function ViewCodeSwitch({ viewCode, toggle, modern = true }: ViewCodeSwitchProps
         )}
       >
         {viewCode ? (
-          <ViewfinderCircleIcon className="h-5 w-5 text-slate-800" />
+          <ViewfinderCircleIcon className="h-5 w-5 text-gray-800" />
         ) : (
-          <CodeBracketIcon className="h-5 w-5 text-slate-800" />
+          <CodeBracketIcon className="h-5 w-5 text-gray-800" />
         )}
       </span>
     </Switch>

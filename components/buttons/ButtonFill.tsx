@@ -8,9 +8,9 @@ export function ButtonFill() {
   return (
     <button
       onClick={myFunction}
-      className="group relative flex items-center justify-center gap-x-2 rounded-sm border-2 border-pink-400 px-8 py-3 text-white disabled:cursor-not-allowed disabled:opacity-25 dark:border-rose-500 dark:text-white"
+      className="group relative flex items-center justify-center gap-x-2 rounded-sm border-2 border-primary-700 px-8 py-3 text-white disabled:cursor-not-allowed disabled:opacity-25 dark:border-secondary-900 dark:text-white"
     >
-      <span className="absolute inset-y-0 left-0 w-[4px] bg-pink-400/60 transition-all group-hover:w-full dark:bg-rose-500/40"></span>
+      <span className="absolute inset-y-0 left-0 w-[4px] bg-primary-700/60 transition-all group-hover:w-full dark:bg-secondary-800/40"></span>
       <span className="relative text-sm font-medium group-hover:text-white">Button</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
