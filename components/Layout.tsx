@@ -11,6 +11,7 @@ import {
   InformationCircleIcon,
   RectangleStackIcon,
   SwatchIcon,
+  WrenchIcon,
 } from "@heroicons/react/24/outline"
 import { ButtonIcon } from "./icons/ButtonIcon"
 
@@ -35,17 +36,17 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
   return (
     <>
       <Seo title={location} />
-      <main className={classNames(inter.className, "mx-auto flex min-h-screen max-w-full flex-col")}>
+      <main className={classNames(inter.className, "mx-auto flex min-h-screen max-w-[100vw] flex-col")}>
         <Header />
         {sidebar ? (
           <div className="flex flex-1">
             <Sidebar location={location} />
-            <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-6 xl:px-12">
+            <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:max-w-[88rem] xl:px-12">
               {children}
             </article>
           </div>
         ) : (
-          <article className="max-w-8xl flex flex-1 flex-col items-start justify-start px-6 xl:px-12">
+          <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:max-w-[88rem] xl:px-12">
             {children}
           </article>
         )}
@@ -212,7 +213,7 @@ function Header() {
 }
 
 function Sidebar({ location }: { location: string }) {
-  const navigations = [
+  const generalNavigations = [
     {
       name: "Home",
       href: "/",
@@ -220,11 +221,14 @@ function Sidebar({ location }: { location: string }) {
       shown: true,
     },
     {
-      name: "About",
-      href: "/about",
-      icon: InformationCircleIcon,
-      shown: false,
+      name: "Config",
+      href: "/config",
+      icon: WrenchIcon,
+      shown: true,
     },
+  ]
+
+  const componentNavigations = [
     {
       name: "Alerts",
       href: "/ui/alerts",
@@ -254,31 +258,70 @@ function Sidebar({ location }: { location: string }) {
 
   return (
     <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-opacity-80 p-5 lg:flex lg:min-w-min">
-      <ul className="flex w-full flex-1 flex-col space-y-2">
-        {navigations
+      <ul className="flex w-full flex-col space-y-2 border-b pb-4">
+        {generalNavigations
           .filter((item) => item.shown !== false)
           .map((item, itemIdx) => {
             const isActive = location.toLowerCase() === item.name.toLowerCase()
             return (
               <li key={`nav-${itemIdx}`}>
-                <Link
-                  title={item.name}
+                <SidebarItem
+                  name={item.name}
                   href={item.href}
-                  className={classNames(
-                    isActive
-                      ? "bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
-                      : "hover:bg-primary/10 dark:hover:bg-secondary/30",
-                    "flex cursor-pointer items-center justify-center gap-2 rounded py-3 pl-3 pr-3 text-sm transition ease-in-out xl:justify-start xl:pr-10",
-                  )}
-                >
-                  <item.icon className="h-5 w-5" />
-                  <span className="hidden xl:block">{item.name}</span>
-                </Link>
+                  isActive={isActive}
+                  icon={<item.icon className="h-5 w-5" />}
+                />
+              </li>
+            )
+          })}
+      </ul>
+
+      <ul className="flex w-full flex-col space-y-2 pb-4">
+        {componentNavigations
+          .filter((item) => item.shown !== false)
+          .map((item, itemIdx) => {
+            const isActive = location.toLowerCase() === item.name.toLowerCase()
+            return (
+              <li key={`nav-${itemIdx}`}>
+                <SidebarItem
+                  name={item.name}
+                  href={item.href}
+                  isActive={isActive}
+                  icon={<item.icon className="h-5 w-5" />}
+                />
               </li>
             )
           })}
       </ul>
     </aside>
+  )
+}
+
+function SidebarItem({
+  name,
+  href,
+  isActive,
+  icon,
+}: {
+  name: string
+  href: string
+  isActive: boolean
+  icon: React.ReactNode
+}) {
+  return (
+    <Link
+      title={name}
+      href={href}
+      className={classNames(
+        isActive
+          ? "bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
+          : "hover:bg-primary/10 dark:hover:bg-secondary/30",
+        "flex cursor-pointer items-center justify-center gap-2 rounded py-3 pl-3 pr-3 text-sm transition ease-in-out xl:justify-start xl:pr-10",
+      )}
+    >
+      {icon}
+      <span className="hidden xl:block">{name}</span>
+    </Link>
   )
 }
 

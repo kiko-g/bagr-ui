@@ -9,9 +9,10 @@ const inter = Inter_Tight({ subsets: ["latin"] })
 
 type Props = {
   route: string // api route
+  language: string
 }
 
-export function CodeShowcase({ route }: Props) {
+export function CodeShowcaseFromAPI({ route, language }: Props) {
   const [code, setCode] = React.useState<string>("")
 
   React.useEffect(() => {
@@ -47,7 +48,7 @@ export function CodeShowcase({ route }: Props) {
       </div>
 
       <SyntaxHighlighter
-        language="tsx"
+        language={language}
         showLineNumbers
         style={coldarkDark}
         customStyle={{
@@ -85,10 +86,10 @@ function CopyCodeButton({ text }: { text: string }) {
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-black/50 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
+          : "bg-white/20 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >
-      <span>{isCopied ? "Copied" : "Copy"}</span>
+      <span className="hidden xl:flex">{isCopied ? "Copied" : "Copy"}</span>
       {isCopied ? <CheckIcon className="h-4 w-4" /> : <ClipboardIcon className="h-4 w-4" />}
     </button>
   )

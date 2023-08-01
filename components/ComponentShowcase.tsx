@@ -162,7 +162,7 @@ function CopyCodeButton({ text }: { text: string }) {
           : "bg-black/50 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >
-      <span>{isCopied ? "Copied" : "Copy"}</span>
+      <span className="hidden xl:flex">{isCopied ? "Copied" : "Copy"}</span>
       {isCopied ? <CheckIcon className="h-4 w-4" /> : <ClipboardIcon className="h-4 w-4" />}
     </button>
   )

@@ -9,7 +9,7 @@ const lexend = Lexend({ subsets: ["latin"] })
 
 export default function Home() {
   return (
-    <Layout location="Home">
+    <Layout location="Home" sidebar>
       <Hero />
       <Sections />
     </Layout>
@@ -123,7 +123,7 @@ function Sections() {
         configuration contents similar to yours, otherwise the components styles might not work as expected in your
         project.
       </p>
-      <ul className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-6">
         {sections.map(({ title, count, description, link }) => (
           <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
             <SectionCard title={title} count={count} description={description} link={link} />
@@ -145,7 +145,7 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex gap-4 rounded-md bg-gray-900/5 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex flex-1 gap-4 rounded-md bg-gray-900/5 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
       <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-sky-500 to-sky-700 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-sky-500 dark:to-sky-600" />
 
