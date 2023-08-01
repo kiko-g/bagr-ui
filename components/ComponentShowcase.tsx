@@ -127,7 +127,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 </div>
               )
             ) : (
-              <div className="flex w-full items-center justify-center rounded-b-xl bg-[#eaeef4] px-8 py-24 dark:bg-black/20">
+              <div className="flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20">
                 {Component}
               </div>
             )}

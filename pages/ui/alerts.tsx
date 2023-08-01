@@ -15,7 +15,7 @@ export default function Alerts() {
       name: "Simple",
       path: "alerts/AlertSimple.tsx",
       component: (
-        <div className="flex max-w-md flex-col items-center gap-3">
+        <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
           <AlertSimple
             type="info"
             headline="Information"
@@ -43,7 +43,7 @@ export default function Alerts() {
       name: "Simple w/ Children",
       path: "alerts/AlertSimple.tsx",
       component: (
-        <div className="flex max-w-md flex-col items-center gap-3">
+        <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
           <AlertSimpleChildren type="info" headline="Information">
             <ul className="mt-1 list-inside list-disc">
               <li>Fact 1</li>
@@ -79,7 +79,7 @@ export default function Alerts() {
       name: "Icon and Closeable",
       path: "alerts/AlertCloseable.tsx",
       component: (
-        <div className="flex max-w-xl flex-col items-center gap-3">
+        <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
           <AlertCloseableIcon type="info" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
           <AlertCloseableIcon type="success" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
           <AlertCloseableIcon type="warning" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
@@ -91,7 +91,7 @@ export default function Alerts() {
       name: "Headline, Icon and Closeable w/ Children",
       path: "alerts/AlertCloseable.tsx",
       component: (
-        <div className="flex max-w-xl flex-col items-center gap-3">
+        <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
           <AlertCloseableIconHeadlineChildren type="info" headline="Information">
             <ul className="mt-1 list-inside list-disc">
               <li>Fact 1</li>

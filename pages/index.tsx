@@ -61,22 +61,21 @@ function Sections() {
       link: "/ui/alerts",
       folder: "alerts",
       count: null,
-      description:
-        "A collection of diversely styled alert toast components to be used to display messages to the user. Customizable with different icons, colors, and actions.",
+      description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     },
     {
       title: "Buttons",
       link: "/ui/buttons",
       folder: "buttons",
       count: null,
-      description: "A collection of buttons with different styles and functionalities.",
+      description: "A collection of button components with different styles, animations and purposes.",
     },
     {
       title: "Button Groups",
       link: "/ui/button-groups",
       folder: "button-groups",
       count: null,
-      description: "A collection of sections with multiple buttons with different styles and functionalities.",
+      description: "A collection of sections with multiple buttons with different layouts and functionalities.",
     },
     {
       title: "CTA Sections",
@@ -91,7 +90,7 @@ function Sections() {
       folder: "switches",
       count: null,
       description:
-        "A collection of customized switches with different styles and functionalities. They can be used to toggle between two states.",
+        "A collection of customized switches with different styles and purposes. Switches are used to toggle between two states.",
     },
   ])
 
@@ -152,7 +151,7 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex flex-1 gap-4 rounded-md bg-gray-900/5 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex flex-1 gap-4 rounded-md bg-slate-150 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
       <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-primary-500 to-primary-900 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-secondary-500 dark:to-secondary-900" />
 
@@ -160,11 +159,11 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
         <h5 className="text-sm font-bold tracking-tighter text-primary-900 group-hover:text-white dark:text-secondary dark:group-hover:text-secondary lg:text-base lg:tracking-tight">
           {title}
         </h5>
-        <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
-          {description}
-        </p>
-        <p className="mt-1 text-[0.7rem] font-light text-gray-500 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
+        <p className="mt-0.5 text-[0.7rem] font-medium text-slate-800 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
           {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
+        </p>
+        <p className="mt-1.5 text-xs text-slate-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
+          {description}
         </p>
       </div>
     </Link>
