@@ -57,6 +57,14 @@ type Section = {
 function Sections() {
   const [sections, setSections] = React.useState<Section[]>([
     {
+      title: "Alerts",
+      link: "/ui/alerts",
+      folder: "alerts",
+      count: null,
+      description:
+        "A collection of diversely styled alert toast components to be used to display messages to the user. Customizable with different icons, colors, and actions.",
+    },
+    {
       title: "Buttons",
       link: "/ui/buttons",
       folder: "buttons",
@@ -78,12 +86,12 @@ function Sections() {
       description: "A collection of diversely styled sections to appeal the user to click on them.",
     },
     {
-      title: "Alerts",
-      link: "/ui/alerts",
-      folder: "alerts",
+      title: "Switches",
+      link: "/ui/switches",
+      folder: "switches",
       count: null,
       description:
-        "A collection of diversely styled alert toast components to be used to display messages to the user.",
+        "A collection of customized switches with different styles and functionalities. They can be used to toggle between two states.",
     },
   ])
 
@@ -147,10 +155,10 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
       href={link}
       className="flex flex-1 gap-4 rounded-md bg-gray-900/5 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
-      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-sky-500 to-sky-700 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-sky-500 dark:to-sky-600" />
+      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-primary-500 to-primary-900 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-secondary-500 dark:to-secondary-900" />
 
       <div className="flex flex-col">
-        <h5 className="text-sm font-bold tracking-tighter text-sky-950 group-hover:text-white dark:text-sky-500 dark:group-hover:text-sky-500 lg:text-base lg:tracking-tight">
+        <h5 className="text-sm font-bold tracking-tighter text-primary-900 group-hover:text-white dark:text-secondary dark:group-hover:text-secondary lg:text-base lg:tracking-tight">
           {title}
         </h5>
         <p className="mt-1 text-xs text-gray-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
