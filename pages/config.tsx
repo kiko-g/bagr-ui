@@ -2,6 +2,7 @@ import React from "react"
 import { Layout } from "@/components/Layout"
 import { CodeShowcaseFromAPI } from "../components/CodeShowcaseFromAPI"
 import { CodeShowcaseDirect } from "@/components/CodeShowcaseDirect"
+import Link from "next/link"
 
 export default function Config() {
   const npmPackages = [
@@ -33,6 +34,26 @@ export default function Config() {
           This page covers the configuration of the tech stack, packages and tools used so that you can use our
           components to there full potential.
         </p>
+      </section>
+
+      <section className="w-full border-b pb-2 pt-4 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
+        <h2 className="mb-3 text-lg font-semibold tracking-tighter lg:text-3xl">Getting Started</h2>
+        <p className="mb-3 max-w-5xl">
+          A good starting point for this tech stack is to use Next.js, which is very popular and uses React, TypeScript
+          and Tailwind CSS by default. We advise you to try it and you can{" "}
+          <Link
+            target="_blank"
+            href="https://nextjs.org/docs"
+            className="font-bold underline hover:text-primary-900 hover:opacity-80 dark:hover:text-secondary"
+          >
+            get started with the framework here
+          </Link>
+          .
+        </p>
+        <div className="py-6">
+          <p className="mb-2">Here is a nice TLDR of the installation to get you started:</p>
+          <CodeShowcaseDirect code="npx create-next-app@latest" language="bash" />
+        </div>
       </section>
 
       <section className="w-full border-b pb-2 pt-4 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">

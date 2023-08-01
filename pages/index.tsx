@@ -121,15 +121,14 @@ function Sections() {
     <div className="mb-24">
       <p className="mb-4 max-w-4xl">
         Start exploring the types of components we have available and visit their individual pages where you can find
-        the web components and their source code. Make sure you have our{" "}
+        the web components and their source code. Make sure you have checked out the{" "}
         <Link
-          href="/tailwind"
+          href="/config"
           className="font-bold underline hover:text-primary-900 hover:opacity-80 dark:hover:text-secondary"
         >
-          <code>tailwind.config.js</code>
+          <code>configuration</code>
         </Link>{" "}
-        configuration contents similar to yours, otherwise the components styles might not work as expected in your
-        project.
+        page. Your setup should be similar, otherwise some components might not work as expected in your project.
       </p>
       <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-6">
         {sections.map(({ title, count, description, link }) => (
