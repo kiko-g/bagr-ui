@@ -2,16 +2,16 @@ import React from "react"
 import classNames from "classnames" // npm i classnames
 
 type Props = {
-  text: string
   headline: string
+  children?: React.ReactNode
   type: "success" | "info" | "warning" | "error"
 }
 
-export function AlertSimple({ text, headline, type = "info" }: Props) {
+export function AlertSimpleChildren({ headline, children, type = "info" }: Props) {
   return (
     <div
       className={classNames(
-        "flex flex-col rounded border-l-4 px-4 py-4",
+        "flex w-full min-w-[20rem] flex-col rounded border-l-4 px-4 py-4",
         type === "info" ? "border-sky-600 bg-sky-50 dark:bg-sky-600/20" : "",
         type === "error" ? "border-rose-600 bg-rose-50 dark:bg-rose-600/20" : "",
         type === "warning" ? "border-amber-600 bg-amber-50 dark:bg-amber-600/20" : "",
@@ -29,7 +29,7 @@ export function AlertSimple({ text, headline, type = "info" }: Props) {
       >
         {headline}
       </h4>
-      <p
+      <div
         className={classNames(
           "text-sm font-normal",
           type === "info" ? "text-sky-600 dark:text-sky-50" : "",
@@ -38,8 +38,8 @@ export function AlertSimple({ text, headline, type = "info" }: Props) {
           type === "success" ? "text-emerald-600 dark:text-emerald-50" : "",
         )}
       >
-        {text}
-      </p>
+        {children}
+      </div>
     </div>
   )
 }

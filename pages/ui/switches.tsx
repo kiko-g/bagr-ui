@@ -1,11 +1,14 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { SwitchSimple } from "@/components/switches"
+import { SwitchDarkMode, SwitchSimple } from "@/components/switches"
 
 export default function Switches() {
   const [collapseAll, setCollapseAll] = React.useState(false)
-  const components = [{ name: "Simple", path: "switches/SwitchSimple.tsx", component: <SwitchSimple /> }]
+  const components = [
+    { name: "Simple", path: "switches/SwitchSimple.tsx", component: <SwitchSimple /> },
+    { name: "Dark Mode", path: "switches/SwitchDarkMode.tsx", component: <SwitchDarkMode /> },
+  ]
 
   return (
     <Layout location="Switches" sidebar>

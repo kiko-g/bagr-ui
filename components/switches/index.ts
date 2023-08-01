@@ -1,3 +1,4 @@
+import { SwitchDarkMode } from "./SwitchDarkMode"
 import { SwitchSimple } from "./SwitchSimple"
 
-export { SwitchSimple }
+export { SwitchDarkMode, SwitchSimple }

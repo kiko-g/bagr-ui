@@ -1,7 +1,12 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
-import { AlertSimple } from "@/components/alerts"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
+import {
+  AlertSimple,
+  AlertCloseableIcon,
+  AlertSimpleChildren,
+  AlertCloseableIconHeadlineChildren,
+} from "@/components/alerts"
 
 export default function Alerts() {
   const [collapseAll, setCollapseAll] = React.useState(false)
@@ -11,10 +16,110 @@ export default function Alerts() {
       path: "alerts/AlertSimple.tsx",
       component: (
         <div className="flex max-w-md flex-col items-center gap-3">
-          <AlertSimple type="info" headline="Information" />
-          <AlertSimple type="success" headline="Success" />
-          <AlertSimple type="warning" headline="Warning" />
-          <AlertSimple type="error" headline="Something went wrong" />
+          <AlertSimple
+            type="info"
+            headline="Information"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
+          />
+          <AlertSimple
+            type="success"
+            headline="Success"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
+          />
+          <AlertSimple
+            type="warning"
+            headline="Warning"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
+          />
+          <AlertSimple
+            type="error"
+            headline="Something went wrong"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
+          />
+        </div>
+      ),
+    },
+    {
+      name: "Simple w/ Children",
+      path: "alerts/AlertSimple.tsx",
+      component: (
+        <div className="flex max-w-md flex-col items-center gap-3">
+          <AlertSimpleChildren type="info" headline="Information">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertSimpleChildren>
+          <AlertSimpleChildren type="success" headline="Success">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertSimpleChildren>
+          <AlertSimpleChildren type="warning" headline="Warning">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertSimpleChildren>
+          <AlertSimpleChildren type="error" headline="Error">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertSimpleChildren>
+        </div>
+      ),
+    },
+    {
+      name: "Icon and Closeable",
+      path: "alerts/AlertCloseable.tsx",
+      component: (
+        <div className="flex max-w-xl flex-col items-center gap-3">
+          <AlertCloseableIcon type="info" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <AlertCloseableIcon type="success" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <AlertCloseableIcon type="warning" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <AlertCloseableIcon type="error" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+        </div>
+      ),
+    },
+    {
+      name: "Headline, Icon and Closeable w/ Children",
+      path: "alerts/AlertCloseable.tsx",
+      component: (
+        <div className="flex max-w-xl flex-col items-center gap-3">
+          <AlertCloseableIconHeadlineChildren type="info" headline="Information">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertCloseableIconHeadlineChildren>
+          <AlertCloseableIconHeadlineChildren type="success" headline="Success">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertCloseableIconHeadlineChildren>
+          <AlertCloseableIconHeadlineChildren type="warning" headline="Warning">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertCloseableIconHeadlineChildren>
+          <AlertCloseableIconHeadlineChildren type="error" headline="Error">
+            <ul className="mt-1 list-inside list-disc">
+              <li>Fact 1</li>
+              <li>Fact 2</li>
+              <li>Fact 3</li>
+            </ul>
+          </AlertCloseableIconHeadlineChildren>
         </div>
       ),
     },
