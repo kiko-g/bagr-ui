@@ -1,6 +1,6 @@
-import React, { SVGProps } from "react"
+import React from "react"
 
-export function TailwindIcon(props: SVGProps<SVGSVGElement>) {
+export function TailwindIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 50 30" {...props}>
       <path

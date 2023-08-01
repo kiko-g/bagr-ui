@@ -1,6 +1,6 @@
-import React, { SVGProps } from "react"
+import React from "react"
 
-export function TypescriptIcon(props: SVGProps<SVGSVGElement>) {
+export function TypescriptIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path

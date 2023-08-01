@@ -1,10 +1,3 @@
-import React from "react"
-import Head from "next/head"
-import Link from "next/link"
-import Image from "next/image"
-import classNames from "classnames"
-import { Inter, Lexend } from "next/font/google"
-import { GithubIcon, SwitchIcon } from "./icons"
 import {
   FlagIcon,
   HomeIcon,
@@ -13,6 +6,13 @@ import {
   SwatchIcon,
   WrenchIcon,
 } from "@heroicons/react/24/outline"
+import classNames from "classnames"
+import { Inter, Lexend } from "next/font/google"
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
+import { GithubIcon, SidebarIcon, SwitchIcon } from "./icons"
 import { ButtonIcon } from "./icons/ButtonIcon"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -20,9 +20,16 @@ const lexend = Lexend({ subsets: ["latin"] })
 
 const links = [
   {
+    label: "Francisco Gonçalves",
+    href: "https://github.com/kiko-g",
+    content: <Image src="/profile.svg" alt="author" width={24} height={24} className="rounded-full" />,
+    shown: false,
+  },
+  {
     label: "Github Repository",
     href: "https://github.com/kiko-g/bagr-ui",
-    icon: <GithubIcon className="h-5 w-5" />,
+    content: <GithubIcon className="h-5 w-5" />,
+    shown: true,
   },
 ]
 
@@ -66,11 +73,16 @@ const componentNavigations = [
     icon: SwatchIcon,
     shown: true,
   },
-
   {
     name: "CTA Sections",
     href: "/ui/ctas",
     icon: RectangleStackIcon,
+    shown: true,
+  },
+  {
+    name: "Sidebars",
+    href: "/ui/sidebars",
+    icon: SidebarIcon,
     shown: true,
   },
   {
@@ -251,15 +263,19 @@ function Header() {
 
         {/* Links */}
         <ul className="flex items-center justify-center gap-1 lg:gap-3">
-          {links.map(({ href, label, icon }) => (
-            <li
-              key={`${href}${label}`}
-              className="text-gray-400 transition hover:text-gray-500 dark:text-gray-400 dark:hover:opacity-80"
-            >
-              <span className="sr-only">{label}</span>
-              <Link href={href}>{icon}</Link>
-            </li>
-          ))}
+          {links
+            .filter(({ shown }) => shown === true)
+            .map(({ href, label, content }) => (
+              <li
+                key={`${href}${label}`}
+                className="text-gray-800 opacity-50 transition hover:opacity-100 dark:text-gray-300"
+              >
+                <span className="sr-only">{label}</span>
+                <Link href={href} target="_blank">
+                  {content}
+                </Link>
+              </li>
+            ))}
           <DarkModeSwitch />
         </ul>
       </div>
