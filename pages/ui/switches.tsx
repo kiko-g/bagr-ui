@@ -1,17 +1,14 @@
 import React from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "../../components/ComponentShowcase"
-import { BlurredCTA, HoverDivCTA } from "@/components/ctas"
+import { SwitchSimple } from "@/components/switches"
 
-export default function CTAs() {
+export default function Switches() {
   const [collapseAll, setCollapseAll] = React.useState(false)
-  const components = [
-    { name: "Blurred", path: "ctas/BlurredCTA.tsx", component: <BlurredCTA /> },
-    { name: "Div Pop on Hover", path: "ctas/HoverDivCTA.tsx", component: <HoverDivCTA /> },
-  ]
+  const components = [{ name: "Simple", path: "switches/SwitchSimple.tsx", component: <SwitchSimple /> }]
 
   return (
-    <Layout location="CTA Sections" sidebar>
+    <Layout location="Switches" sidebar>
       <section className="mb-24 w-full py-6 lg:py-8 xl:py-12">
         <h2 className="mb-4 text-xl font-semibold tracking-tighter lg:text-4xl">CTA Section Components</h2>
 

@@ -159,7 +159,7 @@ function CopyCodeButton({ text }: { text: string }) {
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-black/50 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
+          : "bg-slate-700 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >
       <span className="hidden xl:flex">{isCopied ? "Copied" : "Copy"}</span>
@@ -177,7 +177,7 @@ function ChangeViewModeButton({ isCodeVisible, toggle }: { isCodeVisible: boolea
           "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition disabled:cursor-not-allowed",
           isCodeVisible
             ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
-            : "bg-black/50 hover:bg-blue-600/80 dark:bg-white/10 dark:hover:bg-blue-500/60",
+            : "bg-slate-700 hover:bg-blue-600/80 dark:bg-white/10 dark:hover:bg-blue-500/60",
         )}
       >
         {isCodeVisible ? (

@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import classNames from "classnames"
 import { Inter, Lexend } from "next/font/google"
-import { GithubIcon } from "./icons"
+import { GithubIcon, SwitchIcon } from "./icons"
 import {
   ChatBubbleBottomCenterIcon,
   HomeIcon,
@@ -252,6 +252,12 @@ function Sidebar({ location }: { location: string }) {
       name: "CTA Sections",
       href: "/ui/ctas",
       icon: RectangleStackIcon,
+      shown: true,
+    },
+    {
+      name: "Switches",
+      href: "/ui/switches",
+      icon: SwitchIcon,
       shown: true,
     },
   ]

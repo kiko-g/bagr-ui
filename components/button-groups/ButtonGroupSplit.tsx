@@ -13,12 +13,12 @@ export function ButtonGroupSplit({}: Props) {
     <div className="relative flex items-center justify-center text-sm font-medium shadow">
       <button
         onClick={myFunction}
-        className="rounded-l bg-amber-600 px-3.5 py-2.5 text-white transition hover:bg-amber-700 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-amber-600/60 dark:hover:bg-amber-600"
+        className="rounded-l bg-indigo-500 px-3.5 py-2.5 text-white transition hover:bg-indigo-700 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-indigo-500/60 dark:hover:bg-indigo-500"
       >
         Button A
       </button>
       <Menu>
-        <Menu.Button className="h-full flex-1 self-stretch rounded-r bg-amber-600 px-2 py-2.5 text-white transition hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-25 dark:bg-amber-600/60 dark:hover:bg-amber-600">
+        <Menu.Button className="h-full flex-1 self-stretch rounded-r bg-indigo-500 px-2 py-2.5 text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-25 dark:bg-indigo-500/60 dark:hover:bg-indigo-500">
           <ChevronDownIcon className="h-5 w-5" />
         </Menu.Button>
 
@@ -26,7 +26,9 @@ export function ButtonGroupSplit({}: Props) {
           <Menu.Item>
             {({ active }) => (
               <button
-                className={`flex items-center gap-2 rounded-t px-2 py-2 text-xs ${active && "bg-amber-500 text-white"}`}
+                className={`flex items-center gap-2 rounded-t px-2 py-2 text-xs ${
+                  active && "bg-indigo-500 text-white"
+                }`}
               >
                 <BuildingOfficeIcon className="h-4 w-4" />
                 <span>Option 1</span>
@@ -35,7 +37,7 @@ export function ButtonGroupSplit({}: Props) {
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
-              <button className={`flex items-center gap-2 px-2 py-2 text-xs  ${active && "bg-amber-500 text-white"}`}>
+              <button className={`flex items-center gap-2 px-2 py-2 text-xs  ${active && "bg-indigo-500 text-white"}`}>
                 <CpuChipIcon className="h-4 w-4" />
                 <span>Option 2</span>
               </button>
@@ -44,7 +46,9 @@ export function ButtonGroupSplit({}: Props) {
           <Menu.Item>
             {({ active }) => (
               <button
-                className={`flex items-center gap-2 rounded-b px-2 py-2 text-xs ${active && "bg-amber-500 text-white"}`}
+                className={`flex items-center gap-2 rounded-b px-2 py-2 text-xs ${
+                  active && "bg-indigo-500 text-white"
+                }`}
               >
                 <ChartBarIcon className="h-4 w-4" />
                 <span>Option 3</span>
