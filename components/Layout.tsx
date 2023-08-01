@@ -80,6 +80,12 @@ const componentNavigations = [
     shown: true,
   },
   {
+    name: "Navbars",
+    href: "/ui/navbars",
+    icon: SidebarIcon,
+    shown: true,
+  },
+  {
     name: "Sidebars",
     href: "/ui/sidebars",
     icon: SidebarIcon,

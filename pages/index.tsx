@@ -92,6 +92,13 @@ function Sections() {
       description: "Diversely styled sections to appeal the user to click on them.",
     },
     {
+      title: "Navbars",
+      link: "/ui/navbars",
+      folder: "navbars",
+      count: null,
+      description: "Customizable and expansible top menu components.",
+    },
+    {
       title: "Sidebars",
       link: "/ui/sidebars",
       folder: "sidebars",
