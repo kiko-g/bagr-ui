@@ -64,33 +64,39 @@ function Sections() {
       description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     },
     {
+      title: "Badges",
+      link: "/ui/badges",
+      folder: "badges",
+      count: null,
+      description: "Small badges for signaling short pieces of information.",
+    },
+    {
       title: "Buttons",
       link: "/ui/buttons",
       folder: "buttons",
       count: null,
-      description: "A collection of button components with different styles, animations and purposes.",
+      description: "Button components with different styles, animations and purposes.",
     },
     {
       title: "Button Groups",
       link: "/ui/button-groups",
       folder: "button-groups",
       count: null,
-      description: "A collection of sections with multiple buttons with different layouts and functionalities.",
+      description: "Sections with multiple buttons with different layouts and functionalities.",
     },
     {
       title: "CTA Sections",
       link: "/ui/ctas",
       folder: "ctas",
       count: null,
-      description: "A collection of diversely styled sections to appeal the user to click on them.",
+      description: "Diversely styled sections to appeal the user to click on them.",
     },
     {
       title: "Switches",
       link: "/ui/switches",
       folder: "switches",
       count: null,
-      description:
-        "A collection of customized switches with different styles and purposes. Switches are used to toggle between two states.",
+      description: "Toggle between two states with our customized switches with different styles and purposes.",
     },
   ])
 

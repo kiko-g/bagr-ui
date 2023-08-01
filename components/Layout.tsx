@@ -6,9 +6,9 @@ import classNames from "classnames"
 import { Inter, Lexend } from "next/font/google"
 import { GithubIcon, SwitchIcon } from "./icons"
 import {
-  ChatBubbleBottomCenterIcon,
+  FlagIcon,
   HomeIcon,
-  InformationCircleIcon,
+  MegaphoneIcon,
   RectangleStackIcon,
   SwatchIcon,
   WrenchIcon,
@@ -23,6 +23,61 @@ const links = [
     label: "Github Repository",
     href: "https://github.com/kiko-g/bagr-ui",
     icon: <GithubIcon className="h-5 w-5" />,
+  },
+]
+
+const generalNavigations = [
+  {
+    name: "Home",
+    href: "/",
+    icon: HomeIcon,
+    shown: true,
+  },
+  {
+    name: "Config",
+    href: "/config",
+    icon: WrenchIcon,
+    shown: true,
+  },
+]
+
+const componentNavigations = [
+  {
+    name: "Alerts",
+    href: "/ui/alerts",
+    icon: MegaphoneIcon,
+    shown: true,
+  },
+  {
+    name: "Badges",
+    href: "/ui/badges",
+    icon: FlagIcon,
+    shown: true,
+  },
+  {
+    name: "Buttons",
+    href: "/ui/buttons",
+    icon: ButtonIcon,
+    shown: true,
+  },
+  {
+    name: "Button Groups",
+    href: "/ui/button-groups",
+    icon: SwatchIcon,
+    shown: true,
+  },
+
+  {
+    name: "CTA Sections",
+    href: "/ui/ctas",
+    icon: RectangleStackIcon,
+    shown: true,
+  },
+  {
+    name: "Switches",
+    href: "/ui/switches",
+    icon: SwitchIcon,
+    shown: true,
   },
 ]
 
@@ -213,55 +268,6 @@ function Header() {
 }
 
 function Sidebar({ location }: { location: string }) {
-  const generalNavigations = [
-    {
-      name: "Home",
-      href: "/",
-      icon: HomeIcon,
-      shown: true,
-    },
-    {
-      name: "Config",
-      href: "/config",
-      icon: WrenchIcon,
-      shown: true,
-    },
-  ]
-
-  const componentNavigations = [
-    {
-      name: "Alerts",
-      href: "/ui/alerts",
-      icon: ChatBubbleBottomCenterIcon,
-      shown: true,
-    },
-    {
-      name: "Buttons",
-      href: "/ui/buttons",
-      icon: ButtonIcon,
-      shown: true,
-    },
-    {
-      name: "Button Groups",
-      href: "/ui/button-groups",
-      icon: SwatchIcon,
-      shown: true,
-    },
-
-    {
-      name: "CTA Sections",
-      href: "/ui/ctas",
-      icon: RectangleStackIcon,
-      shown: true,
-    },
-    {
-      name: "Switches",
-      href: "/ui/switches",
-      icon: SwitchIcon,
-      shown: true,
-    },
-  ]
-
   return (
     <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-opacity-80 p-5 lg:flex lg:min-w-min">
       <ul className="flex w-full flex-col space-y-2 border-b pb-4">
