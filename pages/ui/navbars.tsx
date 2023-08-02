@@ -6,7 +6,13 @@ export default function Navbars() {
   return (
     <ComponentTypePage
       title="Navbars"
-      components={[{ name: "Simple", path: "ctas/NavbarSimple.tsx", component: <NavbarSimple location="Home" /> }]}
+      components={[
+        {
+          name: "Simple",
+          path: "navbars/NavbarSimple.tsx",
+          component: <NavbarSimple location="Home" />,
+        },
+      ]}
     />
   )
 }
