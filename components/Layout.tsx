@@ -13,7 +13,7 @@ import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
-import { GithubIcon, SidebarIcon, SwitchIcon } from "./icons"
+import { GithubIcon, LoadingIcon, SidebarIcon, SwitchIcon } from "./icons"
 import { ButtonIcon } from "./icons/ButtonIcon"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -78,6 +78,12 @@ const componentNavigations = [
     name: "CTA Sections",
     href: "/ui/ctas",
     icon: RectangleStackIcon,
+    shown: true,
+  },
+  {
+    name: "Loading",
+    href: "/ui/loading",
+    icon: LoadingIcon,
     shown: true,
   },
   {

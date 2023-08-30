@@ -92,6 +92,13 @@ function Sections() {
       description: "Diversely styled sections to appeal the user to click on them.",
     },
     {
+      title: "Loading",
+      link: "/ui/loading",
+      folder: "loading",
+      count: null,
+      description: "Components for informing the user that data is loading.",
+    },
+    {
       title: "Navbars",
       link: "/ui/navbars",
       folder: "navbars",
