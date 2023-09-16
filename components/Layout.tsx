@@ -1,5 +1,6 @@
 import {
   Bars3Icon,
+  EyeDropperIcon,
   FlagIcon,
   HomeIcon,
   MegaphoneIcon,
@@ -90,6 +91,12 @@ const componentNavigations = [
     name: "Navbars",
     href: "/ui/navbars",
     icon: Bars3Icon,
+    shown: true,
+  },
+  {
+    name: "Selects",
+    href: "/ui/selects",
+    icon: EyeDropperIcon,
     shown: true,
   },
   {

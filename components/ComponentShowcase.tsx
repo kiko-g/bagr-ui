@@ -13,6 +13,7 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Inter_Tight } from "next/font/google"
+import { atomDark, nord } from "react-syntax-highlighter/dist/esm/styles/prism"
 
 const inter = Inter_Tight({ subsets: ["latin"] })
 
@@ -113,9 +114,9 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                   <SyntaxHighlighter
                     language="tsx"
                     showLineNumbers
-                    style={coldarkDark}
+                    style={nord}
                     customStyle={{
-                      backgroundColor: "#0e131f",
+                      backgroundColor: "#192030",
                       borderRadius: "0 0 0.75rem 0.75rem",
                       minHeight: "400px",
                       maxHeight: "600px",
