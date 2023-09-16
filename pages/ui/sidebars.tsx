@@ -10,7 +10,7 @@ export default function Sidebars() {
         { name: "Simple", path: "ctas/SidebarSimple.tsx", component: <SidebarSimple location="Home" /> },
         {
           name: "Simple w/ Sections",
-          path: "ctas/SidebarSections.tsx",
+          path: "sidebars/SidebarSections.tsx",
           component: <SidebarSections location="Home" />,
         },
       ]}

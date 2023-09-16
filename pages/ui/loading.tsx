@@ -7,8 +7,8 @@ export default function Loading() {
     <ComponentTypePage
       title="Loading"
       components={[
-        { name: "Spinner", path: "suspense/Spinner.tsx", component: <Spinner /> },
-        { name: "Skeleton Card", path: "suspense/SkeletonCard.tsx", component: <SkeletonCard /> },
+        { name: "Spinner", path: "loading/Spinner.tsx", component: <Spinner /> },
+        { name: "Skeleton Card", path: "loading/SkeletonCard.tsx", component: <SkeletonCard /> },
       ]}
     />
   )
