@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
-import { SelectSingle } from "@/components/selects"
+import { SelectSingle, SelectMultiple } from "@/components/selects"
 
 export default function Selects() {
   return (
@@ -11,6 +11,11 @@ export default function Selects() {
           name: "Single",
           path: "selects/SelectSingle.tsx",
           component: <SelectSingle />,
+        },
+        {
+          name: "Multiple",
+          path: "selects/SelectMultiple.tsx",
+          component: <SelectMultiple />,
         },
       ]}
     />

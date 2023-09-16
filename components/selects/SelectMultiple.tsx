@@ -8,9 +8,9 @@ type Props = {
   className?: string
 }
 
-export function SelectSingle({ className }: Props) {
-  const [picked, setPicked] = React.useState(null)
-  const nothingSelected = useMemo(() => picked === null, [picked])
+export function SelectMultiple({ className }: Props) {
+  const [picked, setPicked] = React.useState<string[]>([])
+  const nothingSelected = useMemo(() => picked.length === 0, [picked])
   const values = [
     "Apple",
     "Banana",
@@ -40,7 +40,7 @@ export function SelectSingle({ className }: Props) {
   ]
 
   return (
-    <Listbox as="div" value={picked} onChange={setPicked}>
+    <Listbox as="div" multiple value={picked} onChange={setPicked}>
       {({ open }) => (
         <div className={classNames("relative", className)}>
           <Listbox.Button
@@ -51,8 +51,8 @@ export function SelectSingle({ className }: Props) {
                 : "border-teal-600 bg-teal-600/70 dark:border-teal-600 dark:bg-teal-600/50",
             )}
           >
-            <span className={classNames("whitespace-nowrap font-normal tracking-tighter")}>
-              {nothingSelected ? "Select One" : picked}
+            <span className={classNames("max-w-[12rem] truncate whitespace-nowrap font-normal tracking-tighter")}>
+              {nothingSelected ? "Select Many" : picked.join(", ")}
             </span>
             <ChevronUpDownIcon className="h-4 w-4 lg:h-5 lg:w-5" aria-hidden="true" />
           </Listbox.Button>
@@ -68,14 +68,14 @@ export function SelectSingle({ className }: Props) {
                 <button
                   type="button"
                   className="tracking-tighter text-blue-500 hover:underline hover:opacity-80 dark:text-white"
-                  onClick={() => setPicked(null)}
+                  onClick={() => setPicked([])}
                 >
                   Reset
                 </button>
               </div>
 
               {values.map((item: string, itemIdx: number) => {
-                const isSelected = picked === item
+                const isSelected = picked.includes(item)
 
                 return (
                   <Listbox.Option
