@@ -60,80 +60,92 @@ function Sections() {
       title: "Alerts",
       link: "/ui/alerts",
       folder: "alerts",
-      count: null,
+      count: 4,
       description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     },
     {
       title: "Badges",
       link: "/ui/badges",
       folder: "badges",
-      count: null,
+      count: 1,
       description: "Small badges for signaling short pieces of information.",
     },
     {
       title: "Buttons",
       link: "/ui/buttons",
       folder: "buttons",
-      count: null,
+      count: 8,
       description: "Button components with different styles, animations and purposes.",
     },
     {
       title: "Button Groups",
       link: "/ui/button-groups",
       folder: "button-groups",
-      count: null,
+      count: 4,
       description: "Sections with multiple buttons with different layouts and functionalities.",
     },
     {
       title: "CTA Sections",
       link: "/ui/ctas",
       folder: "ctas",
-      count: null,
+      count: 2,
       description: "Diversely styled sections to appeal the user to click on them.",
     },
     {
       title: "Loading",
       link: "/ui/loading",
       folder: "loading",
-      count: null,
+      count: 2,
       description: "Components for informing the user that data is loading.",
     },
     {
       title: "Navbars",
       link: "/ui/navbars",
       folder: "navbars",
-      count: null,
+      count: 1,
       description: "Customizable and expansible top menu components.",
+    },
+    {
+      title: "Selects",
+      link: "/ui/selects",
+      folder: "selects",
+      count: 2,
+      description: "Accessible and fancy dropdown components for selecting one or multiple options.",
     },
     {
       title: "Sidebars",
       link: "/ui/sidebars",
       folder: "sidebars",
-      count: null,
+      count: 2,
       description: "Customizable and expansible side menu components.",
     },
     {
       title: "Switches",
       link: "/ui/switches",
       folder: "switches",
-      count: null,
+      count: 2,
       description: "Toggle between two states with our customized switches with different styles and purposes.",
     },
   ])
 
   React.useEffect(() => {
-    if (sections.every((section) => section.count !== null)) return
+    const indicesToFetch = sections.reduce((indices: number[], section: Section, index: number) => {
+      if (section.count === null) indices.push(index)
+      return indices
+    }, [])
+
+    if (indicesToFetch.length === 0) return
 
     const fetchCounts = async () => {
-      const newSections = await Promise.all(
-        sections.map(async (section) => {
+      const newSections = [...sections]
+      await Promise.all(
+        indicesToFetch.map(async (index) => {
+          const section = sections[index]
           try {
-            const response = await fetch(`/api/countFiles/${section.folder}`)
-            const data = await response.json()
-            return { ...section, count: data.count }
+            const data = await (await fetch(`/api/countFiles/${section.folder}`)).json()
+            newSections[index] = { ...section, count: data.count }
           } catch (error) {
             console.error(error)
-            return section
           }
         }),
       )
@@ -156,7 +168,7 @@ function Sections() {
         </Link>{" "}
         page. Your setup should be similar, otherwise some components might not work as expected in your project.
       </p>
-      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-6">
+      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-3">
         {sections.map(({ title, count, description, link }) => (
           <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
             <SectionCard title={title} count={count} description={description} link={link} />
@@ -178,18 +190,18 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex flex-1 gap-4 rounded-md bg-slate-150 px-6 py-6 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex flex-1 gap-4 rounded-md bg-slate-150 px-4 py-4 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
     >
-      <div className="dark:highlight-white/20 h-16 w-16 flex-none overflow-hidden rounded-full bg-gradient-to-br from-primary-500 to-primary-900 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-secondary-500 dark:to-secondary-900" />
+      <div className="dark:highlight-white/20 h-12 w-12 flex-none overflow-hidden rounded-full bg-gradient-to-br from-primary-500 to-primary-800 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-secondary-700 dark:to-secondary-900" />
 
       <div className="flex flex-col">
-        <h5 className="text-sm font-bold tracking-tighter text-primary-900 group-hover:text-white dark:text-secondary dark:group-hover:text-secondary lg:text-base lg:tracking-tight">
+        <h5 className="mb-0 text-sm font-bold tracking-tighter text-primary-900 group-hover:text-white dark:text-secondary dark:group-hover:text-secondary lg:text-base lg:tracking-tight">
           {title}
         </h5>
-        <p className="mt-0.5 text-[0.7rem] font-medium text-slate-800 group-hover:text-white dark:text-gray-400 dark:group-hover:text-gray-400 lg:text-xs">
+        <p className="-mt-[2px] text-[0.7rem] font-medium text-slate-800 group-hover:text-white dark:text-gray-300 lg:text-xs">
           {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
         </p>
-        <p className="mt-1.5 text-xs text-slate-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-sm">
+        <p className="mt-0.5 text-xs tracking-tighter text-slate-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-xs">
           {description}
         </p>
       </div>
