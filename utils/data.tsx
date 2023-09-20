@@ -105,6 +105,14 @@ export const applicationUiNav: SectionNav[] = [
     shown: true,
   },
   {
+    name: "Inputs",
+    href: "/application-ui/inputs",
+    count: 1,
+    description: "Input components for receiving data from the user.",
+    icon: SwatchIcon,
+    shown: true,
+  },
+  {
     name: "Modals",
     href: "/application-ui/modals",
     count: 1,
@@ -144,7 +152,7 @@ export const applicationUiNav: SectionNav[] = [
     icon: SwitchIcon,
     shown: true,
   },
-]
+].sort((a, b) => a.name.localeCompare(b.name))
 
 export const marketingNav: SectionNav[] = [
   {
@@ -171,4 +179,4 @@ export const marketingNav: SectionNav[] = [
     icon: SwatchIcon,
     shown: true,
   },
-]
+].sort((a, b) => a.name.localeCompare(b.name))

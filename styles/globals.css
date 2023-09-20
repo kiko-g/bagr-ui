@@ -14,18 +14,6 @@ body {
   @apply bg-slate-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100;
 }
 
-textarea,
-input[type="tel"],
-input[type="text"],
-input[type="email"],
-input[type="search"] {
-  @apply w-full rounded border border-white bg-white text-sm font-normal shadow placeholder:font-normal placeholder:text-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:border-white/10 dark:bg-white/10 dark:focus:border-teal-600 dark:focus:ring-teal-600;
-}
-
-input[type="checkbox"] {
-  @apply rounded border border-transparent bg-white text-blue-500 shadow focus:border-blue-500 focus:ring-blue-500 dark:text-teal-600 dark:focus:border-teal-600 dark:focus:ring-teal-600;
-}
-
 code {
   letter-spacing: -0.025em;
   font-size: smaller !important;
