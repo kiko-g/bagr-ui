@@ -82,6 +82,12 @@ const applicationUiNav = [
     shown: true,
   },
   {
+    name: "Modals",
+    href: "/ui/modals",
+    icon: SwatchIcon,
+    shown: true,
+  },
+  {
     name: "Navbars",
     href: "/ui/navbars",
     icon: Bars3Icon,
@@ -269,7 +275,7 @@ function DarkModeSwitch() {
 
 function Header() {
   return (
-    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full bg-gray-50 bg-opacity-90 backdrop-blur backdrop-filter dark:bg-gray-900 dark:bg-opacity-80 xl:px-8">
+    <header className="max-w-8xl sticky top-0 mx-auto h-[72px] w-full bg-gray-50 bg-opacity-90 backdrop-blur backdrop-filter dark:bg-gray-900 dark:bg-opacity-80 xl:px-8">
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
