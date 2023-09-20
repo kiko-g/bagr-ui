@@ -156,7 +156,7 @@ function Sections() {
   }, [sections])
 
   return (
-    <div className="mb-24">
+    <div className="mb-24 w-full">
       <p className="mb-4 max-w-4xl">
         Start exploring the types of components we have available and visit their individual pages where you can find
         the web components and their source code. Make sure you have checked out the{" "}
@@ -168,7 +168,7 @@ function Sections() {
         </Link>{" "}
         page. Your setup should be similar, otherwise some components might not work as expected in your project.
       </p>
-      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-3">
+      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
         {sections.map(({ title, count, description, link }) => (
           <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
             <SectionCard title={title} count={count} description={description} link={link} />
@@ -190,21 +190,15 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex flex-1 gap-4 rounded-md bg-slate-150 px-4 py-4 text-white transition group-hover:bg-gray-800 dark:bg-white/[0.03] dark:group-hover:bg-white/[0.07]"
+      className="flex flex-1 flex-col rounded-md bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 dark:bg-white/[0.03] dark:group-hover:bg-secondary/10"
     >
-      <div className="dark:highlight-white/20 h-12 w-12 flex-none overflow-hidden rounded-full bg-gradient-to-br from-primary-500 to-primary-800 p-[0.1875rem] shadow ring-1 ring-gray-900/10 dark:bg-gradient-to-br dark:from-secondary-700 dark:to-secondary-900" />
-
-      <div className="flex flex-col">
-        <h5 className="mb-0 text-sm font-bold tracking-tighter text-primary-900 group-hover:text-white dark:text-secondary dark:group-hover:text-secondary lg:text-base lg:tracking-tight">
-          {title}
-        </h5>
-        <p className="-mt-[2px] text-[0.7rem] font-medium text-slate-800 group-hover:text-white dark:text-gray-300 lg:text-xs">
-          {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
-        </p>
-        <p className="mt-0.5 text-xs tracking-tighter text-slate-600 group-hover:text-gray-100 dark:text-gray-200 lg:text-xs">
-          {description}
-        </p>
-      </div>
+      <div className="h-36 w-full rounded-lg border border-gray-200 bg-gray-100 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-white/5 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
+      <h4 className="mt-3 text-sm font-medium text-slate-900 transition group-hover:text-primary dark:text-secondary dark:group-hover:text-secondary">
+        {title}
+      </h4>
+      <p className="-mt-[2px] text-[0.7rem] font-normal text-slate-600 dark:text-gray-300 lg:text-xs">
+        {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
+      </p>
     </Link>
   )
 }
