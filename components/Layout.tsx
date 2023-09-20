@@ -202,7 +202,7 @@ function Header() {
 function Sidebar({ location }: { location: string }) {
   return (
     <aside className="hidden min-w-full shrink-0 flex-col space-y-4 self-stretch overflow-y-scroll bg-opacity-80 p-5 lg:flex lg:min-w-min">
-      <ul className="flex w-full flex-col border-b pb-4">
+      <ul className="flex w-full flex-col border-b border-gray-300 pb-4 dark:border-white/10">
         {generalNav
           .filter((item) => item.shown !== false)
           .map((item, itemIdx) => {
@@ -222,7 +222,7 @@ function Sidebar({ location }: { location: string }) {
 
       <div>
         <p className="mb-2 text-sm font-bold">Application UI ({applicationUiNav.length})</p>
-        <ul className="flex w-full flex-col pb-4 pl-2">
+        <ul className="flex w-full flex-col pb-4 pl-0">
           {applicationUiNav
             .filter((item) => item.shown !== false)
             .map((item, itemIdx) => {
@@ -243,7 +243,7 @@ function Sidebar({ location }: { location: string }) {
 
       <div>
         <p className="mb-2 text-sm font-bold">Marketing ({marketingNav.length})</p>
-        <ul className="flex w-full flex-col pb-4 pl-2">
+        <ul className="flex w-full flex-col pb-4 pl-0">
           {marketingNav
             .filter((item) => item.shown !== false)
             .map((item, itemIdx) => {
@@ -282,9 +282,9 @@ function SidebarItem({
       href={href}
       className={classNames(
         isActive
-          ? "border-primary bg-primary/10 text-black hover:opacity-80 dark:border-secondary dark:bg-secondary/5 dark:text-white"
+          ? "border-primary bg-primary/10 text-black hover:opacity-80 dark:border-secondary dark:bg-secondary/10 dark:text-white"
           : "border-gray-300 hover:bg-slate-500/10 dark:border-white/10 dark:hover:bg-slate-600/30",
-        "flex cursor-pointer items-center justify-start gap-2 rounded-r border-l py-1 pl-3 pr-3 text-sm transition ease-in-out lg:pr-10",
+        "flex cursor-pointer items-center justify-start gap-2 border-l py-1 pl-3 pr-3 text-sm transition ease-in-out lg:pr-10",
       )}
     >
       <span className="hidden lg:block">{name}</span>

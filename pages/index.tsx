@@ -4,6 +4,7 @@ import classNames from "classnames"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
+import { applicationUiNav, marketingNav } from "@/utils/data"
 
 const lexend = Lexend({ subsets: ["latin"] })
 
@@ -55,106 +56,6 @@ type Section = {
 }
 
 function Sections() {
-  const [sections, setSections] = React.useState<Section[]>([
-    {
-      title: "Alerts",
-      link: "/application-ui/alerts",
-      folder: "alerts",
-      count: 4,
-      description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
-    },
-    {
-      title: "Badges",
-      link: "/application-ui/badges",
-      folder: "badges",
-      count: 1,
-      description: "Small badges for signaling short pieces of information.",
-    },
-    {
-      title: "Buttons",
-      link: "/application-ui/buttons",
-      folder: "buttons",
-      count: 9,
-      description: "Button components with different styles, animations and purposes.",
-    },
-    {
-      title: "Button Groups",
-      link: "/application-ui/button-groups",
-      folder: "button-groups",
-      count: 4,
-      description: "Sections with multiple buttons with different layouts and functionalities.",
-    },
-    {
-      title: "CTA Sections",
-      link: "/marketing/ctas",
-      folder: "ctas",
-      count: 2,
-      description: "Diversely styled sections to appeal the user to click on them.",
-    },
-    {
-      title: "Loading",
-      link: "/application-ui/loading",
-      folder: "loading",
-      count: 2,
-      description: "Components for informing the user that data is loading.",
-    },
-    {
-      title: "Navbars",
-      link: "/application-ui/navbars",
-      folder: "navbars",
-      count: 1,
-      description: "Customizable and expansible top menu components.",
-    },
-    {
-      title: "Selects",
-      link: "/application-ui/selects",
-      folder: "selects",
-      count: 2,
-      description: "Accessible and fancy dropdown components for selecting one or multiple options.",
-    },
-    {
-      title: "Sidebars",
-      link: "/application-ui/sidebars",
-      folder: "sidebars",
-      count: 2,
-      description: "Customizable and expansible side menu components.",
-    },
-    {
-      title: "Switches",
-      link: "/application-ui/switches",
-      folder: "switches",
-      count: 2,
-      description: "Toggle between two states with our customized switches with different styles and purposes.",
-    },
-  ])
-
-  React.useEffect(() => {
-    const indicesToFetch = sections.reduce((indices: number[], section: Section, index: number) => {
-      if (section.count === null) indices.push(index)
-      return indices
-    }, [])
-
-    if (indicesToFetch.length === 0) return
-
-    const fetchCounts = async () => {
-      const newSections = [...sections]
-      await Promise.all(
-        indicesToFetch.map(async (index) => {
-          const section = sections[index]
-          try {
-            const data = await (await fetch(`/api/countFiles/${section.folder}`)).json()
-            newSections[index] = { ...section, count: data.count }
-          } catch (error) {
-            console.error(error)
-          }
-        }),
-      )
-      setSections(newSections)
-    }
-
-    fetchCounts()
-  }, [sections])
-
   return (
     <div className="mb-24 w-full">
       <p className="mb-4 max-w-4xl">
@@ -168,13 +69,28 @@ function Sections() {
         </Link>{" "}
         page. Your setup should be similar, otherwise some components might not work as expected in your project.
       </p>
-      <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
-        {sections.map(({ title, count, description, link }) => (
-          <li key={`showcase-${title}`} className="group flex w-full flex-col gap-1 rounded-md">
-            <SectionCard title={title} count={count} description={description} link={link} />
-          </li>
-        ))}
-      </ul>
+
+      <div className="mt-8 border-t border-gray-300 pt-4 dark:border-white/10">
+        <h3 className="mb-3 text-xl font-bold">Application UI Components</h3>
+        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {applicationUiNav.map(({ name, count, description, href }) => (
+            <li key={`showcase-application-ui-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
+              <SectionCard title={name} count={count} description={description} link={href} />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
+        <h3 className="mb-3 text-xl font-bold">Marketing Components</h3>
+        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {marketingNav.map(({ name, count, description, href }) => (
+            <li key={`showcase-marketing-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
+              <SectionCard title={name} count={count} description={description} link={href} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

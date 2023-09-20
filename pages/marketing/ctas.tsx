@@ -7,7 +7,7 @@ export default function CTAs() {
 
   return (
     <ComponentTypePage
-      title="CTA Sections"
+      title="CTA"
       components={[
         { name: "Blurred", path: `${base}/BlurredCTA.tsx`, component: <BlurredCTA /> },
         { name: "Div Pop on Hover", path: `${base}/HoverDivCTA.tsx`, component: <HoverDivCTA /> },
