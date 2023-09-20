@@ -51,5 +51,8 @@ module.exports = {
   fontSize: {
     xxs: "0.6rem",
   },
-  plugins: [require("@tailwindcss/typography")], // npm i @tailwindcss/typography
+  plugins: [
+    require("@tailwindcss/forms"), // npm i @tailwindcss/forms
+    require("@tailwindcss/typography"), // npm i @tailwindcss/typography
+  ],
 }

@@ -19,7 +19,7 @@ export function ComponentTypePage({ title, components }: Props) {
   return (
     <Layout location={title} sidebar>
       <section className="mb-36 w-full py-6 lg:py-8 xl:py-12">
-        <h2 className="mb-4 text-xl font-semibold tracking-tighter lg:text-4xl">{title} Components</h2>
+        <h2 className="mb-4 text-xl font-semibold tracking-tighter lg:text-4xl">{title}</h2>
 
         <div className="mb-8 flex items-center justify-end gap-x-4 border-b border-gray-200 px-2 py-2 dark:border-gray-700">
           <button onClick={() => setCollapseAll((prev) => !prev)} className="text-sm hover:underline hover:opacity-80">
