@@ -120,6 +120,12 @@ const marketingNav = [
     icon: RectangleStackIcon,
     shown: true,
   },
+  {
+    name: "Hero Sections",
+    href: "/ui/hero",
+    icon: SwatchIcon,
+    shown: true,
+  },
 ]
 
 type Props = {

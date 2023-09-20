@@ -60,7 +60,7 @@ export function SelectSingle({ className }: Props) {
           <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
             <Listbox.Options
               className={classNames(
-                "z-50 max-h-96 overflow-scroll rounded-md bg-white px-0 py-1 text-sm shadow-xl dark:bg-zinc-800",
+                "z-50 max-h-80 overflow-scroll rounded-md bg-white px-0 py-1 text-sm shadow-xl dark:bg-zinc-800",
                 open ? "absolute right-0 mt-2 w-full min-w-[12rem] lg:w-48" : "hidden",
               )}
             >
