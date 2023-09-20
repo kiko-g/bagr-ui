@@ -1,3 +1,4 @@
+import { ButtonDisabled } from "@/components/buttons/ButtonDisabled"
 import { ButtonFill } from "./ButtonFill"
 import { ButtonOutline } from "./ButtonOutline"
 import { ButtonRotate } from "./ButtonRotate"
@@ -8,6 +9,7 @@ import { ButtonSimpleIcon } from "./ButtonSimpleIcon"
 import { ButtonTranslate } from "./ButtonTranslate"
 
 export {
+  ButtonDisabled,
   ButtonFill,
   ButtonOutline,
   ButtonRotate,

@@ -12,18 +12,14 @@ export default function ButtonGroups() {
     <ComponentTypePage
       title="Button Groups"
       components={[
-        { name: "Simple Group", path: "button-groups/ButtonGroupSimple.tsx", component: <ButtonGroupSimple /> },
-        { name: "Joined Group", path: "button-groups/ButtonGroupJoined.tsx", component: <ButtonGroupJoined /> },
+        { name: "Simple", path: "button-groups/ButtonGroupSimple.tsx", component: <ButtonGroupSimple /> },
+        { name: "Joined", path: "button-groups/ButtonGroupJoined.tsx", component: <ButtonGroupJoined /> },
         {
-          name: "Joined Group Vertical",
+          name: "Joined Vertical",
           path: "button-groups/ButtonGroupJoinedVertical.tsx",
           component: <ButtonGroupJoinedVertical />,
         },
-        {
-          name: "Split",
-          path: "button-groups/ButtonGroupSplit.tsx",
-          component: <ButtonGroupSplit />,
-        },
+        { name: "Split", path: "button-groups/ButtonGroupSplit.tsx", component: <ButtonGroupSplit /> },
       ]}
     />
   )

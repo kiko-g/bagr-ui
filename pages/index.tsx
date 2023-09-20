@@ -74,7 +74,7 @@ function Sections() {
       title: "Buttons",
       link: "/ui/buttons",
       folder: "buttons",
-      count: 8,
+      count: 9,
       description: "Button components with different styles, animations and purposes.",
     },
     {
