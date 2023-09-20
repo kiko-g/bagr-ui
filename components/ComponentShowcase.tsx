@@ -11,7 +11,7 @@ import {
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Inter_Tight } from "next/font/google"
 
 const inter = Inter_Tight({ subsets: ["latin"] })
@@ -113,13 +113,13 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                   <SyntaxHighlighter
                     language="tsx"
                     showLineNumbers
-                    style={nord}
+                    style={coldarkDark}
                     customStyle={{
                       backgroundColor: "#192030",
                       borderRadius: "0 0 0.75rem 0.75rem",
-                      minHeight: "400px",
-                      maxHeight: "600px",
                       margin: "0",
+                      minHeight: "400px",
+                      // maxHeight: "600px",
                     }}
                   >
                     {code}
