@@ -1,8 +1,6 @@
 import React from "react"
 
-type Props = {}
-
-export function ButtonGroupSimple({}: Props) {
+export function ButtonGroupSimple() {
   function myFunctionA() {
     // your onClick code here
   }

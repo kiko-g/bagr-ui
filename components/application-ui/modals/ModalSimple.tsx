@@ -22,7 +22,7 @@ export function ModalSimple({ startOpen }: Props) {
       <button
         onClick={openModal}
         title="Open modal"
-        className="inline-flex items-center justify-center gap-x-2 self-stretch rounded border border-rose-500 bg-rose-600/70 px-3 py-2 text-center text-sm text-white transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50 dark:border-blue-500 dark:bg-blue-500/50"
+        className="inline-flex items-center justify-center gap-x-2 self-stretch rounded border border-blue-500 bg-blue-600/70 px-3 py-2 text-center text-sm text-white transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50 dark:border-blue-500 dark:bg-blue-500/50"
       >
         <span>Show</span>
         <KeyIcon className="h-4 w-4 lg:h-5 lg:w-5" />
@@ -60,7 +60,7 @@ export function ModalSimple({ startOpen }: Props) {
                     </Dialog.Title>
                     <button
                       onClick={closeModal}
-                      className="flex items-center gap-x-1 rounded border border-rose-600/30 bg-rose-600/10 px-1 py-1 text-sm text-rose-800 transition hover:bg-rose-600 hover:text-white dark:bg-rose-600/20 dark:text-white dark:hover:bg-rose-600"
+                      className="flex items-center gap-x-1 rounded border border-blue-600/30 bg-blue-600/10 px-1 py-1 text-sm text-rose-800 transition hover:bg-blue-600 hover:text-white dark:bg-blue-600/20 dark:text-white dark:hover:bg-blue-600"
                     >
                       <XMarkIcon className="h-4 w-4" />{" "}
                     </button>

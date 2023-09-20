@@ -1,15 +1,13 @@
 import React from "react"
 
-type Props = {}
-
-export default function Spinner({}: Props) {
+export default function Spinner() {
   return (
-    <div className="flex h-64 w-full items-center justify-center rounded border border-rose-500/50 bg-rose-500/10 dark:border-blue-500/50 dark:bg-blue-500/10">
+    <div className="flex h-64 w-full items-center justify-center rounded border border-blue-500/50 bg-blue-500/10 dark:border-blue-500/50 dark:bg-blue-500/10">
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        className="-ml-1 mr-3 h-12 w-12 animate-spin text-rose-500 dark:text-blue-500"
+        className="-ml-1 mr-3 h-12 w-12 animate-spin text-blue-500 dark:text-blue-500"
       >
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
         <path

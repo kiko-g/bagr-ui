@@ -1,8 +1,6 @@
 import React from "react"
 
-type Props = {}
-
-export function HoverDivCTA({}: Props) {
+export function HoverDivCTA() {
   const unsplashGenerate = "https://source.unsplash.com/random/500x500?productivity,city"
 
   return (
@@ -15,7 +13,7 @@ export function HoverDivCTA({}: Props) {
       />
 
       <div className="relative p-8">
-        <p className="dark:text-tertiary text-sm font-bold uppercase tracking-widest text-rose-600 dark:text-blue-500">
+        <p className="dark:text-tertiary text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-500">
           Presentation Section Header
         </p>
         <p className="text-2xl font-bold text-white">Presentation Section Subheader</p>

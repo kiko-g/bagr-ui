@@ -1,8 +1,6 @@
 import React from "react"
 
-type Props = {}
-
-export function ButtonSimpleIcon({}: Props) {
+export function ButtonSimpleIcon() {
   function myFunction() {
     // your onClick code here
   }
@@ -10,7 +8,7 @@ export function ButtonSimpleIcon({}: Props) {
   return (
     <button
       onClick={myFunction}
-      className="flex items-center justify-center gap-x-2 rounded bg-rose-500 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-rose-600 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-blue-500/25 dark:hover:bg-blue-500"
+      className="flex items-center justify-center gap-x-2 rounded bg-blue-500 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-600 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-blue-500/25 dark:hover:bg-blue-500"
     >
       <span>Hide</span>
       <svg

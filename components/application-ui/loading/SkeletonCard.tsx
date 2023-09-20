@@ -1,8 +1,6 @@
 import React from "react"
 
-type Props = {}
-
-export default function SkeletonCard({}: Props) {
+export default function SkeletonCard() {
   return (
     <div className="mx-auto w-full max-w-md rounded-xl bg-white px-5 py-5 dark:bg-gray-800">
       <div className="flex animate-pulse space-x-4">

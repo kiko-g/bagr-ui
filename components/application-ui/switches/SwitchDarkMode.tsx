@@ -35,7 +35,7 @@ export function SwitchDarkMode() {
         className={classNames(
           "h-8 w-8 transition dark:hidden",
           "fill-white",
-          "stroke-rose-500",
+          "stroke-blue-500",
           "[@media(prefers-color-scheme:dark)]:fill-orange-400",
           "[@media(prefers-color-scheme:dark)]:stroke-orange-400",
           "group-hover:opacity-80",
