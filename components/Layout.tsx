@@ -35,7 +35,7 @@ const links = [
   },
 ]
 
-const generalNavigations = [
+const generalNav = [
   {
     name: "Home",
     href: "/",
@@ -50,7 +50,7 @@ const generalNavigations = [
   },
 ]
 
-const componentNavigations = [
+const applicationUiNav = [
   {
     name: "Alerts",
     href: "/ui/alerts",
@@ -73,12 +73,6 @@ const componentNavigations = [
     name: "Button Groups",
     href: "/ui/button-groups",
     icon: SwatchIcon,
-    shown: true,
-  },
-  {
-    name: "CTA Sections",
-    href: "/ui/ctas",
-    icon: RectangleStackIcon,
     shown: true,
   },
   {
@@ -113,6 +107,15 @@ const componentNavigations = [
   },
 ]
 
+const marketingNav = [
+  {
+    name: "CTA Sections",
+    href: "/ui/ctas",
+    icon: RectangleStackIcon,
+    shown: true,
+  },
+]
+
 type Props = {
   children: React.ReactNode
   location?: string
@@ -128,12 +131,12 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
         {sidebar ? (
           <div className="flex flex-1">
             <Sidebar location={location} />
-            <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:max-w-[88rem] xl:px-12">
+            <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:px-12">
               {children}
             </article>
           </div>
         ) : (
-          <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:max-w-[88rem] xl:px-12">
+          <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:px-12">
             {children}
           </article>
         )}
@@ -305,9 +308,9 @@ function Header() {
 
 function Sidebar({ location }: { location: string }) {
   return (
-    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 bg-opacity-80 p-5 lg:flex lg:min-w-min">
-      <ul className="flex w-full flex-col space-y-2 border-b pb-4">
-        {generalNavigations
+    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 self-stretch overflow-y-scroll bg-opacity-80 p-5 lg:flex lg:min-w-min">
+      <ul className="flex w-full flex-col border-b pb-4">
+        {generalNav
           .filter((item) => item.shown !== false)
           .map((item, itemIdx) => {
             const isActive = location.toLowerCase() === item.name.toLowerCase()
@@ -324,23 +327,47 @@ function Sidebar({ location }: { location: string }) {
           })}
       </ul>
 
-      <ul className="flex w-full flex-col space-y-2 pb-4">
-        {componentNavigations
-          .filter((item) => item.shown !== false)
-          .map((item, itemIdx) => {
-            const isActive = location.toLowerCase() === item.name.toLowerCase()
-            return (
-              <li key={`nav-${itemIdx}`}>
-                <SidebarItem
-                  name={item.name}
-                  href={item.href}
-                  isActive={isActive}
-                  icon={<item.icon className="h-5 w-5" />}
-                />
-              </li>
-            )
-          })}
-      </ul>
+      <div>
+        <p className="mb-2 text-sm font-bold">Application UI</p>
+        <ul className="flex w-full flex-col pb-4 pl-2">
+          {applicationUiNav
+            .filter((item) => item.shown !== false)
+            .map((item, itemIdx) => {
+              const isActive = location.toLowerCase() === item.name.toLowerCase()
+              return (
+                <li key={`nav-${itemIdx}`}>
+                  <SidebarItem
+                    name={item.name}
+                    href={item.href}
+                    isActive={isActive}
+                    icon={<item.icon className="h-5 w-5" />}
+                  />
+                </li>
+              )
+            })}
+        </ul>
+      </div>
+
+      <div>
+        <p className="mb-2 text-sm font-bold">Marketing</p>
+        <ul className="flex w-full flex-col pb-4 pl-2">
+          {marketingNav
+            .filter((item) => item.shown !== false)
+            .map((item, itemIdx) => {
+              const isActive = location.toLowerCase() === item.name.toLowerCase()
+              return (
+                <li key={`nav-${itemIdx}`}>
+                  <SidebarItem
+                    name={item.name}
+                    href={item.href}
+                    isActive={isActive}
+                    icon={<item.icon className="h-5 w-5" />}
+                  />
+                </li>
+              )
+            })}
+        </ul>
+      </div>
     </aside>
   )
 }
@@ -362,13 +389,12 @@ function SidebarItem({
       href={href}
       className={classNames(
         isActive
-          ? "bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
-          : "hover:bg-primary/10 dark:hover:bg-secondary/30",
-        "flex cursor-pointer items-center justify-center gap-2 rounded py-3 pl-3 pr-3 text-sm transition ease-in-out xl:justify-start xl:pr-10",
+          ? "border-primary bg-slate-800/5 text-black hover:opacity-80 dark:border-secondary dark:text-white"
+          : "border-gray-300 hover:bg-slate-600/10 dark:border-white/10 dark:hover:bg-slate-600/30",
+        "flex cursor-pointer items-center justify-start gap-2 rounded-r border-l py-1 pl-3 pr-3 text-sm transition ease-in-out lg:pr-10",
       )}
     >
-      {icon}
-      <span className="hidden xl:block">{name}</span>
+      <span className="hidden lg:block">{name}</span>
     </Link>
   )
 }
