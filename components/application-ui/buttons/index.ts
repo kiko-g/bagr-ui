@@ -1,4 +1,4 @@
-import { ButtonDisabled } from "@/components/buttons/ButtonDisabled"
+import { ButtonDisabled } from "./ButtonDisabled"
 import { ButtonFill } from "./ButtonFill"
 import { ButtonOutline } from "./ButtonOutline"
 import { ButtonRotate } from "./ButtonRotate"

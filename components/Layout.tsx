@@ -1,138 +1,13 @@
-import {
-  Bars3Icon,
-  EyeDropperIcon,
-  FlagIcon,
-  HomeIcon,
-  MegaphoneIcon,
-  RectangleStackIcon,
-  SwatchIcon,
-  WrenchIcon,
-} from "@heroicons/react/24/outline"
+import React from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Image from "next/image"
 import classNames from "classnames"
 import { Inter, Lexend } from "next/font/google"
-import Head from "next/head"
-import Image from "next/image"
-import Link from "next/link"
-import React from "react"
-import { GithubIcon, LoadingIcon, SidebarIcon, SwitchIcon } from "./icons"
-import { ButtonIcon } from "./icons/ButtonIcon"
+import { applicationUiNav, generalNav, marketingNav, links } from "@/utils/data"
 
 const inter = Inter({ subsets: ["latin"] })
 const lexend = Lexend({ subsets: ["latin"] })
-
-const links = [
-  {
-    label: "Francisco Gonçalves",
-    href: "https://github.com/kiko-g",
-    content: <Image src="/profile.svg" alt="author" width={24} height={24} className="rounded-full" />,
-    shown: false,
-  },
-  {
-    label: "Github Repository",
-    href: "https://github.com/kiko-g/bagr-ui",
-    content: <GithubIcon className="h-5 w-5" />,
-    shown: true,
-  },
-]
-
-const generalNav = [
-  {
-    name: "Home",
-    href: "/",
-    icon: HomeIcon,
-    shown: true,
-  },
-  {
-    name: "Config",
-    href: "/config",
-    icon: WrenchIcon,
-    shown: true,
-  },
-]
-
-const applicationUiNav = [
-  {
-    name: "Alerts",
-    href: "/ui/alerts",
-    icon: MegaphoneIcon,
-    shown: true,
-  },
-  {
-    name: "Badges",
-    href: "/ui/badges",
-    icon: FlagIcon,
-    shown: true,
-  },
-  {
-    name: "Buttons",
-    href: "/ui/buttons",
-    icon: ButtonIcon,
-    shown: true,
-  },
-  {
-    name: "Button Groups",
-    href: "/ui/button-groups",
-    icon: SwatchIcon,
-    shown: true,
-  },
-  {
-    name: "Loading",
-    href: "/ui/loading",
-    icon: LoadingIcon,
-    shown: true,
-  },
-  {
-    name: "Modals",
-    href: "/ui/modals",
-    icon: SwatchIcon,
-    shown: true,
-  },
-  {
-    name: "Navbars",
-    href: "/ui/navbars",
-    icon: Bars3Icon,
-    shown: true,
-  },
-  {
-    name: "Selects",
-    href: "/ui/selects",
-    icon: EyeDropperIcon,
-    shown: true,
-  },
-  {
-    name: "Sidebars",
-    href: "/ui/sidebars",
-    icon: SidebarIcon,
-    shown: true,
-  },
-  {
-    name: "Switches",
-    href: "/ui/switches",
-    icon: SwitchIcon,
-    shown: true,
-  },
-]
-
-const marketingNav = [
-  {
-    name: "CTA Sections",
-    href: "/ui/ctas",
-    icon: RectangleStackIcon,
-    shown: true,
-  },
-  {
-    name: "Hero Sections",
-    href: "/ui/hero",
-    icon: SwatchIcon,
-    shown: true,
-  },
-  {
-    name: "KPI",
-    href: "/ui/kpi",
-    icon: SwatchIcon,
-    shown: true,
-  },
-]
 
 type Props = {
   children: React.ReactNode
@@ -346,7 +221,7 @@ function Sidebar({ location }: { location: string }) {
       </ul>
 
       <div>
-        <p className="mb-2 text-sm font-bold">Application UI</p>
+        <p className="mb-2 text-sm font-bold">Application UI ({applicationUiNav.length})</p>
         <ul className="flex w-full flex-col pb-4 pl-2">
           {applicationUiNav
             .filter((item) => item.shown !== false)
@@ -367,7 +242,7 @@ function Sidebar({ location }: { location: string }) {
       </div>
 
       <div>
-        <p className="mb-2 text-sm font-bold">Marketing</p>
+        <p className="mb-2 text-sm font-bold">Marketing ({marketingNav.length})</p>
         <ul className="flex w-full flex-col pb-4 pl-2">
           {marketingNav
             .filter((item) => item.shown !== false)

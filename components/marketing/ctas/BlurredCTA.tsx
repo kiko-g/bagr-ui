@@ -1,12 +1,14 @@
 import React from "react"
 
 export function BlurredCTA() {
+  const unsplashGenerate = "https://source.unsplash.com/random/500x500?productivity,city"
+
   return (
     <a href="#" className="group relative max-w-lg overflow-hidden bg-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="Random Image from Unsplash"
-        src="https://source.unsplash.com/random/800x600"
+        src="https://images.unsplash.com/photo-1496016943515-7d33598c11e6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdGl2aXR5LGNpdHl8fHx8fHwxNjk1MjQ2MzQz&ixlib=rb-4.0.3&q=80&w=500"
         className="h-full w-full object-cover blur-sm transition duration-300 group-hover:blur-0 lg:blur-md"
       />
       <div className="absolute inset-0 flex h-full w-full items-center justify-center">

@@ -1,20 +1,22 @@
 import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
-import { SelectSingle, SelectMultiple } from "@/components/selects"
+import { SelectSingle, SelectMultiple } from "@/components/application-ui/selects"
 
 export default function Selects() {
+  const base = "application-ui/selects"
+
   return (
     <ComponentTypePage
       title="Selects"
       components={[
         {
           name: "Single",
-          path: "selects/SelectSingle.tsx",
+          path: `${base}/SelectSingle.tsx`,
           component: <SelectSingle />,
         },
         {
           name: "Multiple",
-          path: "selects/SelectMultiple.tsx",
+          path: `${base}/SelectMultiple.tsx`,
           component: <SelectMultiple />,
         },
       ]}
