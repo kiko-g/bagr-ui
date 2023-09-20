@@ -126,6 +126,12 @@ const marketingNav = [
     icon: SwatchIcon,
     shown: true,
   },
+  {
+    name: "KPI",
+    href: "/ui/kpi",
+    icon: SwatchIcon,
+    shown: true,
+  },
 ]
 
 type Props = {
