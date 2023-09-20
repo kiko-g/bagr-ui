@@ -10,7 +10,7 @@ export function ButtonSimple({}: Props) {
   return (
     <button
       onClick={myFunction}
-      className="rounded bg-primary-700 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary-900 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-secondary-800/25 dark:hover:bg-secondary-800"
+      className="rounded bg-rose-500 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-rose-600 focus:ring disabled:cursor-not-allowed disabled:opacity-25 dark:bg-blue-500/25 dark:hover:bg-blue-500"
     >
       Button
     </button>

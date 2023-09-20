@@ -389,8 +389,8 @@ function SidebarItem({
       href={href}
       className={classNames(
         isActive
-          ? "border-primary bg-slate-800/5 text-black hover:opacity-80 dark:border-secondary dark:text-white"
-          : "border-gray-300 hover:bg-slate-600/10 dark:border-white/10 dark:hover:bg-slate-600/30",
+          ? "border-primary bg-primary/10 text-black hover:opacity-80 dark:border-secondary dark:bg-secondary/5 dark:text-white"
+          : "border-gray-300 hover:bg-slate-500/10 dark:border-white/10 dark:hover:bg-slate-600/30",
         "flex cursor-pointer items-center justify-start gap-2 rounded-r border-l py-1 pl-3 pr-3 text-sm transition ease-in-out lg:pr-10",
       )}
     >
