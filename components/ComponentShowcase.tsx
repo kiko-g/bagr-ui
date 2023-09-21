@@ -13,6 +13,8 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Inter_Tight } from "next/font/google"
+import Link from "next/link"
+import { GithubIcon } from "./icons/GithubIcon"
 
 const inter = Inter_Tight({ subsets: ["latin"] })
 
@@ -27,7 +29,6 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
   const [code, setCode] = React.useState<string>("")
   const [isOpen, setIsOpen] = React.useState(!collapseAll)
   const [isCodeVisible, setIsCodeVisible] = React.useState(false)
-  const [isDarkBackground, setIsDarkBackground] = React.useState(true)
 
   React.useEffect(() => {
     setIsOpen(!collapseAll)
@@ -76,10 +77,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               <div className="absolute right-4 top-4 flex items-center justify-end gap-2">
                 {code === "" ? null : <CopyCodeButton text={code} />}
                 <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
-                {/* <ChangeBackgroundButton
-                  isDarkBackground={isDarkBackground}
-                  toggle={() => setIsDarkBackground((prev) => !prev)}
-                /> */}
+                <LinkToGithubButton path={path} />
               </div>
             </div>
 
@@ -193,6 +191,23 @@ function ChangeViewModeButton({ isCodeVisible, toggle }: { isCodeVisible: boolea
         )}
       </span>
     </Switch>
+  )
+}
+
+function LinkToGithubButton({ path }: { path: string }) {
+  const branchName = "main"
+  const href = `https://github.com/kiko-g/bagr-ui/blob/${branchName}/components/${path}`
+
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-start gap-1.5 rounded bg-slate-700 px-3 py-2 text-xs text-white shadow-sm transition hover:bg-blue-600/80 hover:text-white disabled:cursor-not-allowed dark:bg-white/10 dark:hover:bg-blue-500/60"
+    >
+      <span className="hidden xl:flex">Github</span>
+      <GithubIcon className="h-4 w-4" />
+    </Link>
   )
 }
 
