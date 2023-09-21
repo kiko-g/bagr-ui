@@ -160,7 +160,7 @@ function CopyCodeButton({ text }: { text: string }) {
           : "bg-slate-700 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >
-      <span className="hidden xl:flex">{isCopied ? "Copied" : "Copy"}</span>
+      <span className="hidden xl:inline-flex">{isCopied ? "Copied" : "Copy"}</span>
       {isCopied ? <CheckIcon className="h-4 w-4" /> : <ClipboardIcon className="h-4 w-4" />}
     </button>
   )
@@ -180,12 +180,12 @@ function ChangeViewModeButton({ isCodeVisible, toggle }: { isCodeVisible: boolea
       >
         {isCodeVisible ? (
           <>
-            <span className="hidden lg:inline-flex">Preview</span>
+            <span className="hidden xl:inline-flex">Preview</span>
             <ViewfinderCircleIcon className="h-4 w-4" />
           </>
         ) : (
           <>
-            <span className="hidden lg:inline-flex">Code</span>
+            <span className="hidden xl:inline-flex">Code</span>
             <CodeBracketIcon className="h-4 w-4" />
           </>
         )}
@@ -205,7 +205,7 @@ function LinkToGithubButton({ path }: { path: string }) {
       rel="noopener noreferrer"
       className="flex items-center justify-start gap-1.5 rounded bg-slate-700 px-3 py-2 text-xs text-white shadow-sm transition hover:bg-blue-600/80 hover:text-white disabled:cursor-not-allowed dark:bg-white/10 dark:hover:bg-blue-500/60"
     >
-      <span className="hidden xl:flex">Github</span>
+      <span className="hidden xl:inline-flex">Github</span>
       <GithubIcon className="h-4 w-4" />
     </Link>
   )

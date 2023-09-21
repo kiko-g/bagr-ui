@@ -1,11 +1,6 @@
 import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
-import {
-  AlertSimple,
-  AlertCloseableIcon,
-  AlertSimpleChildren,
-  AlertCloseableIconHeadlineChildren,
-} from "@/components/application-ui/alerts"
+import { AlertCustom } from "@/components/application-ui/alerts"
 
 export default function Alerts() {
   const base = "application-ui/alerts"
@@ -15,114 +10,115 @@ export default function Alerts() {
       title="Alerts"
       components={[
         {
-          name: "Simple",
-          path: `${base}/AlertSimple.tsx`,
+          name: "Customizable",
+          path: `${base}/AlertCustom.tsx`,
           component: (
-            <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
-              <AlertSimple
-                type="info"
-                headline="Information"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
-              />
-              <AlertSimple
-                type="success"
-                headline="Success"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
-              />
-              <AlertSimple
-                type="warning"
-                headline="Warning"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
-              />
-              <AlertSimple
-                type="error"
-                headline="Something went wrong"
-                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec aliquet dui. Nulla facilisi."
-              />
-            </div>
-          ),
-        },
-        {
-          name: "Simple w/ Children",
-          path: `${base}/AlertSimpleChildren.tsx`,
-          component: (
-            <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
-              <AlertSimpleChildren type="info" headline="Information">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertSimpleChildren>
-              <AlertSimpleChildren type="success" headline="Success">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertSimpleChildren>
-              <AlertSimpleChildren type="warning" headline="Warning">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertSimpleChildren>
-              <AlertSimpleChildren type="error" headline="Error">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertSimpleChildren>
-            </div>
-          ),
-        },
-        {
-          name: "Icon and Closeable",
-          path: `${base}/AlertCloseableIcon.tsx`,
-          component: (
-            <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
-              <AlertCloseableIcon type="info" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-              <AlertCloseableIcon type="success" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-              <AlertCloseableIcon type="warning" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-              <AlertCloseableIcon type="error" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-            </div>
-          ),
-        },
-        {
-          name: "Headline, Icon and Closeable w/ Children",
-          path: `${base}/AlertCloseableIconHeadlineChildren.tsx`,
-          component: (
-            <div className="flex w-full max-w-full flex-col items-center gap-3 xl:max-w-xl">
-              <AlertCloseableIconHeadlineChildren type="info" headline="Information">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertCloseableIconHeadlineChildren>
-              <AlertCloseableIconHeadlineChildren type="success" headline="Success">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertCloseableIconHeadlineChildren>
-              <AlertCloseableIconHeadlineChildren type="warning" headline="Warning">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertCloseableIconHeadlineChildren>
-              <AlertCloseableIconHeadlineChildren type="error" headline="Error">
-                <ul className="mt-1 list-inside list-disc">
-                  <li>Fact 1</li>
-                  <li>Fact 2</li>
-                  <li>Fact 3</li>
-                </ul>
-              </AlertCloseableIconHeadlineChildren>
+            <div className="w-full space-y-16">
+              <div className="flex w-full flex-col items-start gap-3">
+                <p className="-mb-2 font-medium">Rounded and Border</p>
+                <AlertCustom type="info" rounded border>
+                  Content of your information alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="success" rounded border>
+                  Content of your success alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="warning" rounded border>
+                  Content of your warning alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="error" rounded border>
+                  Content of your error alert provided through children.
+                </AlertCustom>
+                <AlertCustom rounded border>
+                  Content of your alert provided through children.
+                </AlertCustom>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-3">
+                <p className="-mb-2 font-medium">Accent & Closeable</p>
+                <AlertCustom type="info" accent closeable>
+                  Content of your information alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="success" accent closeable>
+                  Content of your success alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="warning" accent closeable>
+                  Content of your warning alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="error" accent closeable>
+                  Content of your error alert provided through children.
+                </AlertCustom>
+                <AlertCustom accent closeable>
+                  Content of your alert provided through children.
+                </AlertCustom>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-3">
+                <p className="-mb-2 font-medium">Filled, Rounded & Closeable</p>
+                <AlertCustom type="info" filled rounded closeable>
+                  Content of your information alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="success" filled rounded closeable>
+                  Content of your success alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="warning" filled rounded closeable>
+                  Content of your warning alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="error" filled rounded closeable>
+                  Content of your error alert provided through children.
+                </AlertCustom>
+                <AlertCustom filled rounded closeable>
+                  Content of your alert provided through children.
+                </AlertCustom>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-3">
+                <p className="-mb-2 font-medium">Accent, Closeable & Long Children</p>
+                <AlertCustom type="info" rounded>
+                  <p>Content of your information alert provided through children.</p>
+                  <ul className="list-inside list-disc">
+                    <li>Apples</li>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                  </ul>
+                  <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+                <AlertCustom type="success" rounded>
+                  <p>Content of your success alert provided through children.</p>
+                  <ul className="list-inside list-disc">
+                    <li>Apples</li>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                  </ul>
+                  <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+                <AlertCustom type="warning" rounded>
+                  <p>Content of your warning alert provided through children.</p>
+                  <ul className="list-inside list-disc">
+                    <li>Apples</li>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                  </ul>
+                  <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+                <AlertCustom type="error" rounded>
+                  <p>Content of your error alert provided through children.</p>
+                  <ul className="list-inside list-disc">
+                    <li>Apples</li>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                  </ul>
+                  <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+                <AlertCustom>
+                  <p>Content of your alert provided through children.</p>
+                  <ul className="list-inside list-disc">
+                    <li>Apples</li>
+                    <li>Bananas</li>
+                    <li>Cherries</li>
+                  </ul>
+                  <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+              </div>
             </div>
           ),
         },
