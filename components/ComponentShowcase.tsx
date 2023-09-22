@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import classNames from "classnames"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
 import {
@@ -26,15 +26,15 @@ type Props = {
 }
 
 export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
-  const [code, setCode] = React.useState<string>("")
-  const [isOpen, setIsOpen] = React.useState(!collapseAll)
-  const [isCodeVisible, setIsCodeVisible] = React.useState(false)
+  const [code, setCode] = useState<string>("")
+  const [isOpen, setIsOpen] = useState(!collapseAll)
+  const [isCodeVisible, setIsCodeVisible] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsOpen(!collapseAll)
   }, [collapseAll])
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch(`/api/code?filepath=${encodeURIComponent(path)}`)
       .then((response) => response.text())
       .then((data) => setCode(data))
@@ -45,7 +45,6 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
 
   return (
     <li className="flex flex-col">
-      {/* Header */}
       <Disclosure defaultOpen={isOpen}>
         <Disclosure.Button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -71,68 +70,65 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="mb-8">
-            <div className="group relative">
-              {/* Controls */}
-              <div className="absolute right-4 top-4 flex items-center justify-end gap-2">
-                {code === "" ? null : <CopyCodeButton text={code} />}
-                <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
-                <LinkToGithubButton path={path} />
-              </div>
+          <Disclosure.Panel className="group relative mb-8">
+            <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2">
+              <CopyCodeButton text={code} />
+              <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
+              <LinkToGithubButton path={path} />
             </div>
 
-            {/* Showcase */}
-            {isCodeVisible ? (
-              code === "" ? (
-                <div className="flex w-full items-center justify-center rounded-b-xl bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
-                  <svg
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    className="-ml-1 mr-3 h-12 w-12 animate-spin text-primary dark:text-secondary"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
-              ) : (
-                <div>
-                  <SyntaxHighlighter
-                    language="tsx"
-                    showLineNumbers
-                    style={coldarkDark}
-                    customStyle={{
-                      backgroundColor: "#192030",
-                      borderRadius: "0 0 0.75rem 0.75rem",
-                      margin: "0",
-                      minHeight: "400px",
-                      // maxHeight: "600px",
-                    }}
-                  >
-                    {code}
-                  </SyntaxHighlighter>
-                </div>
-              )
-            ) : (
-              <div className="flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20">
-                {Component}
-              </div>
-            )}
+            <Loading code={code} />
+
+            <div className={classNames(isCodeVisible ? "rotate-in" : "hidden")}>
+              <SyntaxHighlighter
+                language="tsx"
+                showLineNumbers
+                style={coldarkDark}
+                customStyle={{
+                  margin: "0",
+                  minHeight: "400px",
+                  backgroundColor: "#192030",
+                  borderRadius: "0 0 0.75rem 0.75rem",
+                }}
+              >
+                {code}
+              </SyntaxHighlighter>
+            </div>
+
+            <div
+              className={classNames(
+                isCodeVisible ? "hidden" : "",
+                "flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20",
+              )}
+            >
+              <div className={classNames(isCodeVisible ? "" : "rotate-out")}>{Component}</div>
+            </div>
           </Disclosure.Panel>
         </Transition>
       </Disclosure>
     </li>
+  )
+}
+
+function Loading({ code }: { code: string }) {
+  if (code !== "") return
+
+  return (
+    <div className="flex w-full items-center justify-center rounded-b-xl bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
+      <svg
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="-ml-1 mr-3 h-12 w-12 animate-spin text-primary dark:text-secondary"
+      >
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+    </div>
   )
 }
 
@@ -148,6 +144,8 @@ function CopyCodeButton({ text }: { text: string }) {
       })
       .catch(() => console.error("Failed to copy code to clipboard."))
   }, [text])
+
+  if (!text) return null
 
   return (
     <button

@@ -39,7 +39,8 @@ export function AlertCustom({
   return (
     <div
       className={classNames(
-        "flex w-full items-center justify-start gap-3 py-3 pl-3 pr-6",
+        "flex w-full items-center justify-start gap-3 py-3 pl-3",
+        closeable ? "pr-3" : "pr-5",
         border && "border",
         accent && "border-l-4",
         rounded && "rounded",
@@ -76,9 +77,7 @@ export function AlertCustom({
         <button
           onClick={closeAlert}
           className={classNames(
-            filled
-              ? "text-white hover:bg-white/20"
-              : "text-gray-700 hover:bg-white/80 dark:text-white dark:hover:bg-white/20",
+            filled ? "text-white hover:bg-white/20" : "text-gray-700 hover:bg-gray-700/20 hover:text-white",
             "ml-1 rounded p-0.5 transition lg:ml-2 lg:p-1",
           )}
         >

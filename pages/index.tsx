@@ -4,7 +4,7 @@ import classNames from "classnames"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
-import { applicationUiNav, marketingNav } from "@/utils/data"
+import { applicationUiNav, eCommerceNav, marketingNav } from "@/utils/data"
 
 const lexend = Lexend({ subsets: ["latin"] })
 
@@ -47,14 +47,6 @@ function Hero() {
   )
 }
 
-type Section = {
-  title: string
-  link: string
-  folder: string
-  count: number | null
-  description: string
-}
-
 function Sections() {
   return (
     <div className="mb-24 w-full">
@@ -91,13 +83,24 @@ function Sections() {
           ))}
         </ul>
       </div>
+
+      <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
+        <h3 className="mb-3 text-xl font-bold">Ecommerce Components</h3>
+        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {eCommerceNav.map(({ name, count, description, href }) => (
+            <li key={`showcase-ecommerce-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
+              <SectionCard title={name} count={count} description={description} link={href} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
 
 type SectionCardProps = {
   title: string
-  count: number | null
+  count: number
   description: string
   link: string
 }
@@ -106,14 +109,14 @@ function SectionCard({ title, count, description, link }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex flex-1 flex-col rounded-md bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 dark:bg-white/[0.03] dark:group-hover:bg-secondary/10"
+      className="flex flex-1 flex-col rounded-md bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 dark:bg-secondary/5 dark:group-hover:bg-secondary/20"
     >
-      <div className="h-36 w-full rounded-lg border border-gray-200 bg-gray-100 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-white/5 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
+      <div className="h-36 w-full rounded-lg border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-secondary-900/50 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
       <h4 className="mt-3 text-sm font-medium text-slate-900 transition group-hover:text-primary dark:text-secondary dark:group-hover:text-secondary">
         {title}
       </h4>
       <p className="-mt-[2px] text-[0.7rem] font-normal text-slate-600 dark:text-gray-300 lg:text-xs">
-        {count === null ? "Loading components..." : `${count} component${count === 1 ? "" : "s"}`}
+        {count} component{count === 1 ? "" : "s"}
       </p>
     </Link>
   )

@@ -27,3 +27,22 @@ code {
     Courier New,
     monospace !important;
 }
+
+@keyframes rotate {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.rotate-out {
+  animation: rotate 0.5s backwards;
+}
+
+.rotate-in {
+  animation: rotate 0.5s forwards;
+}

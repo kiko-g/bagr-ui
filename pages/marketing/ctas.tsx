@@ -2,7 +2,7 @@ import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
 import { BlurredCTA, HoverDivCTA } from "@/components/marketing/ctas"
 
-export default function CTAs() {
+export default function CTA() {
   const base = "marketing/ctas"
 
   return (

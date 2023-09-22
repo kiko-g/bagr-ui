@@ -57,7 +57,7 @@ export const generalNav: BaseNav[] = [
 type SectionNav = {
   name: string
   href: string
-  count: number | null
+  count: number
   description: string
   icon?: any
   shown?: boolean
@@ -67,7 +67,7 @@ export const applicationUiNav: SectionNav[] = [
   {
     name: "Alerts",
     href: "/application-ui/alerts",
-    count: 4,
+    count: 1,
     description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     icon: MegaphoneIcon,
     shown: true,
@@ -176,6 +176,25 @@ export const marketingNav: SectionNav[] = [
     href: "/marketing/kpi",
     count: 1,
     description: "Key Performance Indicators to show the user the most important metrics.",
+    icon: SwatchIcon,
+    shown: true,
+  },
+].sort((a, b) => a.name.localeCompare(b.name))
+
+export const eCommerceNav: SectionNav[] = [
+  {
+    name: "Product Overviews",
+    href: "/ecommerce/product-overviews",
+    count: 1,
+    description: "Product overview page components",
+    icon: SwatchIcon,
+    shown: true,
+  },
+  {
+    name: "Product Lists",
+    href: "/ecommerce/product-lists",
+    count: 1,
+    description: "Product list page components",
     icon: SwatchIcon,
     shown: true,
   },
