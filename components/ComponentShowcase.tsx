@@ -1,5 +1,10 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
+import Link from "next/link"
 import classNames from "classnames"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import { Inter_Tight } from "next/font/google"
+import { GithubIcon } from "./icons/GithubIcon"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
 import {
   CheckIcon,
@@ -10,11 +15,6 @@ import {
   SunIcon,
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { Inter_Tight } from "next/font/google"
-import Link from "next/link"
-import { GithubIcon } from "./icons/GithubIcon"
 
 const inter = Inter_Tight({ subsets: ["latin"] })
 
@@ -79,7 +79,15 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
 
             <Loading code={code} />
 
-            <div className={classNames(isCodeVisible ? "rotate-in" : "hidden")}>
+            <Transition
+              show={isCodeVisible}
+              enter="transition-all duration-75"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-all duration-150"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
               <SyntaxHighlighter
                 language="tsx"
                 showLineNumbers
@@ -93,16 +101,21 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               >
                 {code}
               </SyntaxHighlighter>
-            </div>
+            </Transition>
 
-            <div
-              className={classNames(
-                isCodeVisible ? "hidden" : "",
-                "flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20",
-              )}
+            <Transition
+              show={!isCodeVisible}
+              enter="transition-all duration-150"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-all duration-75"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
-              <div className={classNames(isCodeVisible ? "" : "rotate-out")}>{Component}</div>
-            </div>
+              <div className="flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20">
+                {Component}
+              </div>
+            </Transition>
           </Disclosure.Panel>
         </Transition>
       </Disclosure>
