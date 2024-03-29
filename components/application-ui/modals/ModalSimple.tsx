@@ -82,7 +82,7 @@ export function ModalSimple({ startOpen }: Props) {
                     <button
                       type="button"
                       onClick={closeModal}
-                      className="w-full rounded bg-primary-600 p-2 text-sm text-white transition hover:opacity-80 dark:bg-primary-600"
+                      className="w-full rounded bg-teal-600 p-2 text-sm text-white transition hover:opacity-80 dark:bg-teal-600"
                     >
                       Cool, thanks!
                     </button>

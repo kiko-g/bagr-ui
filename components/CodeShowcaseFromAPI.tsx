@@ -85,7 +85,7 @@ function CopyCodeButton({ text }: { text: string }) {
       className={classNames(
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
-          ? "bg-primary-600 text-white"
+          ? "bg-teal-600 text-white"
           : "bg-white/20 text-white hover:bg-blue-600/80 hover:text-white dark:bg-white/10 dark:hover:bg-blue-500/60",
       )}
     >

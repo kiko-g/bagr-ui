@@ -17,7 +17,7 @@ export function Header() {
           <h1
             className={classNames(
               lexend.className,
-              "text-xl font-bold lowercase text-primary-700 dark:bg-transparent dark:text-white",
+              "text-xl font-bold lowercase text-teal-700 dark:bg-transparent dark:text-white",
             )}
           >
             Bagr.UI
