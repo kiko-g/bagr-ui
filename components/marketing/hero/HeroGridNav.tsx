@@ -29,7 +29,7 @@ export function HeroGridNav() {
       text: "Moscow is the capital and most populous city of Russia. Moscow is a major political, economic, cultural, and scientific centre of Russia and Eastern Europe, as well as the largest city (by area) on the European continent.",
       href: "#",
       icon: ViewfinderCircleIcon,
-      iconClasses: "bg-teal-50 group-hover:bg-teal-600 group-hover:text-white text-teal-600",
+      iconClasses: "bg-primary-50 group-hover:bg-primary-600 group-hover:text-white text-primary-600",
     },
     {
       title: "Prague",
