@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Menu } from "@headlessui/react"
 import { BuildingOfficeIcon, ChartBarIcon, ChevronDownIcon, CpuChipIcon } from "@heroicons/react/24/outline"
 
@@ -32,7 +32,7 @@ export function ButtonGroupSplit() {
             <Menu.Item key={`button-split-item-${itemIdx}`}>
               {({ active }) => (
                 <button
-                  className={classNames(
+                  className={clsx(
                     "flex items-center gap-2 px-3 py-2.5 text-sm transition",
                     itemIdx === 0 && "rounded-t",
                     itemIdx === items.length - 1 && "rounded-b",

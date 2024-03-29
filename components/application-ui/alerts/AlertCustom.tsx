@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import {
   ChatBubbleOvalLeftEllipsisIcon,
   CheckBadgeIcon,
@@ -38,7 +38,7 @@ export function AlertCustom({
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         "flex w-full items-center justify-start gap-3 py-3 pl-3",
         closeable ? "pr-3" : "pr-5",
         border && "border",
@@ -76,7 +76,7 @@ export function AlertCustom({
       {closeable && (
         <button
           onClick={closeAlert}
-          className={classNames(
+          className={clsx(
             filled ? "text-white hover:bg-white/20" : "text-gray-700 hover:bg-gray-700/20 hover:text-white",
             "ml-1 rounded p-0.5 transition lg:ml-2 lg:p-1",
           )}

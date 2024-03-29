@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Inter, Lexend } from "next/font/google"
 
 import { Seo } from "./layout/Seo"
@@ -19,7 +19,7 @@ export function Layout({ children, location = "Unknown", sidebar = false }: Prop
   return (
     <>
       <Seo title={location} />
-      <main className={classNames(inter.className, "mx-auto flex min-h-screen max-w-[100vw] flex-col")}>
+      <main className={clsx(inter.className, "mx-auto flex min-h-screen max-w-[100vw] flex-col")}>
         <Header />
         {sidebar ? (
           <div className="flex flex-1">

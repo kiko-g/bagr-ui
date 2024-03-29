@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { DarkModeSwitch } from "./DarkModeSwitch"
 import { links } from "@/utils/data"
@@ -15,7 +15,7 @@ export function Header() {
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
           <Image src="/logo.svg" alt="BagrUI" width={36} height={36}></Image>
           <h1
-            className={classNames(
+            className={clsx(
               lexend.className,
               "text-xl font-bold lowercase text-teal-700 dark:bg-transparent dark:text-white",
             )}

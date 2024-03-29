@@ -7,8 +7,8 @@ import Link from "next/link"
 export default function Config() {
   const npmPackages = [
     {
-      name: "classnames",
-      description: "A simple JavaScript utility for conditionally joining classNames together.",
+      name: "clsx",
+      description: "A simple JavaScript utility for conditionally joining clsx together.",
     },
     {
       name: "@heroicons/react",

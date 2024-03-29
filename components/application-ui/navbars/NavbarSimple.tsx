@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Lexend } from "next/font/google"
 
 type Props = {
@@ -22,7 +22,7 @@ export function NavbarSimple({ location }: Props) {
       <div>
         <a href="#" className="flex items-center gap-2 transition hover:opacity-80">
           <span className="h-5 w-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 lg:h-6 lg:w-6" />
-          <h1 className={classNames(lexend.className, "text-lg font-semibold lg:text-xl")}>AppTitle</h1>
+          <h1 className={clsx(lexend.className, "text-lg font-semibold lg:text-xl")}>AppTitle</h1>
         </a>
       </div>
 
@@ -31,7 +31,7 @@ export function NavbarSimple({ location }: Props) {
           <li key={item.name}>
             <a
               href={item.href}
-              className={classNames(
+              className={clsx(
                 "rounded-md px-3 py-2 text-sm font-medium",
                 location === item.name ? "bg-blue-500 text-white" : "text-gray-500 hover:bg-gray-200",
               )}

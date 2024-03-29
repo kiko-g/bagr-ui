@@ -1,6 +1,6 @@
 import React from "react"
 import Link from "next/link"
-import classNames from "classnames"
+import clsx from "clsx"
 import {
   ArrowLongRightIcon,
   CursorArrowRaysIcon,
@@ -60,7 +60,7 @@ export function HeroGridNav() {
         <Link
           href={action.href}
           key={action.title}
-          className={classNames(
+          className={clsx(
             actionIdx === 0 ? "rounded-tl-lg rounded-tr-lg sm:rounded-tr-none" : "",
             actionIdx === 1 ? "sm:rounded-tr-lg" : "",
             actionIdx === actions.length - 2 ? "sm:rounded-bl-lg" : "",
@@ -68,7 +68,7 @@ export function HeroGridNav() {
             "group relative bg-white p-6 transition focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary hover:bg-gray-100 dark:bg-blue-500/5 dark:hover:opacity-90",
           )}
         >
-          <span className={classNames(action.iconClasses, "inline-flex rounded-lg p-4 transition")}>
+          <span className={clsx(action.iconClasses, "inline-flex rounded-lg p-4 transition")}>
             <action.icon className="h-6 w-6" aria-hidden="true" />
           </span>
           <span className="font-lexend mt-3 block text-base font-semibold leading-6 text-gray-900 dark:text-white">

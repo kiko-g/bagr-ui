@@ -1,5 +1,5 @@
 import Link from "next/link"
-import classNames from "classnames"
+import clsx from "clsx"
 
 export function SidebarItem({
   name,
@@ -16,7 +16,7 @@ export function SidebarItem({
     <Link
       title={name}
       href={href}
-      className={classNames(
+      className={clsx(
         isActive
           ? "border-primary bg-primary/10 text-black hover:opacity-80 dark:border-secondary dark:bg-secondary/10 dark:text-white"
           : "border-gray-300 hover:bg-slate-500/10 dark:border-white/10 dark:hover:bg-slate-600/30",

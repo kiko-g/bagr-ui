@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react"
 import Link from "next/link"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Inter_Tight } from "next/font/google"
@@ -48,14 +48,14 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
       <Disclosure defaultOpen={isOpen}>
         <Disclosure.Button
           onClick={() => setIsOpen((prev) => !prev)}
-          className={classNames(
+          className={clsx(
             isOpen
               ? "rounded-t-xl bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
               : "rounded-xl bg-primary/60 text-white hover:bg-primary dark:bg-secondary/20 dark:hover:bg-secondary/40",
             "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
         >
-          <span className={classNames(inter.className, "text-left text-sm font-medium tracking-tight lg:text-base")}>
+          <span className={clsx(inter.className, "text-left text-sm font-medium tracking-tight lg:text-base")}>
             {name}
           </span>
           <ChevronDownIcon className="h-5 w-5" />
@@ -164,7 +164,7 @@ function CopyCodeButton({ text }: { text: string }) {
     <button
       onClick={copyToClipboard}
       disabled={isCopied}
-      className={classNames(
+      className={clsx(
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
@@ -182,7 +182,7 @@ function ChangeViewModeButton({ isCodeVisible, toggle }: { isCodeVisible: boolea
     <Switch checked={isCodeVisible} onChange={toggle}>
       <span className="sr-only">Use setting</span>
       <span
-        className={classNames(
+        className={clsx(
           "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs text-white shadow-sm transition disabled:cursor-not-allowed",
           isCodeVisible
             ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"
@@ -227,7 +227,7 @@ function ChangeBackgroundButton({ isDarkBackground, toggle }: { isDarkBackground
     <Switch checked={isDarkBackground} onChange={toggle}>
       <span className="sr-only">Use setting</span>
       <span
-        className={classNames(
+        className={clsx(
           "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
           isDarkBackground
             ? "bg-blue-600/80 text-white hover:opacity-80 dark:bg-blue-500/60 dark:hover:opacity-80"

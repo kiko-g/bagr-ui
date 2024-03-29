@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import { CheckIcon, ClipboardIcon } from "@heroicons/react/24/outline"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
@@ -41,7 +41,7 @@ export function CodeShowcaseFromAPI({ route, language }: Props) {
       </svg>
     </div>
   ) : (
-    <div className={classNames(inter.className, "group relative max-w-7xl overflow-x-scroll rounded-xl")}>
+    <div className={clsx(inter.className, "group relative max-w-7xl overflow-x-scroll rounded-xl")}>
       {/* Controls */}
       <div className="absolute right-4 top-4 flex items-center justify-end gap-2 font-sans">
         {code === "" ? null : <CopyCodeButton text={code} />}
@@ -82,7 +82,7 @@ function CopyCodeButton({ text }: { text: string }) {
     <button
       onClick={copyToClipboard}
       disabled={isCopied}
-      className={classNames(
+      className={clsx(
         "flex items-center justify-start gap-1.5 rounded px-3 py-2 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"

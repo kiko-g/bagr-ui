@@ -1,6 +1,6 @@
 import React from "react"
 import Link from "next/link"
-import classNames from "classnames"
+import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
@@ -21,7 +21,7 @@ function Hero() {
   return (
     <div className="l:max-w-3xl my-1 max-w-full py-4 md:max-w-xl lg:max-w-2xl lg:py-6">
       <h2
-        className={classNames(
+        className={clsx(
           lexend.className,
           "flex flex-wrap items-center text-lg font-bold tracking-tighter md:text-xl lg:text-2xl lg:tracking-tight xl:text-3xl 2xl:text-4xl",
         )}

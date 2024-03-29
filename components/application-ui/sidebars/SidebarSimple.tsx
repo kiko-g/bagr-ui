@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import clsx from "clsx"
 import { HomeIcon, InformationCircleIcon, LifebuoyIcon } from "@heroicons/react/24/outline"
 
 const navigation = [
@@ -62,7 +62,7 @@ function SidebarItem({
     <a
       title={name}
       href={href}
-      className={classNames(
+      className={clsx(
         isActive
           ? "bg-blue-500 text-white hover:opacity-80 dark:bg-blue-500/80"
           : "hover:bg-blue-500/10 dark:hover:bg-blue-500/30",
