@@ -13,11 +13,11 @@ export function Header() {
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
-          <Image src="/bagr-ui.svg" alt="BagrUI" width={36} height={36}></Image>
+          <Image src="/logo.svg" alt="BagrUI" width={36} height={36}></Image>
           <h1
             className={classNames(
               lexend.className,
-              "text-xl font-bold lowercase tracking-wide text-teal-600 dark:bg-transparent dark:text-white",
+              "text-xl font-bold lowercase text-teal-700 dark:bg-transparent dark:text-white",
             )}
           >
             Bagr.UI
