@@ -50,7 +50,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           onClick={() => setIsOpen((prev) => !prev)}
           className={clsx(
             isOpen
-              ? "rounded-t-xl bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
+              ? "rounded-t bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
               : "rounded-xl bg-primary/60 text-white hover:bg-primary dark:bg-secondary/20 dark:hover:bg-secondary/40",
             "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
@@ -112,7 +112,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="flex w-full items-center justify-center rounded-b-xl bg-slate-150 px-8 py-24 dark:bg-black/20">
+              <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-24 dark:bg-black/20">
                 {Component}
               </div>
             </Transition>

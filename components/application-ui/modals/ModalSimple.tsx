@@ -39,7 +39,7 @@ export function ModalSimple({ startOpen }: Props) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm dark:bg-white/5" />
+            <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm dark:bg-white/5" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -60,7 +60,7 @@ export function ModalSimple({ startOpen }: Props) {
                     </Dialog.Title>
                     <button
                       onClick={closeModal}
-                      className="flex items-center gap-x-1 rounded border border-blue-600/30 bg-blue-600/10 px-1 py-1 text-sm text-rose-800 transition hover:bg-blue-600 hover:text-white dark:bg-blue-600/20 dark:text-white dark:hover:bg-blue-600"
+                      className="flex items-center gap-x-1 rounded border border-rose-600/30 bg-rose-600/10 px-1 py-1 text-sm text-rose-800 transition hover:bg-rose-600 hover:text-white dark:bg-rose-600/20 dark:text-white dark:hover:bg-rose-600"
                     >
                       <XMarkIcon className="h-4 w-4" />{" "}
                     </button>

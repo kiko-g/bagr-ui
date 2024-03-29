@@ -191,8 +191,8 @@ export const eCommerceNav: SectionNav[] = [
     shown: true,
   },
   {
-    name: "Product Lists",
-    href: "/ecommerce/product-lists",
+    name: "Product Cards",
+    href: "/ecommerce/product-cards",
     count: 1,
     description: "Product list page components",
     icon: SwatchIcon,

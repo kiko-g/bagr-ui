@@ -18,7 +18,7 @@ const navigation = [
 
 export function NavbarSimple({ location }: Props) {
   return (
-    <nav className="flex w-full flex-col items-start justify-between gap-8 bg-white px-6 py-4 lg:flex-row xl:px-6 xl:py-6">
+    <nav className="flex w-full flex-col items-start justify-between gap-8 bg-white px-6 py-4 dark:bg-gray-900 lg:flex-row xl:px-6 xl:py-6">
       <div>
         <a href="#" className="flex items-center gap-2 transition hover:opacity-80">
           <span className="h-5 w-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 lg:h-6 lg:w-6" />
@@ -32,8 +32,10 @@ export function NavbarSimple({ location }: Props) {
             <a
               href={item.href}
               className={clsx(
-                "rounded-md px-3 py-2 text-sm font-medium",
-                location === item.name ? "bg-blue-500 text-white" : "text-gray-500 hover:bg-gray-200",
+                "rounded-md px-3 py-2 text-sm font-medium transition",
+                location === item.name
+                  ? "bg-blue-500 text-white"
+                  : "text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800",
               )}
             >
               {item.name}
