@@ -35,7 +35,7 @@ function ProductSimple({ product }: { product: ProductType }) {
         "flex max-h-[80vh] w-full flex-col self-stretch overflow-hidden border-0 border-gray-300 bg-white transition-all hover:bg-[#fefefe] hover:shadow-lg dark:border-gray-700 dark:bg-black/30 md:w-72",
       )}
     >
-      <a className="relative overflow-hidden" href="#">
+      <a className="relative min-h-[16rem] overflow-hidden" href="#">
         <div className="absolute left-0 top-0 m-2 flex flex-col gap-y-1.5">
           {product.info.new && (
             <span className="z-10 h-full w-full border border-[#00000040] bg-emerald-600/80 px-1 py-1 text-center text-xs font-medium tracking-tighter text-white">
