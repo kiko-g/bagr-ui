@@ -50,8 +50,8 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           onClick={() => setIsOpen((prev) => !prev)}
           className={clsx(
             isOpen
-              ? "rounded-t bg-primary text-white hover:opacity-80 dark:bg-secondary/80"
-              : "rounded-xl bg-primary/60 text-white hover:bg-primary dark:bg-secondary/20 dark:hover:bg-secondary/40",
+              ? "bg-primary-900 text-white hover:opacity-80 dark:bg-secondary-800/80"
+              : "bg-primary-700 text-white hover:bg-primary-900 dark:bg-secondary-800/30 dark:hover:bg-secondary-800/40",
             "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
           )}
         >
@@ -70,10 +70,13 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="group relative mb-8">
+          <Disclosure.Panel className="relative mb-8">
             <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2">
               <CopyCodeButton text={code} />
               <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
+            </div>
+
+            <div className="absolute bottom-4 left-4 z-10 flex items-center justify-end gap-2">
               <LinkToGithubButton path={path} />
             </div>
 
@@ -214,10 +217,10 @@ function LinkToGithubButton({ path }: { path: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-start gap-1.5 rounded bg-slate-700 px-3 py-2 text-xs text-white shadow-sm transition hover:bg-blue-600/80 hover:text-white disabled:cursor-not-allowed dark:bg-white/10 dark:hover:bg-blue-500/60"
+      className="flex items-center justify-start gap-2 rounded border border-[#333333] bg-transparent px-2 py-2 text-gray-900 shadow-sm transition hover:bg-[#333333] hover:text-white disabled:cursor-not-allowed dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
     >
-      <span className="hidden xl:inline-flex">Github</span>
       <GithubIcon className="h-4 w-4" />
+      <span className="text-xs">View on Github</span>
     </Link>
   )
 }

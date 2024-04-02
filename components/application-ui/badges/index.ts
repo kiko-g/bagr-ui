@@ -1,3 +1,6 @@
+import { BadgeError } from "./BadgeError"
 import { BadgeSimple } from "./BadgeSimple"
+import { BadgeSuccess } from "./BadgeSuccess"
+import { BadgeOutline } from "./BadgeOutline"
 
-export { BadgeSimple }
+export { BadgeError, BadgeSimple, BadgeSuccess, BadgeOutline }

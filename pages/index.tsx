@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import Image, { StaticImageData } from "next/image"
 import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
@@ -64,10 +65,10 @@ function Sections() {
 
       <div className="mt-8 border-t border-gray-300 pt-4 dark:border-white/10">
         <h3 className="mb-3 text-xl font-bold">Application UI Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
-          {applicationUiNav.map(({ name, count, description, href }) => (
-            <li key={`showcase-application-ui-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
-              <SectionCard title={name} count={count} description={description} link={href} />
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {applicationUiNav.map(({ name, count, description, image, href }) => (
+            <li key={`showcase-application-ui-${name}`} className="group flex w-full flex-col gap-1">
+              <SectionCard title={name} count={count} description={description} image={image} link={href} />
             </li>
           ))}
         </ul>
@@ -75,10 +76,10 @@ function Sections() {
 
       <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
         <h3 className="mb-3 text-xl font-bold">Marketing Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
-          {marketingNav.map(({ name, count, description, href }) => (
-            <li key={`showcase-marketing-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
-              <SectionCard title={name} count={count} description={description} link={href} />
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {marketingNav.map(({ name, count, description, image, href }) => (
+            <li key={`showcase-marketing-${name}`} className="group flex w-full flex-col gap-1">
+              <SectionCard title={name} count={count} description={description} image={image} link={href} />
             </li>
           ))}
         </ul>
@@ -86,10 +87,10 @@ function Sections() {
 
       <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
         <h3 className="mb-3 text-xl font-bold">Ecommerce Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
-          {eCommerceNav.map(({ name, count, description, href }) => (
-            <li key={`showcase-ecommerce-${name}`} className="group flex w-full flex-col gap-1 rounded-md">
-              <SectionCard title={name} count={count} description={description} link={href} />
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+          {eCommerceNav.map(({ name, count, description, image, href }) => (
+            <li key={`showcase-ecommerce-${name}`} className="group flex w-full flex-col gap-1">
+              <SectionCard title={name} count={count} description={description} image={image} link={href} />
             </li>
           ))}
         </ul>
@@ -101,20 +102,29 @@ function Sections() {
 type SectionCardProps = {
   title: string
   count: number
-  description: string
   link: string
+  description: string
+  image?: StaticImageData
 }
 
-function SectionCard({ title, count, description, link }: SectionCardProps) {
+function SectionCard({ title, count, description, link, image }: SectionCardProps) {
   return (
     <Link
       href={link}
-      className="flex flex-1 flex-col rounded-md bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 dark:bg-secondary/5 dark:group-hover:bg-secondary/20"
+      className="flex flex-1 flex-col border border-slate-300/80 bg-white px-4 py-4 text-white transition-all hover:border-primary group-hover:bg-primary-50 dark:border-slate-100/10 dark:bg-secondary/5 dark:hover:border-secondary dark:group-hover:bg-secondary/20"
     >
-      <div className="h-36 w-full rounded-lg border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-secondary-900/50 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
-      <h4 className="mt-3 text-sm font-medium text-slate-900 transition group-hover:text-primary dark:text-secondary dark:group-hover:text-secondary">
-        {title}
-      </h4>
+      {image ? (
+        <Image
+          src={image}
+          alt={title}
+          height={1600}
+          width={900}
+          className="border border-slate-400 dark:border-transparent"
+        ></Image>
+      ) : (
+        <div className="aspect-video w-full border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-secondary-900/50 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
+      )}
+      <h4 className="mt-3 text-sm font-semibold text-slate-900 transition dark:text-white">{title}</h4>
       <p className="-mt-[2px] text-[0.7rem] font-normal text-slate-600 dark:text-gray-300 lg:text-xs">
         {count} component{count === 1 ? "" : "s"}
       </p>

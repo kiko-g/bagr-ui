@@ -2,6 +2,7 @@ import React, { useMemo } from "react"
 import { Layout } from "@/components/Layout"
 import { ComponentShowcase } from "@/components/ComponentShowcase"
 import { strIncludes } from "@/utils"
+import clsx from "clsx"
 
 type ComponentCardType = {
   name: string
@@ -41,11 +42,11 @@ export function ComponentTypePage({ title, components }: Props) {
             placeholder="Search by component name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded border border-gray-300 bg-gray-50 px-2 py-2 text-xs font-normal transition placeholder:font-light placeholder:text-gray-400 hover:border-primary/80 hover:bg-primary/5 focus:border-primary focus:accent-primary focus:ring-0 focus:ring-primary focus:ring-offset-0 dark:border-gray-200/10 dark:bg-gray-100/5  dark:placeholder:text-gray-400 dark:hover:border-secondary/70 dark:hover:bg-secondary/5 dark:focus:border-secondary/80 dark:focus:ring-0 dark:focus:ring-secondary lg:px-3.5 lg:py-2.5 lg:text-sm"
+            className="w-full border border-gray-300 bg-gray-50 px-2 py-2 text-xs font-normal transition placeholder:font-light placeholder:text-gray-400 hover:border-primary/80 hover:bg-primary/5 focus:border-primary focus:accent-primary focus:ring-0 focus:ring-primary focus:ring-offset-0 dark:border-gray-200/10 dark:bg-gray-100/5  dark:placeholder:text-gray-400 dark:hover:border-secondary/70 dark:hover:bg-secondary/5 dark:focus:border-secondary/80 dark:focus:ring-0 dark:focus:ring-secondary lg:px-3.5 lg:py-2.5 lg:text-sm"
           />
         </div>
 
-        <ul className="grid grid-cols-1 gap-2 lg:gap-3 xl:grid-cols-1 xl:gap-4">
+        <ul className={clsx("grid grid-cols-1", collapseAll ? "gap-4" : "gap-4 lg:gap-6 xl:gap-8")}>
           {filteredComponents?.length > 0 ? (
             filteredComponents.map((button, buttonIx) => (
               <ComponentShowcase

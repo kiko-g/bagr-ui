@@ -17,11 +17,14 @@ export function Header() {
           <h1
             className={clsx(
               lexend.className,
-              "text-xl font-bold lowercase text-teal-700 dark:bg-transparent dark:text-white",
+              "inline-flex text-xl font-bold text-teal-700 dark:bg-transparent dark:text-white",
             )}
           >
-            Bagr.UI
+            BagrUI
           </h1>
+          <span className="inline-flex items-center rounded-sm border border-amber-600 bg-gradient-to-br from-amber-500 to-amber-500 px-1 py-0.5 text-xs font-bold uppercase text-black">
+            Beta
+          </span>
         </Link>
 
         {/* Links */}

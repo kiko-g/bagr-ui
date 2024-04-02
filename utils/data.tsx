@@ -1,5 +1,6 @@
 import React from "react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
+import Footage from "../images/components"
 import {
   Bars3Icon,
   EyeDropperIcon,
@@ -60,6 +61,7 @@ type SectionNav = {
   count: number
   description: string
   icon?: any
+  image?: StaticImageData
   shown?: boolean
 }
 
@@ -70,6 +72,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 1,
     description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     icon: MegaphoneIcon,
+    image: Footage.Alerts,
     shown: true,
   },
   {
