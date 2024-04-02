@@ -13,8 +13,8 @@ export function CircularProgressCard({ success, failed }: Props) {
   const offset = circumference - (progress / 100) * circumference
 
   return (
-    <div className="relative max-w-full rounded bg-white/80 p-4 dark:bg-white/10 xl:max-w-xs">
-      <h3 className="font-medium text-gray-700 dark:text-gray-100">Success Rate</h3>
+    <div className="relative max-w-full rounded bg-white/80 p-4 dark:bg-black/20 xl:max-w-xs">
+      <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">Success Rate</h3>
       <p className="mt-1 min-h-[5rem] text-sm">Ratio of completed actions vs. all the actions registered.</p>
 
       <div className="mt-2 flex items-center justify-center p-4">

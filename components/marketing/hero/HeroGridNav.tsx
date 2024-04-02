@@ -55,7 +55,7 @@ export function HeroGridNav() {
   ]
 
   return (
-    <div className="flex flex-col divide-y divide-gray-200 overflow-hidden rounded-lg border border-transparent bg-gray-200 dark:border-blue-500/40 dark:bg-blue-500/10 md:grid md:grid-cols-2 md:gap-px md:divide-y-0">
+    <div className="flex flex-col divide-y divide-transparent overflow-hidden rounded-lg border border-transparent bg-gray-200 dark:border-blue-500/40 dark:bg-blue-500/10 md:grid md:grid-cols-2 md:gap-px md:divide-y-0">
       {actions.map((action, actionIdx) => (
         <Link
           href={action.href}

@@ -12,20 +12,22 @@ export function Header() {
     <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full bg-gray-50 bg-opacity-90 backdrop-blur backdrop-filter dark:bg-gray-900 dark:bg-opacity-80 xl:px-8">
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center gap-3 hover:opacity-80">
-          <Image src="/logo.svg" alt="BagrUI" width={36} height={36}></Image>
-          <h1
-            className={clsx(
-              lexend.className,
-              "inline-flex text-xl font-bold text-teal-700 dark:bg-transparent dark:text-white",
-            )}
-          >
-            BagrUI
-          </h1>
-          <span className="inline-flex items-center rounded-sm border border-amber-600 bg-gradient-to-br from-amber-500 to-amber-500 px-1 py-0.5 text-xs font-bold uppercase text-black">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center justify-center gap-1 hover:opacity-80">
+            <Image src="/logo.svg" alt="BagrUI" width={36} height={36}></Image>
+            <h1
+              className={clsx(
+                lexend.className,
+                "inline-flex text-xl font-bold text-gray-800 dark:bg-transparent dark:text-white",
+              )}
+            >
+              BagrUI
+            </h1>
+          </Link>
+          <span className="inline-flex items-center rounded-sm border border-amber-400 bg-amber-400 px-1 py-0.5 text-xs font-bold uppercase text-amber-950">
             Beta
           </span>
-        </Link>
+        </div>
 
         {/* Links */}
         <ul className="flex items-center justify-center gap-1 lg:gap-3">
