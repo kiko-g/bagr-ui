@@ -130,7 +130,7 @@ function Loading({ code }: { code: string }) {
   if (code !== "") return
 
   return (
-    <div className="flex w-full items-center justify-center rounded-b-xl bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
+    <div className="flex w-full items-center justify-center bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +217,7 @@ function LinkToGithubButton({ path }: { path: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-start gap-2 rounded border border-[#333333] bg-transparent px-2 py-2 text-gray-900 shadow-sm transition hover:bg-[#333333] hover:text-white disabled:cursor-not-allowed dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
+      className="flex items-center justify-start gap-2 rounded bg-white px-2 py-2 text-gray-900 shadow-sm transition hover:opacity-80 disabled:cursor-not-allowed"
     >
       <GithubIcon className="h-4 w-4" />
       <span className="text-xs">View on Github</span>
