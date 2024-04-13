@@ -2,7 +2,6 @@ import React from "react"
 import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
-import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
 
 const lexend = Lexend({ subsets: ["latin"] })
 

@@ -6,6 +6,7 @@ import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
 import { applicationUiNav, eCommerceNav, marketingNav } from "@/utils/data"
+import { H1, H2, H3, H4, H5, H6 } from "@/components/utils/Headings"
 
 const lexend = Lexend({ subsets: ["latin"] })
 

@@ -9,7 +9,7 @@ const lexend = Lexend({ subsets: ["latin"] })
 
 export function Header() {
   return (
-    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full bg-gray-50 bg-opacity-90 backdrop-blur backdrop-filter dark:bg-gray-900 dark:bg-opacity-80 xl:px-8">
+    <header className="max-w-8xl sticky top-0 z-30 mx-auto h-[72px] w-full bg-gray-50 bg-opacity-40 backdrop-blur-sm backdrop-filter dark:bg-gray-900 dark:bg-opacity-40 xl:px-8">
       <div className="flex items-center justify-between px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
         {/* Logo */}
         <div className="flex items-center gap-3">
