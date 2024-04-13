@@ -8,10 +8,11 @@ import { GithubIcon } from "./icons/GithubIcon"
 import { Disclosure, Switch, Transition } from "@headlessui/react"
 import {
   CheckIcon,
-  ChevronDownIcon,
   ClipboardIcon,
   CodeBracketIcon,
+  MinusIcon,
   MoonIcon,
+  PlusIcon,
   SunIcon,
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline"
@@ -49,16 +50,15 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
         <Disclosure.Button
           onClick={() => setIsOpen((prev) => !prev)}
           className={clsx(
+            inter.className,
             isOpen
-              ? "bg-primary-900 text-white hover:opacity-80 dark:bg-secondary-800/80"
-              : "bg-primary-700 text-white hover:bg-primary-900 dark:bg-secondary-800/30 dark:hover:bg-secondary-800/40",
-            "flex items-center gap-x-1.5 px-4 py-2.5 shadow transition ease-in-out",
+              ? "bg-slate-800 text-white hover:opacity-80 dark:bg-secondary"
+              : "font-normal hover:bg-primary/10 dark:hover:bg-secondary/20",
+            "flex items-center justify-between gap-x-1.5 px-3 py-4 transition-all ease-in-out",
           )}
         >
-          <span className={clsx(inter.className, "text-left text-sm font-medium tracking-tight lg:text-base")}>
-            {name}
-          </span>
-          <ChevronDownIcon className="h-5 w-5" />
+          <span>{name}</span>
+          {isOpen ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}
         </Disclosure.Button>
 
         <Transition
@@ -70,7 +70,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Disclosure.Panel className="relative mb-8">
+          <Disclosure.Panel className={clsx("relative", isOpen ? "mb-8" : "mb-0")}>
             <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2">
               <CopyCodeButton text={code} />
               <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
@@ -97,9 +97,9 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
                 style={coldarkDark}
                 customStyle={{
                   margin: "0",
-                  minHeight: "400px",
+                  minHeight: "300px",
                   backgroundColor: "#192030",
-                  borderRadius: "0 0 0.75rem 0.75rem",
+                  borderRadius: "0",
                 }}
               >
                 {code}
@@ -115,7 +115,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-24 dark:bg-black/20">
+              <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-16 dark:bg-black/20">
                 {Component}
               </div>
             </Transition>
@@ -130,7 +130,7 @@ function Loading({ code }: { code: string }) {
   if (code !== "") return
 
   return (
-    <div className="flex w-full items-center justify-center bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
+    <div className="flex w-full items-center justify-center bg-[#1E2937] px-8 py-16 shadow dark:bg-black/10">
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

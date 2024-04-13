@@ -25,7 +25,7 @@ export function CodeShowcaseFromAPI({ route, language }: Props) {
   }, [route])
 
   return code === "" ? (
-    <div className="flex w-full items-center justify-center rounded-xl bg-[#1E2937] px-8 py-24 shadow dark:bg-black/10">
+    <div className="flex w-full items-center justify-center rounded-xl bg-[#1E2937] px-8 py-16 shadow dark:bg-black/10">
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export function CodeShowcaseFromAPI({ route, language }: Props) {
         style={coldarkDark}
         customStyle={{
           backgroundColor: "#0e131f",
-          borderRadius: "0.75rem",
+          borderRadius: "0",
           minHeight: "500px",
           maxHeight: "1000px",
           margin: "0",

@@ -25,7 +25,7 @@ export function CodeShowcaseDirect({ code, language }: Props) {
         style={coldarkDark}
         customStyle={{
           backgroundColor: "#0e131f",
-          borderRadius: "0.75rem",
+          borderRadius: "0",
           maxHeight: "200px",
           margin: "0",
         }}

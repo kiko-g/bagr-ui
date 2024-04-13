@@ -46,7 +46,7 @@ export function ComponentTypePage({ title, components }: Props) {
           />
         </div>
 
-        <ul className={clsx("grid grid-cols-1", collapseAll ? "gap-4" : "gap-4 lg:gap-6 xl:gap-8")}>
+        <ul className="grid grid-cols-1 gap-0 divide-y divide-slate-300 dark:divide-white/10">
           {filteredComponents?.length > 0 ? (
             filteredComponents.map((button, buttonIx) => (
               <ComponentShowcase
