@@ -46,7 +46,7 @@ export function ComponentTypePage({ title, components }: Props) {
           />
         </div>
 
-        <ul className="grid grid-cols-1 gap-0 divide-y divide-slate-300 dark:divide-white/10">
+        <ul className="flex flex-col divide-y divide-slate-300 dark:divide-white/10">
           {filteredComponents?.length > 0 ? (
             filteredComponents.map((button, buttonIx) => (
               <ComponentShowcase
