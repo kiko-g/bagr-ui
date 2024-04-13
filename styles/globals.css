@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *::selection {
-  @apply bg-primary/70 text-white dark:bg-secondary/70;
+  @apply bg-gray-800 text-white dark:bg-lime-500/50;
 }
 
 html {

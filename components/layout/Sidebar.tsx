@@ -3,7 +3,7 @@ import { applicationUiNav, generalNav, marketingNav, eCommerceNav } from "@/util
 
 export function Sidebar({ location }: { location: string }) {
   return (
-    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 self-stretch overflow-y-scroll bg-opacity-80 p-5 lg:flex lg:min-w-min">
+    <aside className="hidden min-w-full shrink-0 flex-col space-y-4 self-stretch overflow-auto bg-opacity-80 p-5 lg:flex lg:min-w-min">
       <ul className="flex w-full flex-col border-b border-gray-300 pb-4 dark:border-white/10">
         {generalNav
           .filter((item) => item.shown !== false)

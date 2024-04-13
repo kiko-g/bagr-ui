@@ -14,7 +14,7 @@ type Props = {
 
 export function CodeShowcaseDirect({ code, language }: Props) {
   return (
-    <div className={clsx(inter.className, "group relative mb-4 max-w-7xl overflow-x-scroll rounded-xl")}>
+    <div className={clsx(inter.className, "group relative mb-4 max-w-7xl overflow-auto rounded-xl")}>
       {/* Controls */}
       <div className="absolute right-3 top-3 z-20 flex items-center justify-end gap-2 font-sans">
         {code === "" ? null : <CopyCodeButton text={code} />}
