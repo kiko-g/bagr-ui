@@ -1,7 +1,7 @@
 import React from "react"
+import clsx from "clsx"
 import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
-import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
@@ -20,7 +20,7 @@ export default function Home() {
 
 function Hero() {
   return (
-    <div className="l:max-w-3xl my-1 max-w-full py-4 md:max-w-xl lg:max-w-2xl lg:py-6">
+    <div className="my-1 max-w-full py-4 md:max-w-xl lg:max-w-2xl lg:py-6 xl:max-w-3xl">
       <h2
         className={clsx(
           lexend.className,

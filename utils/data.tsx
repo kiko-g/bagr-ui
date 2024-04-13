@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image"
 import Footage from "../images/components"
 import {
   Bars3Icon,
+  Cog8ToothIcon,
   EyeDropperIcon,
   FlagIcon,
   HomeIcon,
@@ -52,6 +53,12 @@ export const generalNav: BaseNav[] = [
     href: "/config",
     shown: true,
     icon: WrenchIcon,
+  },
+  {
+    name: "Generator",
+    href: "/generator",
+    shown: true,
+    icon: Cog8ToothIcon,
   },
 ]
 
