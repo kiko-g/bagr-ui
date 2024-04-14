@@ -2,23 +2,38 @@ import React from "react"
 import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
-import { type ColorHex, interpolateTailwindPalette, isValidHex, writeTailwindPalette } from "@/utils/colors"
+import {
+  type ColorHex,
+  interpolateTailwindPalette,
+  isValidHex,
+  TailwindCombo,
+  writeTailwindPalette,
+} from "@/utils/colors"
 import { CodeShowcaseDirect } from "@/components/CodeShowcaseDirect"
 
 const lexend = Lexend({ subsets: ["latin"] })
 
+type TailwindPalette = {
+  name: string
+  combos: TailwindCombo[]
+  config: string
+}
+
 export default function Generator() {
   const [firstColor, setFirstColor] = React.useState<ColorHex>("#f0f9ff")
   const [secondColor, setSecondColor] = React.useState<ColorHex>("#082f49")
-  const [tailwindPalette, setTailwindPalette] = React.useState("")
-  const [tailwindColorName, setTailwindColorName] = React.useState("")
+  const [tailwindPalette, setTailwindPalette] = React.useState<TailwindPalette>({
+    name: "",
+    combos: [],
+    config: "",
+  })
 
   function generateTailwindPalette() {
     if (!isValidHex(firstColor) || !isValidHex(secondColor)) return
 
-    const colors = interpolateTailwindPalette(firstColor, secondColor)
-    const tailwindPalette = writeTailwindPalette(tailwindColorName || "custom", colors)
-    setTailwindPalette(tailwindPalette)
+    const tailwindCombos = interpolateTailwindPalette(firstColor, secondColor)
+    const tailwindConfig = writeTailwindPalette(tailwindPalette.name || "custom", tailwindCombos)
+    setTailwindPalette({ ...tailwindPalette, combos: tailwindCombos, config: tailwindConfig })
   }
 
   return (
@@ -46,17 +61,17 @@ export default function Generator() {
             TailwindCSS Palette Generator
           </h3>
 
-          <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
             {/* Color Pickers */}
-            <div className="flex flex-col gap-4">
+            <div className="col-span-1 flex flex-col gap-4 lg:col-span-2">
               {/* Color Name */}
               <input
                 type="text"
                 id="tailwindColorName"
                 name="tailwindColorName"
                 placeholder="Type the name of your color palette"
-                value={tailwindColorName}
-                onChange={(e) => setTailwindColorName(e.target.value)}
+                value={tailwindPalette.name}
+                onChange={(e) => setTailwindPalette({ ...tailwindPalette, name: e.target.value })}
                 className="w-full border border-gray-300 bg-white px-2 py-2 text-xs font-normal transition placeholder:font-light placeholder:text-gray-400 hover:border-primary/80 hover:bg-primary/5 focus:border-primary focus:accent-primary focus:ring-0 focus:ring-primary focus:ring-offset-0 dark:border-gray-200/10 dark:bg-gray-100/5  dark:placeholder:text-gray-400 dark:hover:border-secondary/70 dark:hover:bg-secondary/5 dark:focus:border-secondary/80 dark:focus:ring-0 dark:focus:ring-secondary lg:px-3.5 lg:py-2.5 lg:text-sm"
               />
 
@@ -107,15 +122,36 @@ export default function Generator() {
                   Generate Palette
                 </button>
               </div>
+
+              {/* Color Palette Demonstration */}
+              {tailwindPalette.combos.length > 0 && (
+                <div className="border-t py-4">
+                  <span className="mb-2 block font-semibold capitalize">{tailwindPalette.name}</span>
+                  <ul className="flex flex-wrap items-center gap-3">
+                    {tailwindPalette.combos.map((combo) => (
+                      <li key={combo.id} className="flex flex-col items-start justify-center">
+                        <span
+                          className="mb-2 flex h-10 w-14 rounded shadow"
+                          style={{ backgroundColor: combo.color }}
+                        ></span>
+                        <span className="text-xs font-semibold text-gray-800 dark:text-gray-200">{combo.id}</span>
+                        <span className="text-xs font-normal text-gray-600 dark:text-gray-400">{combo.color}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Tailwind Config Colors */}
-            {tailwindPalette && (
-              <CodeShowcaseDirect
-                language="js"
-                code={tailwindPalette.trim()}
-                options={{ maxHeight: "600px" }}
-              ></CodeShowcaseDirect>
+            {tailwindPalette.config && (
+              <div className="col-span-1 lg:col-span-1">
+                <CodeShowcaseDirect
+                  language="js"
+                  code={tailwindPalette.config.trim()}
+                  options={{ maxHeight: "600px" }}
+                ></CodeShowcaseDirect>
+              </div>
             )}
           </section>
         </li>
