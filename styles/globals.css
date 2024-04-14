@@ -32,6 +32,10 @@ code {
     monospace !important;
 }
 
+.border-dimmed {
+  @apply border-gray-300 dark:border-white/10;
+}
+
 @keyframes rotate {
   from {
     transform: rotateY(-90deg);

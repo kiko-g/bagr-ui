@@ -64,7 +64,7 @@ function Sections() {
         page. Your setup should be similar, otherwise some components might not work as expected in your project.
       </p>
 
-      <div className="mt-8 border-t border-gray-300 pt-4 dark:border-white/10">
+      <div className="border-dimmed mt-8 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Application UI Components</h3>
         <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
           {applicationUiNav.map(({ name, count, description, image, href }) => (
@@ -75,7 +75,7 @@ function Sections() {
         </ul>
       </div>
 
-      <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
+      <div className="border-dimmed mt-16 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Marketing Components</h3>
         <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
           {marketingNav.map(({ name, count, description, image, href }) => (
@@ -86,7 +86,7 @@ function Sections() {
         </ul>
       </div>
 
-      <div className="mt-16 border-t border-gray-300 pt-4 dark:border-white/10">
+      <div className="border-dimmed mt-16 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Ecommerce Components</h3>
         <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
           {eCommerceNav.map(({ name, count, description, image, href }) => (

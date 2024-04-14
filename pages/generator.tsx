@@ -50,7 +50,7 @@ export default function Generator() {
         <p className="mb-3 max-w-5xl">Make use of our generator for colors and utilities for your websites.</p>
       </div>
 
-      <ul className="mt-2 flex w-full flex-col gap-4 border-t border-gray-300 pt-4 dark:border-white/10">
+      <ul className="border-dimmed mt-2 flex w-full flex-col gap-4 border-t pt-4">
         <li id="tailwindcss-palette">
           <h3
             className={clsx(
@@ -131,7 +131,7 @@ export default function Generator() {
 
               {/* Color Palette Demonstration */}
               {tailwindPalette.combos.length > 0 && (
-                <div className="border-t border-gray-300 pt-4 dark:border-white/10">
+                <div className="border-dimmed border-t pt-4">
                   <span className="mb-2 block font-semibold capitalize">{tailwindPalette.name}</span>
                   <ul className="flex flex-wrap items-center gap-3">
                     {tailwindPalette.combos.map((combo) => (

@@ -34,7 +34,7 @@ export default function Config() {
 
   return (
     <Layout location="Config" sidebar>
-      <section className="w-full border-b border-gray-300 pb-2 pt-4 dark:border-white/10 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
+      <section className="border-dimmed w-full border-b pb-2 pt-4 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
         <h2 className={clsx(lexend.className, "mb-3 text-xl font-semibold tracking-tighter lg:text-4xl")}>
           Configuration
         </h2>
@@ -44,7 +44,7 @@ export default function Config() {
         </p>
       </section>
 
-      <section className="w-full border-b border-gray-300 pb-2 pt-4 dark:border-white/10 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
+      <section className="border-dimmed w-full border-b pb-2 pt-4 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
         <h2 className={clsx(lexend.className, "mb-3 text-lg font-semibold tracking-tighter lg:text-3xl")}>
           Getting Started
         </h2>
@@ -66,7 +66,7 @@ export default function Config() {
         </div>
       </section>
 
-      <section className="w-full border-b border-gray-300 pb-2 pt-4 dark:border-white/10 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
+      <section className="border-dimmed w-full border-b pb-2 pt-4 lg:pb-3 lg:pt-6 xl:pb-5 xl:pt-10">
         <h2 className={clsx(lexend.className, "mb-3 text-lg font-semibold tracking-tighter lg:text-3xl")}>
           Package Installation
         </h2>
