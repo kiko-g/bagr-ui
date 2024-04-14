@@ -61,6 +61,12 @@ export default function Generator() {
             TailwindCSS Palette Generator
           </h3>
 
+          <p className="mb-2 max-w-3xl text-sm">
+            Generate a custom TailwindCSS color palette based on two colors. Enter the two colors you want to
+            interpolate and the name of your color palette. Copy the output and paste it into your{" "}
+            <code className="font-bold text-primary-900 dark:text-secondary">tailwind.config.js</code> 😎
+          </p>
+
           <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
             {/* Color Pickers */}
             <div className="col-span-1 flex flex-col gap-4 lg:col-span-2">
@@ -125,7 +131,7 @@ export default function Generator() {
 
               {/* Color Palette Demonstration */}
               {tailwindPalette.combos.length > 0 && (
-                <div className="border-t py-4">
+                <div className="border-t border-gray-300 pt-4 dark:border-white/10">
                   <span className="mb-2 block font-semibold capitalize">{tailwindPalette.name}</span>
                   <ul className="flex flex-wrap items-center gap-3">
                     {tailwindPalette.combos.map((combo) => (

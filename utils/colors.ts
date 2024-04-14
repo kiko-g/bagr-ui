@@ -55,7 +55,7 @@ export function interpolateTailwindPalette(color1: ColorHex, color2: ColorHex) {
 }
 
 export function writeTailwindPalette(colorName: string, combos: TailwindCombo[]): string {
-  let tailwindPalette = `module.exports = {\n  theme: {\n    extend: {\n      colors: {\n        ${colorName}: {\n`
+  let tailwindPalette = `/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  theme: {\n    extend: {\n      colors: {\n        ${colorName.toLowerCase()}: {\n`
   combos.forEach((combo) => {
     tailwindPalette += `          ${combo.id}: '${combo.color}',\n`
   })
