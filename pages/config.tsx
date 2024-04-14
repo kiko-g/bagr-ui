@@ -5,6 +5,8 @@ import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { CodeShowcaseDirect } from "@/components/CodeShowcaseDirect"
 import { CodeShowcaseFromAPI } from "@/components/CodeShowcaseFromAPI"
+import { H3, H4 } from "@/components/utils/Headings"
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline"
 
 const lexend = Lexend({ subsets: ["latin"] })
 
@@ -73,21 +75,31 @@ export default function Config() {
           copying your code.
         </p>
 
-        <div className="space-y-2 border-b border-gray-300 py-6 dark:border-white/10">
-          {npmPackages.map((npmPackage, npmPackageIdx) => (
-            <div key={`npm-package-${npmPackageIdx}`}>
-              <p className="mb-2">{npmPackage.description}</p>
-              <CodeShowcaseDirect code={`npm i ${npmPackage.name}`} language="bash" />
-            </div>
-          ))}
-        </div>
-
         <div className="py-6">
-          <p className="mb-2">Or you can copy and install them all at once:</p>
+          <H3>Quick Install</H3>
+          <p className="mb-2">You can copy and install all the recommended packages at once:</p>
           <CodeShowcaseDirect
             code={`npm i ${npmPackages.map((npmPackage) => npmPackage.name).join(" ")}`}
             language="bash"
           />
+        </div>
+
+        <div className="border-t py-6">
+          <H3>Fragmented Install</H3>
+          <ul className="flex flex-col gap-y-3">
+            {npmPackages.map((npmPackage, npmPackageIdx) => (
+              <li key={`npm-package-${npmPackageIdx}`}>
+                <div className="mb-1.5 flex items-center gap-2">
+                  <H4 noMargin>{npmPackage.name}</H4>
+                  <a href={`https://www.npmjs.com/package/${npmPackage.name}`} target="_blank">
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4 opacity-50" />
+                  </a>
+                </div>
+                <p className="mb-2">{npmPackage.description}</p>
+                <CodeShowcaseDirect code={`npm i ${npmPackage.name}`} language="bash" />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

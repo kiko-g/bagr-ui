@@ -52,8 +52,8 @@ module.exports = {
     xxs: "0.6rem",
   },
   plugins: [
+    require("tailwind-scrollbar"), // npm i --save-dev tailwind-scrollbar
     require("@tailwindcss/forms"), // npm i --save-dev @tailwindcss/forms
     require("@tailwindcss/typography"), // npm i --save-dev @tailwindcss/typography
-    require("tailwind-scrollbar"), // npm i --save-dev tailwind-scrollbar
   ],
 }
