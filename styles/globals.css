@@ -6,6 +6,10 @@
   @apply bg-gray-800 text-white dark:bg-lime-500/50;
 }
 
+pre *::selection {
+  @apply bg-lime-500/50 text-white;
+}
+
 html {
   @apply scroll-smooth;
 }

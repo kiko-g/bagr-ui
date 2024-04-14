@@ -10,9 +10,10 @@ const inter = Inter_Tight({ subsets: ["latin"] })
 type Props = {
   code: string
   language: string
+  options?: any
 }
 
-export function CodeShowcaseDirect({ code, language }: Props) {
+export function CodeShowcaseDirect({ code, language, options }: Props) {
   return (
     <div className={clsx(inter.className, "group relative mb-4 max-w-7xl overflow-auto rounded-xl")}>
       {/* Controls */}
@@ -26,7 +27,7 @@ export function CodeShowcaseDirect({ code, language }: Props) {
         customStyle={{
           backgroundColor: "#0e131f",
           borderRadius: "0",
-          maxHeight: "200px",
+          maxHeight: options?.maxHeight || "200px",
           margin: "0",
         }}
       >
