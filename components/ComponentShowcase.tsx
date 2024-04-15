@@ -52,8 +52,8 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           className={clsx(
             inter.className,
             isOpen
-              ? "bg-slate-800 text-white dark:bg-secondary"
-              : "font-normal hover:text-primary dark:hover:text-secondary",
+              ? "bg-primary-900 text-white dark:bg-secondary"
+              : "bg-primary-50 font-normal hover:text-primary dark:bg-secondary/10 dark:hover:text-secondary",
             "flex items-center justify-between gap-x-1.5 px-3.5 py-2.5 transition-all ease-in-out",
           )}
         >

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import clsx from "clsx"
 import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
@@ -20,8 +20,8 @@ type TailwindPalette = {
 }
 
 export default function Generator() {
-  const [firstColor, setFirstColor] = React.useState<ColorHex>("#f0f9ff")
-  const [secondColor, setSecondColor] = React.useState<ColorHex>("#082f49")
+  const [firstColor, setFirstColor] = React.useState<ColorHex | "">("")
+  const [secondColor, setSecondColor] = React.useState<ColorHex | "">("")
   const [tailwindPalette, setTailwindPalette] = React.useState<TailwindPalette>({
     name: "",
     combos: [],
@@ -29,12 +29,28 @@ export default function Generator() {
   })
 
   function generateTailwindPalette() {
+    if (!firstColor || !secondColor) return
     if (!isValidHex(firstColor) || !isValidHex(secondColor)) return
 
     const tailwindCombos = interpolateTailwindPalette(firstColor, secondColor)
     const tailwindConfig = writeTailwindPalette(tailwindPalette.name || "custom", tailwindCombos)
     setTailwindPalette({ ...tailwindPalette, combos: tailwindCombos, config: tailwindConfig })
   }
+
+  useEffect(() => {
+    const trial = {
+      firstColor: "#f0f9ff" as ColorHex,
+      secondColor: "#082f49" as ColorHex,
+      name: "Custom" as string,
+    }
+
+    setFirstColor(trial.firstColor)
+    setSecondColor(trial.secondColor)
+
+    const tailwindCombos = interpolateTailwindPalette(trial.firstColor, trial.secondColor)
+    const tailwindConfig = writeTailwindPalette(trial.name, tailwindCombos)
+    setTailwindPalette({ name: trial.name, combos: tailwindCombos, config: tailwindConfig })
+  }, [])
 
   return (
     <Layout location="Generator" sidebar>
