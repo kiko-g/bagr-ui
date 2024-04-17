@@ -46,7 +46,7 @@ export function ComponentTypePage({ title, components }: Props) {
           />
         </div>
 
-        <ul className="flex flex-col divide-y divide-slate-300 dark:divide-white/10">
+        <ul className={clsx("grid grid-cols-1")}>
           {filteredComponents?.length > 0 ? (
             filteredComponents.map((button, buttonIx) => (
               <ComponentShowcase

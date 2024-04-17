@@ -1,6 +1,7 @@
 import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
 import { BadgeError, BadgeSimple, BadgeSuccess, BadgeOutline } from "@/components/application-ui/badges"
+import { BadgeBeta } from "@/components/application-ui/badges/BadgeBeta"
 
 export default function Badges() {
   const base = "application-ui/badges"
@@ -24,6 +25,15 @@ export default function Badges() {
           component: (
             <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-xl">
               <BadgeOutline />
+            </div>
+          ),
+        },
+        {
+          name: "Beta",
+          path: `${base}/BadgeBeta.tsx`,
+          component: (
+            <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-xl">
+              <BadgeBeta />
             </div>
           ),
         },
