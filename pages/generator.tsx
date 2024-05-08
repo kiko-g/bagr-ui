@@ -80,7 +80,7 @@ export default function Generator() {
           <p className="mb-2 max-w-3xl text-sm">
             Generate a custom TailwindCSS color palette based on two colors. Enter the two colors you want to
             interpolate and the name of your color palette. Copy the output and paste it into your{" "}
-            <code className="font-bold text-primary-900 dark:text-secondary">tailwind.config.js</code> 😎
+            <code className="font-bold text-primary dark:text-secondary">tailwind.config.js</code> 😎
           </p>
 
           <section className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">

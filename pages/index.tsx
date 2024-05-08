@@ -57,7 +57,7 @@ function Sections() {
         the web components and their source code. Make sure you have checked out the{" "}
         <Link
           href="/config"
-          className="font-bold underline hover:text-primary-900 hover:opacity-80 dark:hover:text-secondary"
+          className="font-bold underline hover:text-primary hover:opacity-80 dark:hover:text-secondary"
         >
           <code>configuration</code>
         </Link>{" "}
@@ -112,7 +112,7 @@ function SectionCard({ title, count, description, link, image }: SectionCardProp
   return (
     <Link
       href={link}
-      className="flex flex-1 flex-col border border-slate-300/80 bg-white px-4 py-4 text-white transition-all hover:border-primary group-hover:bg-primary-50 dark:border-slate-100/10 dark:bg-secondary/5 dark:hover:border-secondary dark:group-hover:bg-secondary/20"
+      className="flex flex-1 flex-col border border-slate-300/80 bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 hover:border-primary dark:border-slate-100/10 dark:bg-secondary/5 dark:group-hover:bg-secondary/20 dark:hover:border-secondary"
     >
       {image ? (
         <Image

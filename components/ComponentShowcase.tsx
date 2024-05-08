@@ -51,10 +51,8 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
           onClick={() => setIsOpen((prev) => !prev)}
           className={clsx(
             inter.className,
-            isOpen
-              ? "bg-primary-900 text-white dark:bg-secondary"
-              : "bg-primary-50 font-normal hover:text-primary dark:bg-secondary/10 dark:hover:text-secondary",
-            "flex items-center justify-between gap-x-1.5 px-3.5 py-2.5 transition-all ease-in-out",
+            isOpen ? "bg-primary text-white dark:bg-secondary" : "bg-primary/10 font-normal dark:bg-secondary/10",
+            "flex items-center justify-between gap-x-1.5 px-3.5 py-2.5",
           )}
         >
           <span>{name}</span>

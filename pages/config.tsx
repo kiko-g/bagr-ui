@@ -54,7 +54,7 @@ export default function Config() {
           <Link
             target="_blank"
             href="https://nextjs.org/docs"
-            className="font-bold underline hover:text-primary-900 hover:opacity-80 dark:hover:text-secondary"
+            className="font-bold underline hover:text-primary hover:opacity-80 dark:hover:text-secondary"
           >
             get started with the framework here
           </Link>
@@ -109,8 +109,8 @@ export default function Config() {
         </h2>
         <p className="mb-3 max-w-5xl">
           This site uses a custom Tailwind config that extends the default Tailwind config. Copy our config to your{" "}
-          <code className="font-bold text-primary-900 dark:text-secondary">tailwind.config.js</code> file that should be
-          in the root of your project.
+          <code className="font-bold text-primary dark:text-secondary">tailwind.config.js</code> file that should be in
+          the root of your project.
         </p>
         <div className="w-full rounded-xl">
           <CodeShowcaseFromAPI route="api/tailwind" language="javascript" />
