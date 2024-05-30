@@ -11,20 +11,54 @@ export default function Badges() {
       title="Badges"
       components={[
         {
-          name: "Simple",
+          name: "Simple with Type",
           path: `${base}/BadgeSimple.tsx`,
           component: (
-            <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-xl">
-              <BadgeSimple />
+            <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-3xl">
+              <BadgeSimple>
+                <span className="text-sm">Simple</span>
+              </BadgeSimple>
+              <BadgeSimple type="info">
+                <span className="text-sm">Info</span>
+              </BadgeSimple>
+              <BadgeSimple type="success">
+                <span className="text-sm">Success</span>
+              </BadgeSimple>
+              <BadgeSimple type="warning">
+                <span className="text-sm">Warning</span>
+              </BadgeSimple>
+              <BadgeSimple type="error">
+                <span className="text-sm">Error</span>
+              </BadgeSimple>
             </div>
           ),
         },
         {
-          name: "Outline",
+          name: "Outline with Type",
           path: `${base}/BadgeOutline.tsx`,
           component: (
-            <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-xl">
-              <BadgeOutline />
+            <div className="flex w-full max-w-full flex-row flex-wrap items-center justify-center gap-3 xl:max-w-3xl">
+              <BadgeOutline noBorder>
+                <span className="text-sm">No Border</span>
+              </BadgeOutline>
+              <BadgeOutline noBubble>
+                <span className="text-sm">No Bubble</span>
+              </BadgeOutline>
+              <BadgeOutline>
+                <span className="text-sm">Default</span>
+              </BadgeOutline>
+              <BadgeOutline type="info">
+                <span className="text-sm">Info</span>
+              </BadgeOutline>
+              <BadgeOutline type="success">
+                <span className="text-sm">Success</span>
+              </BadgeOutline>
+              <BadgeOutline type="warning">
+                <span className="text-sm">Warning</span>
+              </BadgeOutline>
+              <BadgeOutline type="error">
+                <span className="text-sm">Error</span>
+              </BadgeOutline>
             </div>
           ),
         },
