@@ -54,7 +54,7 @@ export function AlertCustom({
         type === "warning" &&
           (filled
             ? "bg-amber-600"
-            : "border-amber-600 bg-amber-50 text-amber-700 dark:bg-amber-600/20 dark:text-yellow-200"),
+            : "border-amber-600 bg-amber-50 text-amber-700 dark:bg-amber-600/20 dark:text-amber-100"),
         type === "success" &&
           (filled
             ? "bg-emerald-600"

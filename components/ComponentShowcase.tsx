@@ -115,7 +115,7 @@ function CopyCodeButton({ text }: { text: string }) {
         "flex items-center justify-start gap-1.5 rounded-full border-0 px-4 py-3 text-xs shadow-sm transition disabled:cursor-not-allowed",
         isCopied
           ? "bg-teal-600 text-white"
-          : "bg-black/70 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/40 dark:hover:bg-blue-500/60",
+          : "bg-black/70 text-white hover:bg-blue-600/80 hover:text-white dark:bg-black/50 dark:hover:bg-blue-500/60",
       )}
     >
       {isCopied ? <CheckIcon className="h-4 w-4" /> : <ClipboardIcon className="h-4 w-4" />}
@@ -133,7 +133,7 @@ function ChangeViewModeButton({
   toggleShowPreview: () => void
 }) {
   return (
-    <div className="flex items-center justify-start gap-1.5 rounded-full border-0 bg-black/70 px-1.5 py-1.5 text-xs text-white shadow-sm transition disabled:cursor-not-allowed dark:bg-black/40">
+    <div className="flex items-center justify-start gap-1.5 rounded-full border-0 bg-black/70 px-1.5 py-1.5 text-xs text-white shadow-sm transition disabled:cursor-not-allowed dark:bg-black/50">
       <button
         onClick={toggleShowPreview}
         className={clsx(
