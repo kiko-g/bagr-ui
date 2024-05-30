@@ -57,7 +57,7 @@ function Sections() {
         the web components and their source code. Make sure you have checked out the{" "}
         <Link
           href="/config"
-          className="font-bold underline hover:text-primary hover:opacity-80 dark:hover:text-secondary"
+          className="font-bold underline hover:text-primary hover:opacity-80 dark:hover:text-primary"
         >
           <code>configuration</code>
         </Link>{" "}
@@ -112,7 +112,7 @@ function SectionCard({ title, count, description, link, image }: SectionCardProp
   return (
     <Link
       href={link}
-      className="flex flex-1 flex-col border border-slate-300/80 bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 hover:border-primary dark:border-slate-100/10 dark:bg-secondary/5 dark:group-hover:bg-secondary/20 dark:hover:border-secondary"
+      className="flex flex-1 flex-col border border-slate-300/80 bg-white px-4 py-4 text-white transition-all group-hover:bg-primary-50 hover:border-primary dark:border-slate-100/10 dark:bg-primary/5 dark:group-hover:bg-primary/20 dark:hover:border-primary"
     >
       {image ? (
         <Image
@@ -123,7 +123,7 @@ function SectionCard({ title, count, description, link, image }: SectionCardProp
           className="border border-slate-400 dark:border-transparent"
         ></Image>
       ) : (
-        <div className="aspect-video w-full border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-secondary-900/50 dark:group-hover:border-secondary-800 dark:group-hover:bg-secondary-900" />
+        <div className="aspect-video w-full border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-primary-900/50 dark:group-hover:border-primary-800 dark:group-hover:bg-primary-900" />
       )}
       <h4 className="mt-3 text-sm font-semibold text-slate-900 transition dark:text-white">{title}</h4>
       <p className="-mt-[2px] text-[0.7rem] font-normal text-slate-600 dark:text-gray-300 lg:text-xs">

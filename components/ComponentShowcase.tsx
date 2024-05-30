@@ -41,7 +41,7 @@ export function ComponentShowcase({ name, path, Component }: Props) {
   }, [path])
 
   return (
-    <li className="flex flex-col">
+    <li className="flex flex-col" id={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}>
       <Disclosure defaultOpen={isOpen}>
         <DisclosureButton
           onClick={() => setIsOpen((prev) => !prev)}
