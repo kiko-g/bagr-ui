@@ -81,7 +81,9 @@ export function AlertCustom({
         <button
           onClick={closeAlert}
           className={clsx(
-            filled ? "text-white hover:bg-white/20" : "text-gray-700 hover:bg-gray-700/20 hover:text-white",
+            filled
+              ? "text-white hover:bg-white/20 dark:text-white"
+              : "text-gray-700 hover:bg-black/10 dark:text-white dark:hover:bg-white/10",
             "ml-1 rounded p-0.5 transition lg:ml-2 lg:p-1",
           )}
         >

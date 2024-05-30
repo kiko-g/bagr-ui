@@ -76,7 +76,7 @@ export const applicationUiNav: SectionNav[] = [
   {
     name: "Alerts",
     href: "/application-ui/alerts",
-    count: 1,
+    count: 5,
     description: "Customizable alerts to send information to the user with different icons, colors, and actions.",
     icon: MegaphoneIcon,
     image: Footage.Alerts,
@@ -85,7 +85,7 @@ export const applicationUiNav: SectionNav[] = [
   {
     name: "Badges",
     href: "/application-ui/badges",
-    count: 1,
+    count: 5,
     description: "Small badges for signaling short pieces of information.",
     icon: FlagIcon,
     shown: true,

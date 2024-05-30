@@ -10,6 +10,31 @@ export default function Alerts() {
       title="Alerts"
       components={[
         {
+          name: "With Accent and Dismissible",
+          path: `${base}/AlertCustom.tsx`,
+          component: (
+            <div className="w-full space-y-16">
+              <div className="flex w-full flex-col items-start gap-3">
+                <AlertCustom type="info" accent dismissible>
+                  Content of your information alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="success" accent dismissible>
+                  Content of your success alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="warning" accent dismissible>
+                  Content of your warning alert provided through children.
+                </AlertCustom>
+                <AlertCustom type="error" accent dismissible>
+                  Content of your error alert provided through children.
+                </AlertCustom>
+                <AlertCustom accent dismissible>
+                  Content of your alert provided through children.
+                </AlertCustom>
+              </div>
+            </div>
+          ),
+        },
+        {
           name: "Rounded with Border",
           path: `${base}/AlertCustom.tsx`,
           component: (
@@ -28,31 +53,6 @@ export default function Alerts() {
                   Content of your error alert provided through children.
                 </AlertCustom>
                 <AlertCustom rounded border>
-                  Content of your alert provided through children.
-                </AlertCustom>
-              </div>
-            </div>
-          ),
-        },
-        {
-          name: "With Accent and dismissible",
-          path: `${base}/AlertCustom.tsx`,
-          component: (
-            <div className="w-full space-y-16">
-              <div className="flex w-full flex-col items-start gap-3">
-                <AlertCustom type="info" accent dismissible>
-                  Content of your information alert provided through children.
-                </AlertCustom>
-                <AlertCustom type="success" accent dismissible>
-                  Content of your success alert provided through children.
-                </AlertCustom>
-                <AlertCustom type="warning" accent dismissible>
-                  Content of your warning alert provided through children.
-                </AlertCustom>
-                <AlertCustom type="error" accent dismissible>
-                  Content of your error alert provided through children.
-                </AlertCustom>
-                <AlertCustom accent dismissible>
                   Content of your alert provided through children.
                 </AlertCustom>
               </div>
