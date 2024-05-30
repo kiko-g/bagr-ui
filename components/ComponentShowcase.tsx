@@ -8,6 +8,7 @@ import { GithubIcon } from "./icons/GithubIcon"
 import { Disclosure, DisclosureButton, DisclosurePanel, Switch, Transition } from "@headlessui/react"
 import {
   CheckIcon,
+  ChevronDownIcon,
   ClipboardIcon,
   CodeBracketIcon,
   MinusIcon,
@@ -49,58 +50,44 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
       <Disclosure defaultOpen={isOpen}>
         <DisclosureButton
           onClick={() => setIsOpen((prev) => !prev)}
-          className={clsx(
-            inter.className,
-            isOpen ? "bg-primary text-white dark:bg-secondary" : "bg-primary/10 font-normal dark:bg-secondary/10",
-            "flex items-center justify-between gap-x-1.5 px-3.5 py-2.5",
-          )}
+          className="flex items-center justify-between gap-x-1.5 bg-slate-150 px-3.5 py-2.5 font-normal dark:bg-black/20"
         >
           <span>{name}</span>
-          {isOpen ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}
+          <ChevronDownIcon className={clsx("h-4 w-4", isOpen ? "rotate-0" : "rotate-180")} />
         </DisclosureButton>
 
-        <Transition
-          show={isOpen}
-          enter="transition duration-100 ease-out"
-          enterFrom="transform scale-95 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-95 opacity-0"
-        >
-          <DisclosurePanel className={clsx("relative", isOpen ? "mb-8" : "mb-0")}>
-            <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2">
-              <CopyCodeButton text={code} />
-              <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
-            </div>
+        <DisclosurePanel className="relative mb-8">
+          <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2">
+            <CopyCodeButton text={code} />
+            <ChangeViewModeButton isCodeVisible={isCodeVisible} toggle={() => setIsCodeVisible((prev) => !prev)} />
+          </div>
 
-            <div className="absolute bottom-4 left-4 z-10 flex items-center justify-end gap-2">
-              <LinkToGithubButton path={path} />
-            </div>
+          <div className="absolute bottom-4 left-4 z-10 flex items-center justify-end gap-2">
+            <LinkToGithubButton path={path} />
+          </div>
 
-            {isCodeVisible ? (
-              <SyntaxHighlighter
-                language="tsx"
-                showLineNumbers
-                style={coldarkDark}
-                customStyle={{
-                  margin: "0",
-                  minHeight: "300px",
-                  lineHeight: "1.25",
-                  fontSize: "0.9rem",
-                  backgroundColor: "#192030",
-                  borderRadius: "0",
-                }}
-              >
-                {code}
-              </SyntaxHighlighter>
-            ) : (
-              <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-16 dark:bg-black/20">
-                {Component}
-              </div>
-            )}
-          </DisclosurePanel>
-        </Transition>
+          {isCodeVisible ? (
+            <SyntaxHighlighter
+              language="tsx"
+              showLineNumbers
+              style={coldarkDark}
+              customStyle={{
+                margin: "0",
+                minHeight: "300px",
+                lineHeight: "1.25",
+                fontSize: "0.9rem",
+                backgroundColor: "#192030",
+                borderRadius: "0",
+              }}
+            >
+              {code}
+            </SyntaxHighlighter>
+          ) : (
+            <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-24 dark:bg-black/20">
+              {Component}
+            </div>
+          )}
+        </DisclosurePanel>
       </Disclosure>
     </li>
   )
