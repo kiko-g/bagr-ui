@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentTypePage } from "@/components/ComponentTypePage"
-import { AlertCustom } from "@/components/application-ui/alerts"
+import { AlertCustom } from "@/components/application-ui/alerts/AlertCustom"
 
 export default function Alerts() {
   const base = "application-ui/alerts"
@@ -10,12 +10,11 @@ export default function Alerts() {
       title="Alerts"
       components={[
         {
-          name: "Customizable",
+          name: "Rounded with Border",
           path: `${base}/AlertCustom.tsx`,
           component: (
             <div className="w-full space-y-16">
               <div className="flex w-full flex-col items-start gap-3">
-                <p className="-mb-2 font-medium">Rounded and Border</p>
                 <AlertCustom type="info" rounded border>
                   Content of your information alert provided through children.
                 </AlertCustom>
@@ -32,49 +31,69 @@ export default function Alerts() {
                   Content of your alert provided through children.
                 </AlertCustom>
               </div>
-
+            </div>
+          ),
+        },
+        {
+          name: "With Accent and dismissible",
+          path: `${base}/AlertCustom.tsx`,
+          component: (
+            <div className="w-full space-y-16">
               <div className="flex w-full flex-col items-start gap-3">
-                <p className="-mb-2 font-medium">Accent & Closeable</p>
-                <AlertCustom type="info" accent closeable>
+                <AlertCustom type="info" accent dismissible>
                   Content of your information alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="success" accent closeable>
+                <AlertCustom type="success" accent dismissible>
                   Content of your success alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="warning" accent closeable>
+                <AlertCustom type="warning" accent dismissible>
                   Content of your warning alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="error" accent closeable>
+                <AlertCustom type="error" accent dismissible>
                   Content of your error alert provided through children.
                 </AlertCustom>
-                <AlertCustom accent closeable>
+                <AlertCustom accent dismissible>
                   Content of your alert provided through children.
                 </AlertCustom>
               </div>
-
+            </div>
+          ),
+        },
+        {
+          name: "Filled, Rounded and dismissible",
+          path: `${base}/AlertCustom.tsx`,
+          component: (
+            <div className="w-full space-y-16">
               <div className="flex w-full flex-col items-start gap-3">
-                <p className="-mb-2 font-medium">Filled, Rounded & Closeable</p>
-                <AlertCustom type="info" filled rounded closeable>
+                <AlertCustom type="info" filled rounded dismissible>
                   Content of your information alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="success" filled rounded closeable>
+                <AlertCustom type="success" filled rounded dismissible>
                   Content of your success alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="warning" filled rounded closeable>
+                <AlertCustom type="warning" filled rounded dismissible>
                   Content of your warning alert provided through children.
                 </AlertCustom>
-                <AlertCustom type="error" filled rounded closeable>
+                <AlertCustom type="error" filled rounded dismissible>
                   Content of your error alert provided through children.
                 </AlertCustom>
-                <AlertCustom filled rounded closeable>
+                <AlertCustom filled rounded dismissible>
                   Content of your alert provided through children.
                 </AlertCustom>
               </div>
-
+            </div>
+          ),
+        },
+        {
+          name: "Accent, dismissible with Long Children",
+          path: `${base}/AlertCustom.tsx`,
+          component: (
+            <div className="w-full space-y-16">
               <div className="flex w-full flex-col items-start gap-3">
-                <p className="-mb-2 font-medium">Accent, Closeable & Long Children</p>
-                <AlertCustom type="info" rounded>
-                  <p>Content of your information alert provided through children.</p>
+                <AlertCustom type="info" accent dismissible>
+                  <p>
+                    Content of your <strong>information alert</strong> provided through children.
+                  </p>
                   <ul className="list-inside list-disc">
                     <li>Apples</li>
                     <li>Bananas</li>
@@ -82,8 +101,10 @@ export default function Alerts() {
                   </ul>
                   <blockquote className="italic">Blockquote showcase content</blockquote>
                 </AlertCustom>
-                <AlertCustom type="success" rounded>
-                  <p>Content of your success alert provided through children.</p>
+                <AlertCustom type="success" accent dismissible>
+                  <p>
+                    Content of your <strong>success alert</strong> provided through children.
+                  </p>
                   <ul className="list-inside list-disc">
                     <li>Apples</li>
                     <li>Bananas</li>
@@ -91,8 +112,10 @@ export default function Alerts() {
                   </ul>
                   <blockquote className="italic">Blockquote showcase content</blockquote>
                 </AlertCustom>
-                <AlertCustom type="warning" rounded>
-                  <p>Content of your warning alert provided through children.</p>
+                <AlertCustom type="warning" accent dismissible>
+                  <p>
+                    Content of your <strong>warning alert</strong> provided through children.
+                  </p>
                   <ul className="list-inside list-disc">
                     <li>Apples</li>
                     <li>Bananas</li>
@@ -100,8 +123,10 @@ export default function Alerts() {
                   </ul>
                   <blockquote className="italic">Blockquote showcase content</blockquote>
                 </AlertCustom>
-                <AlertCustom type="error" rounded>
-                  <p>Content of your error alert provided through children.</p>
+                <AlertCustom type="error" accent dismissible>
+                  <p>
+                    Content of your <strong>error alert</strong> provided through children.
+                  </p>
                   <ul className="list-inside list-disc">
                     <li>Apples</li>
                     <li>Bananas</li>
@@ -109,14 +134,41 @@ export default function Alerts() {
                   </ul>
                   <blockquote className="italic">Blockquote showcase content</blockquote>
                 </AlertCustom>
-                <AlertCustom>
-                  <p>Content of your alert provided through children.</p>
+                <AlertCustom accent dismissible>
+                  <p>
+                    Content of your <strong>general alert</strong> provided through children.
+                  </p>
                   <ul className="list-inside list-disc">
                     <li>Apples</li>
                     <li>Bananas</li>
                     <li>Cherries</li>
                   </ul>
                   <blockquote className="italic">Blockquote showcase content</blockquote>
+                </AlertCustom>
+              </div>
+            </div>
+          ),
+        },
+        {
+          name: "Accent and no Icon",
+          path: `${base}/AlertCustom.tsx`,
+          component: (
+            <div className="w-full space-y-16">
+              <div className="flex w-full flex-col items-start gap-3">
+                <AlertCustom type="info" accent noIcon>
+                  Content of your <strong>information alert</strong> provided through children.
+                </AlertCustom>
+                <AlertCustom type="success" accent noIcon>
+                  Content of your <strong>success alert</strong> provided through children.
+                </AlertCustom>
+                <AlertCustom type="warning" accent noIcon>
+                  Content of your <strong>warning alert</strong> provided through children.
+                </AlertCustom>
+                <AlertCustom type="error" accent noIcon>
+                  Content of your <strong>error alert</strong> provided through children.
+                </AlertCustom>
+                <AlertCustom accent noIcon>
+                  Content of your <strong>general alert</strong> provided through children.
                 </AlertCustom>
               </div>
             </div>

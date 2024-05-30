@@ -10,13 +10,14 @@ import {
 } from "@heroicons/react/24/outline"
 
 type Props = {
-  type?: "success" | "info" | "warning" | "error"
   children?: React.ReactNode
+  type?: "success" | "info" | "warning" | "error"
   rounded?: boolean
   border?: boolean
   accent?: boolean
-  closeable?: boolean
+  dismissible?: boolean
   filled?: boolean
+  noIcon?: boolean
 }
 
 export function AlertCustom({
@@ -25,8 +26,9 @@ export function AlertCustom({
   rounded = false,
   border = false,
   accent = false,
-  closeable = false,
+  dismissible = false,
   filled = false,
+  noIcon = false,
 }: Props) {
   const [show, setShow] = useState(true)
 
@@ -39,8 +41,8 @@ export function AlertCustom({
   return (
     <div
       className={clsx(
-        "flex w-full items-center justify-start gap-3 py-3 pl-3",
-        closeable ? "pr-3" : "pr-5",
+        "flex w-full items-start justify-start gap-3 py-3 pl-3",
+        dismissible ? "pr-3" : "pr-5",
         border && "border",
         accent && "border-l-4",
         rounded && "rounded",
@@ -63,17 +65,19 @@ export function AlertCustom({
             : "border-slate-600 bg-slate-50 text-slate-700 dark:bg-slate-600/20 dark:text-slate-200"),
       )}
     >
-      <span className="mt-0.5 self-stretch">
-        {type === "info" && <InformationCircleIcon className="h-5 w-5" />}
-        {type === "error" && <ExclamationCircleIcon className="h-5 w-5" />}
-        {type === "warning" && <ExclamationTriangleIcon className="h-5 w-5" />}
-        {type === "success" && <CheckBadgeIcon className="h-5 w-5" />}
-        {type === undefined && <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5" />}
-      </span>
+      {noIcon !== true && (
+        <span className="mt-0.5 self-stretch">
+          {type === "info" && <InformationCircleIcon className="h-5 w-5" />}
+          {type === "error" && <ExclamationCircleIcon className="h-5 w-5" />}
+          {type === "warning" && <ExclamationTriangleIcon className="h-5 w-5" />}
+          {type === "success" && <CheckBadgeIcon className="h-5 w-5" />}
+          {type === undefined && <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5" />}
+        </span>
+      )}
 
       <div className="flex-1">{children}</div>
 
-      {closeable && (
+      {dismissible && (
         <button
           onClick={closeAlert}
           className={clsx(
@@ -85,5 +89,32 @@ export function AlertCustom({
         </button>
       )}
     </div>
+  )
+}
+
+// Usage Example: Rounded and Border
+function AlertCustomUsage() {
+  return (
+    <>
+      <AlertCustom type="info" rounded border>
+        Content of your information alert provided through children.
+      </AlertCustom>
+      <AlertCustom type="success" accent dismissible>
+        Content of your success alert provided through children.
+      </AlertCustom>
+      <AlertCustom type="warning" filled dismissible>
+        Content of your warning alert provided through children.
+      </AlertCustom>
+      <AlertCustom type="error" filled rounded dismissible>
+        Content of your error alert provided through children.
+      </AlertCustom>
+      <AlertCustom dismissible accent>
+        <ul className="list-inside list-disc">
+          <li>Apples</li>
+          <li>Bananas</li>
+          <li>Cherries</li>
+        </ul>
+      </AlertCustom>
+    </>
   )
 }

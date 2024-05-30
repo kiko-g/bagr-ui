@@ -166,15 +166,7 @@ export const applicationUiNav: SectionNav[] = [
 
 export const marketingNav: SectionNav[] = [
   {
-    name: "CTA",
-    href: "/marketing/ctas",
-    count: 2,
-    description: "Diversely styled sections to appeal the user to click on them.",
-    icon: RectangleStackIcon,
-    shown: true,
-  },
-  {
-    name: "Hero",
+    name: "Hero Sections",
     href: "/marketing/hero",
     count: 1,
     description: "Opening sections to amaze and impress the user.",
@@ -182,7 +174,15 @@ export const marketingNav: SectionNav[] = [
     shown: true,
   },
   {
-    name: "KPI",
+    name: "CTA Sections",
+    href: "/marketing/ctas",
+    count: 2,
+    description: "Diversely styled sections to appeal the user to click on them.",
+    icon: RectangleStackIcon,
+    shown: true,
+  },
+  {
+    name: "KPI Widgets",
     href: "/marketing/kpi",
     count: 1,
     description: "Key Performance Indicators to show the user the most important metrics.",
