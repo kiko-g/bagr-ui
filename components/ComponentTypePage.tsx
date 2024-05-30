@@ -17,8 +17,6 @@ type Props = {
 
 export function ComponentTypePage({ title, components }: Props) {
   const [search, setSearch] = React.useState("")
-  const [collapseAll, setCollapseAll] = React.useState(false)
-
   const filteredComponents = useMemo(
     () => components.filter((item) => strIncludes(item.name, search)),
     [components, search],
@@ -28,12 +26,6 @@ export function ComponentTypePage({ title, components }: Props) {
     <Layout location={title} sidebar>
       <section className="mb-36 w-full py-6 lg:py-8 xl:py-12">
         <h2 className="mb-4 text-2xl font-semibold tracking-tighter lg:text-4xl">{title}</h2>
-        <div className="mb-4 flex items-center justify-end gap-x-4 border-b border-gray-200 px-2 py-2 dark:border-white/10">
-          <button onClick={() => setCollapseAll((prev) => !prev)} className="text-sm hover:underline hover:opacity-80">
-            {collapseAll ? "Open" : "Close"} All
-          </button>
-        </div>
-
         <div className="mb-4">
           <input
             type="search"
@@ -52,7 +44,6 @@ export function ComponentTypePage({ title, components }: Props) {
               <ComponentShowcase
                 name={button.name}
                 path={button.path}
-                collapseAll={collapseAll}
                 Component={button.component}
                 key={`button-${buttonIx}-${button.name}`}
               />

@@ -23,18 +23,13 @@ const inter = Inter_Tight({ subsets: ["latin"] })
 type Props = {
   name: string
   path: string
-  collapseAll?: boolean
   Component: React.ReactNode
 }
 
-export function ComponentShowcase({ name, path, collapseAll = false, Component }: Props) {
+export function ComponentShowcase({ name, path, Component }: Props) {
   const [code, setCode] = useState<string>("")
-  const [isOpen, setIsOpen] = useState(!collapseAll)
+  const [isOpen, setIsOpen] = useState(true)
   const [isCodeVisible, setIsCodeVisible] = useState(false)
-
-  useEffect(() => {
-    setIsOpen(!collapseAll)
-  }, [collapseAll])
 
   useEffect(() => {
     fetch(`/api/code?filepath=${encodeURIComponent(path)}`)
@@ -50,7 +45,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
       <Disclosure defaultOpen={isOpen}>
         <DisclosureButton
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex items-center justify-between gap-x-1.5 bg-slate-150 px-3.5 py-2.5 font-normal dark:bg-black/20"
+          className="flex items-center justify-between gap-x-1.5 bg-slate-150 px-3.5 py-2.5 font-normal transition duration-100 hover:bg-slate-200 dark:bg-black/20 dark:hover:bg-black/30"
         >
           <span>{name}</span>
           <ChevronDownIcon className={clsx("h-4 w-4", isOpen ? "rotate-0" : "rotate-180")} />
@@ -83,7 +78,7 @@ export function ComponentShowcase({ name, path, collapseAll = false, Component }
               {code}
             </SyntaxHighlighter>
           ) : (
-            <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-24 dark:bg-black/20">
+            <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-32 dark:bg-black/20">
               {Component}
             </div>
           )}
