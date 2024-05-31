@@ -88,6 +88,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 5,
     description: "Small badges for signaling short pieces of information.",
     icon: FlagIcon,
+    image: Footage.Badges,
     shown: true,
   },
   {
@@ -96,6 +97,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 9,
     description: "Button components with different styles, animations and purposes.",
     icon: ButtonIcon,
+    image: Footage.Buttons,
     shown: true,
   },
   {
@@ -104,6 +106,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 4,
     description: "Sections with multiple buttons with different layouts and functionalities.",
     icon: SwatchIcon,
+    image: Footage.ButtonGroups,
     shown: true,
   },
   {
@@ -112,6 +115,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 2,
     description: "Components for informing the user that data is loading.",
     icon: LoadingIcon,
+    image: Footage.Loading,
     shown: true,
   },
   {
@@ -120,6 +124,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 1,
     description: "Input components for receiving data from the user.",
     icon: SwatchIcon,
+    image: Footage.Inputs,
     shown: true,
   },
   {
@@ -128,6 +133,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 1,
     description: "Modal dialogs for displaying information or prompting the user for action.",
     icon: SwatchIcon,
+    image: Footage.Modals,
     shown: true,
   },
   {
@@ -144,6 +150,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 2,
     description: "Accessible and fancy dropdown components for selecting one or multiple options.",
     icon: EyeDropperIcon,
+    image: Footage.Selects,
     shown: true,
   },
   {
@@ -152,6 +159,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 2,
     description: "Customizable and expansible side menu components.",
     icon: SidebarIcon,
+    image: Footage.Sidebar,
     shown: true,
   },
   {
@@ -160,6 +168,7 @@ export const applicationUiNav: SectionNav[] = [
     count: 2,
     description: "Toggle between two states with our customized switches with different styles and purposes.",
     icon: SwitchIcon,
+    image: Footage.Switch,
     shown: true,
   },
 ].sort((a, b) => a.name.localeCompare(b.name))
@@ -171,6 +180,7 @@ export const marketingNav: SectionNav[] = [
     count: 1,
     description: "Opening sections to amaze and impress the user.",
     icon: SwatchIcon,
+    image: Footage.Hero,
     shown: true,
   },
   {
@@ -179,6 +189,7 @@ export const marketingNav: SectionNav[] = [
     count: 2,
     description: "Diversely styled sections to appeal the user to click on them.",
     icon: RectangleStackIcon,
+    image: Footage.CTA,
     shown: true,
   },
   {
@@ -187,6 +198,7 @@ export const marketingNav: SectionNav[] = [
     count: 1,
     description: "Key Performance Indicators to show the user the most important metrics.",
     icon: SwatchIcon,
+    image: Footage.KPI,
     shown: true,
   },
 ].sort((a, b) => a.name.localeCompare(b.name))
@@ -206,6 +218,7 @@ export const eCommerceNav: SectionNav[] = [
     count: 1,
     description: "Product list page components",
     icon: SwatchIcon,
+    image: Footage.ProductCards,
     shown: true,
   },
 ].sort((a, b) => a.name.localeCompare(b.name))

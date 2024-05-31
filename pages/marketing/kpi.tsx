@@ -7,7 +7,7 @@ export default function KPIs() {
 
   return (
     <ComponentTypePage
-      title="KPI"
+      title="KPI Widgets"
       components={[
         {
           name: "Circular Progress Card",

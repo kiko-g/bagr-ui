@@ -45,7 +45,7 @@ export function ComponentShowcase({ name, path, Component }: Props) {
       <Disclosure defaultOpen={isOpen}>
         <DisclosureButton
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex items-center justify-between gap-x-1.5 bg-slate-100 px-3.5 py-2.5 font-normal transition duration-100 hover:bg-slate-200 dark:bg-black/20 dark:hover:bg-black/30"
+          className="flex items-center justify-between gap-x-1.5 bg-slate-100 px-4 py-3 font-normal transition duration-100 hover:bg-slate-200 dark:bg-black/20 dark:hover:bg-black/30"
         >
           <span>{name}</span>
           <ChevronDownIcon className={clsx("h-4 w-4", isOpen ? "rotate-0" : "rotate-180")} />
@@ -82,7 +82,7 @@ export function ComponentShowcase({ name, path, Component }: Props) {
               {code}
             </SyntaxHighlighter>
           ) : (
-            <div className="flex w-full items-center justify-center rounded-b bg-slate-150 px-8 py-32 dark:bg-black/20">
+            <div className="flex w-full items-center justify-center rounded-b bg-slate-100 px-8 py-32 dark:bg-black/20">
               {Component}
             </div>
           )}

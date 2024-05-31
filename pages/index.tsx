@@ -6,7 +6,6 @@ import { Lexend } from "next/font/google"
 import { Layout } from "@/components/Layout"
 import { ReactIcon, TailwindIcon, TypescriptIcon } from "@/components/icons"
 import { applicationUiNav, eCommerceNav, marketingNav } from "@/utils/data"
-import { H1, H2, H3, H4, H5, H6 } from "@/components/utils/Headings"
 
 const lexend = Lexend({ subsets: ["latin"] })
 
@@ -66,7 +65,7 @@ function Sections() {
 
       <div className="border-dimmed mt-8 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Application UI Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-3">
           {applicationUiNav.map(({ name, count, description, image, href }) => (
             <li key={`showcase-application-ui-${name}`} className="group flex w-full flex-col gap-1">
               <SectionCard title={name} count={count} description={description} image={image} link={href} />
@@ -77,7 +76,7 @@ function Sections() {
 
       <div className="border-dimmed mt-16 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Marketing Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-3">
           {marketingNav.map(({ name, count, description, image, href }) => (
             <li key={`showcase-marketing-${name}`} className="group flex w-full flex-col gap-1">
               <SectionCard title={name} count={count} description={description} image={image} link={href} />
@@ -88,7 +87,7 @@ function Sections() {
 
       <div className="border-dimmed mt-16 border-t pt-4">
         <h3 className="mb-3 text-xl font-bold">Ecommerce Components</h3>
-        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-4 xl:gap-4">
+        <ul className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:grid-cols-3 xl:gap-3">
           {eCommerceNav.map(({ name, count, description, image, href }) => (
             <li key={`showcase-ecommerce-${name}`} className="group flex w-full flex-col gap-1">
               <SectionCard title={name} count={count} description={description} image={image} link={href} />
@@ -120,10 +119,10 @@ function SectionCard({ title, count, description, link, image }: SectionCardProp
           alt={title}
           height={1600}
           width={900}
-          className="border border-slate-400 dark:border-transparent"
+          className="aspect-[8/5] bg-slate-100 object-cover"
         ></Image>
       ) : (
-        <div className="aspect-video w-full border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-primary-900/50 dark:group-hover:border-primary-800 dark:group-hover:bg-primary-900" />
+        <div className="aspect-[8/5] w-full border border-primary-600 bg-primary-400 transition group-hover:border-primary-700 group-hover:bg-primary-500 dark:border-white/5 dark:bg-primary-900/50 dark:group-hover:border-primary-800 dark:group-hover:bg-primary-900" />
       )}
       <h4 className="mt-3 text-sm font-semibold text-slate-900 transition dark:text-white">{title}</h4>
       <p className="-mt-[2px] text-[0.7rem] font-normal text-slate-600 dark:text-gray-300 lg:text-xs">
