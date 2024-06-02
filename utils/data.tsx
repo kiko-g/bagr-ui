@@ -1,6 +1,6 @@
 import React from "react"
 import Image, { StaticImageData } from "next/image"
-import Footage from "../images/components"
+import Footage from "../images/screenshots"
 import {
   Bars3Icon,
   Cog8ToothIcon,

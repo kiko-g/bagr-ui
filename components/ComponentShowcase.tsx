@@ -11,6 +11,7 @@ import {
   ChevronDownIcon,
   ClipboardIcon,
   CodeBracketIcon,
+  LinkIcon,
   MinusIcon,
   MoonIcon,
   PlusIcon,
@@ -27,8 +28,8 @@ type Props = {
 }
 
 export function ComponentShowcase({ name, path, Component }: Props) {
+  const sectionId = name.toLowerCase().replace(/[^a-z0-9]+/g, "-")
   const [code, setCode] = useState<string>("")
-  const [isOpen, setIsOpen] = useState(true)
   const [isCodeVisible, setIsCodeVisible] = useState(false)
 
   useEffect(() => {
@@ -41,53 +42,50 @@ export function ComponentShowcase({ name, path, Component }: Props) {
   }, [path])
 
   return (
-    <li className="flex flex-col" id={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}>
-      <Disclosure defaultOpen={isOpen}>
-        <DisclosureButton
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="flex items-center justify-between gap-x-1.5 bg-slate-100 px-4 py-3 font-normal transition duration-100 hover:bg-slate-200 dark:bg-black/20 dark:hover:bg-black/30"
-        >
-          <span>{name}</span>
-          <ChevronDownIcon className={clsx("h-4 w-4", isOpen ? "rotate-0" : "rotate-180")} />
-        </DisclosureButton>
+    <li className="flex flex-col" id={sectionId}>
+      <h4 className="mb-2 mt-16 flex flex-wrap items-center text-sm font-semibold tracking-tighter md:text-base lg:text-lg lg:tracking-tight xl:text-xl 2xl:text-2xl">
+        <a href={`#${sectionId}`} className="group flex w-full items-center gap-1">
+          <span className="group-hover:underline">{name}</span>
+          <LinkIcon className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-60" />
+        </a>
+      </h4>
 
-        <DisclosurePanel className="relative mb-8">
-          <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2.5">
-            <CopyCodeButton text={code} />
-            <ChangeViewModeButton
-              isCodeVisible={isCodeVisible}
-              toggleShowCode={() => setIsCodeVisible(true)}
-              toggleShowPreview={() => setIsCodeVisible(false)}
-            />
+      <section className="relative mb-8">
+        <div className="absolute right-4 top-4 z-10 flex items-center justify-end gap-2.5">
+          <CopyCodeButton text={code} />
+          <ChangeViewModeButton
+            isCodeVisible={isCodeVisible}
+            toggleShowCode={() => setIsCodeVisible(true)}
+            toggleShowPreview={() => setIsCodeVisible(false)}
+          />
+        </div>
+
+        <div className="absolute bottom-4 left-4 z-10 flex items-center justify-end gap-2">
+          <LinkToGithubButton path={path} />
+        </div>
+
+        {isCodeVisible ? (
+          <SyntaxHighlighter
+            language="tsx"
+            showLineNumbers
+            style={coldarkDark}
+            customStyle={{
+              margin: "0",
+              minHeight: "300px",
+              lineHeight: "1.25",
+              fontSize: "0.9rem",
+              backgroundColor: "#192030",
+              borderRadius: "0",
+            }}
+          >
+            {code}
+          </SyntaxHighlighter>
+        ) : (
+          <div className="flex w-full items-center justify-center rounded-b bg-slate-100 px-8 py-32 dark:bg-black/20">
+            {Component}
           </div>
-
-          <div className="absolute bottom-4 left-4 z-10 flex items-center justify-end gap-2">
-            <LinkToGithubButton path={path} />
-          </div>
-
-          {isCodeVisible ? (
-            <SyntaxHighlighter
-              language="tsx"
-              showLineNumbers
-              style={coldarkDark}
-              customStyle={{
-                margin: "0",
-                minHeight: "300px",
-                lineHeight: "1.25",
-                fontSize: "0.9rem",
-                backgroundColor: "#192030",
-                borderRadius: "0",
-              }}
-            >
-              {code}
-            </SyntaxHighlighter>
-          ) : (
-            <div className="flex w-full items-center justify-center rounded-b bg-slate-100 px-8 py-32 dark:bg-black/20">
-              {Component}
-            </div>
-          )}
-        </DisclosurePanel>
-      </Disclosure>
+        )}
+      </section>
     </li>
   )
 }

@@ -25,7 +25,7 @@ export function Layout({ children, location = "Unknown", sidebar = false, quickN
         <Header />
         <div className="flex flex-1">
           {sidebar && <Sidebar location={location} />}
-          <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:px-12">
+          <article className="flex max-w-full flex-1 flex-col items-start justify-start px-6 xl:px-10">
             {children}
           </article>
           {quickNav && <QuickNavSidebar navigation={quickNav} />}
